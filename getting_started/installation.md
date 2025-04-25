@@ -1,6 +1,6 @@
 # 软件安装
 
-Cam Grinding 软件安装包需在购买后联系开发者获取：
+Interference Grinding Dressing 软件安装包需在购买后联系开发者获取：
 
 - **Windows 用户**：下载并安装 `.exe` 文件。
 - **macOS 用户**：下载并安装 `.dmg` 文件。
@@ -59,4 +59,4 @@ Cam Grinding 软件安装包需在购买后联系开发者获取：
 
 ---
 
-通过上述步骤，您即可完成 Cam Grinding 软件的安装和授权。如有疑问，请联系开发者获取更多支持。
+通过上述步骤，您即可完成 Interference Grinding Dressing 软件的安装和授权。如有疑问，请联系开发者获取更多支持。

@@ -1,6 +1,6 @@
 # 软件升级
 
-Cam Grinding 会定期发布更新，确保用户可以使用最新的功能和性能改进。
+Interference Grinding Dressing 会定期发布更新，确保用户可以使用最新的功能和性能改进。
 
 ## 检查更新
 
