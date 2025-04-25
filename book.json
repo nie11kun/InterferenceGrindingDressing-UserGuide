@@ -4,7 +4,8 @@
     "description": "Interference Grinding Dressing 软件完整用户指南",
     "language": "zh-hans",
     "plugins": [
-        "theme-default"
+        "theme-default",
+        "katex"
     ],
     "pluginsConfig": {
         "theme-default": {
