@@ -16,6 +16,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/honkit-plugin-katex/katex.min.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
                 
             
@@ -475,53 +479,180 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="高级参数">高级参数</h1>
-<p>高级参数提供了更多的自定义选项，用户可根据实际需求调整这些参数，以优化加工效果并提升加工精度。</p>
-<h2 id="程序头信息">程序头信息</h2>
-<p>在生成的加工代码文件中，用户可以在程序头部添加自定义信息，例如该程序所对应的凸轮信息，如升程、基圆半径等，以便于后续的加工和管理。</p>
-<p>示例如下：</p>
-<p><img src="resources/prg_header.jpg" alt="程序头信息示例"></img></p>
-<p>实际加工代码中的效果如下：</p>
-<pre><code>;凸轮名称：389
-;基圆半径：42mm
-;升程：25mm
-;********************************
-;砂轮直径范围:396.3000 - 395.3000
-;砂轮步距:0.5
-;轨迹程序段数:106
-;********************************
-;软件版本:1.11.0
-;生成日期:2025-01-20 11:26:42
-;********************************
-...
-</code></pre><h2 id="dxf-读取精度">DXF 读取精度</h2>
-<p>DXF 读取精度参数用于设置凸轮 DXF 文件的离散精度，定义原始凸轮曲线离散化后相邻离散点之间的最大距离。设置值越小，对凸轮曲线的识别精度越高，建议设置为 0.005mm，即可满足大多数加工精度要求。</p>
-<h2 id="程序点数量">程序点数量</h2>
-<p>该参数定义生成加工代码时所使用的离散点数量，每个点均由 X、C 两个轴的坐标构成。点的数量越多，加工精度越高，但也会导致代码文件体积增大，程序运行速度降低。默认设置为 3600 个点，通常能够满足加工需求。</p>
-<p>示例如下：</p>
-<pre><code>X=0.0015 C=DC(0.3525)
-</code></pre><p>建议优先使用 <strong>圆弧拟合</strong> 方法以减少点数，提高执行效率。</p>
+                                <h1 id="高级参数---初始化配置">高级参数 - 初始化配置</h1>
+<p>本节介绍初始化配置中的高级选项。用户可根据具体加工需求调整这些参数，以进一步优化加工过程、提升最终精度。</p>
+<h2 id="滚轮圆弧半径">滚轮圆弧半径</h2>
+<ul>
+<li><strong>定义</strong>: 设置修整器上安装的滚轮（或触笔）尖端的圆弧半径。</li>
+<li><strong>单位</strong>: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">mm</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">mm</span></span></span></span></li>
+<li><strong>说明</strong>: 机床实际执行的修整轨迹是目标砂轮齿型轮廓线按此半径值进行的等距偏置线。通常情况下，<strong>滚轮圆弧半径越小</strong>，越有可能精确地修整出形状更复杂的砂轮齿型。</li>
+</ul>
+<h2 id="最终曲线点密度">最终曲线点密度</h2>
+<ul>
+<li><strong>定义</strong>: 控制生成修整程序时，构成连续修整轨迹的离散点数量。</li>
+<li><strong>默认值</strong>: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>400</mn></mrow><annotation encoding="application/x-tex">400</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">400</span></span></span></span> 点</li>
+<li><strong>影响</strong>:<ul>
+<li><strong>更高密度</strong>: 提高轨迹精度，更逼近理论曲线。</li>
+<li><strong>更低密度</strong>: 减少代码行数，可能加快程序在机床上的执行速度。</li>
+</ul>
+</li>
+<li><strong>权衡</strong>: 请根据精度要求和机床性能选择合适的点密度。过高的密度会显著增加代码量并可能降低执行效率。</li>
+</ul>
+<h2 id="螺旋面生成角度">螺旋面生成角度</h2>
+<ul>
+<li><strong>定义</strong>: 软件内部在计算砂轮与工件滚道接触线时，动态生成一个滚道螺旋曲面的范围角度。</li>
+<li><strong>背景</strong>: 当<strong>砂轮安装角</strong>与工件<strong>标准螺旋升角</strong>不一致（即干涉磨削）时，接触线会是一条复杂的空间曲线。角度差异越大，这条空间曲线在螺旋面上的分布范围越广。</li>
+<li><strong>设置</strong>: 此参数定义了计算接触线时所考虑的螺旋面包络角度。</li>
+<li><strong>推荐</strong>: <strong>默认值 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>90</mn></mrow><annotation encoding="application/x-tex">90</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">90</span></span></span></span> 度</strong> 通常足以覆盖接触线的主要区域，一般无需修改。</li>
+</ul>
+<h2 id="切线延长长度">切线延长长度</h2>
+<ul>
+<li><strong>定义</strong>: 在计算出的砂轮修整轨迹两端，沿切线方向额外增加一段延长线。</li>
+<li><strong>单位</strong>: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">mm</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">mm</span></span></span></span></li>
+<li><strong>目的</strong>: 解决因砂轮直径变化导致所需修整宽度变化的问题。</li>
+<li><strong>场景</strong>: 有时，直径较大的新砂轮所需的修整宽度反而可能<em>小于</em>直径变小后的旧砂轮。若不加延长，当砂轮磨损变小时，可能无法完整修整出所需形状的边缘部分。</li>
+<li><strong>作用</strong>: 设置合理的切线延长长度，可以确保修整路径始终比实际需求稍宽，从而<strong>防止砂轮变小后无法完整修整出所需轮廓</strong>。</li>
+</ul>
+<h2 id="垂直延长长度">垂直延长长度</h2>
+<ul>
+<li><strong>定义</strong>: 在计算出的砂轮修整轨迹两端，沿近似垂直于齿型表面的方向增加一段延长轨迹。</li>
+<li><strong>单位</strong>: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">mm</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">mm</span></span></span></span></li>
+<li><strong>目的</strong>: 解决干涉磨削中潜在的根部干涉问题。</li>
+<li><strong>场景</strong>: 在干涉磨削设置下，砂轮轮廓的根部（靠近砂轮轴线的部分）有时可能会在加工时干涉到滚道的有效工作区域。</li>
+<li><strong>作用</strong>: 增加一段垂直修整部分，可以将这部分<strong>可能产生干涉的砂轮根部材料提前去除</strong>，从而保证最终的加工精度。</li>
+</ul>
+<h2 id="计算灵敏度">计算灵敏度</h2>
+<ul>
+<li><strong>定义</strong>: 控制软件在计算滚道与砂轮接触线时的识别灵敏度。</li>
+<li><strong>影响</strong>:<ul>
+<li><strong>值越小</strong>: 识别精度越高，对接触点的要求更严格。</li>
+<li><strong>值越大</strong>: 识别范围放宽，容忍度更高。</li>
+</ul>
+</li>
+<li><strong>权衡</strong>:<ul>
+<li>过小的值可能导致算法<strong>无法找到足够的有效接触点</strong>，进而无法生成修整轨迹。</li>
+<li>过大的值可能引入不精确的接触点，影响最终轮廓精度。</li>
+</ul>
+</li>
+<li><strong>推荐</strong>:<ul>
+<li><strong>设置值 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></strong> 是一个相对平衡的选择，适用于多数情况。</li>
+<li>对于<strong>外螺纹</strong>加工，由于砂轮杆中心与工件中心距离通常较大，可能需要<strong>适当增大</strong>此值（例如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">10</span></span></span></span>）才能成功计算出接触线。</li>
+</ul>
+</li>
+</ul>
 <h2 id="拟合圆弧">拟合圆弧</h2>
-<p>圆弧拟合功能可显著减少代码行数，提高执行效率。启用此功能后，系统将使用最小二乘法算法对加工离散点进行圆弧拟合，从而优化加工轨迹。</p>
-<p>使用圆弧拟合功能时，需要机床开启 Transmit 坐标转换功能并设置相关系统参数。Siemens sinumerik 数控系统开启 Transmit 功能请参考 <a href="transmit.md">TRANSMIT</a>。</p>
-<p>启用后，生成的代码示例如下：</p>
-<pre><code>G02 X=247.2834 Y=-4.9551 CR=404.1318
-</code></pre><p>若机床的几何轴顺序与标准 XYZ 不一致，可能需要启用 G3/G2 反转选项。</p>
-<p>启用圆弧拟合功能后，输出文件目录将包含以下新增内容：</p>
-<pre><code>特定砂轮直径下加工运行轨迹
-├── 圆弧拟合后 DXF 文件
-├── 圆弧拟合后 HTML 文件
-├── 圆弧拟合后 TXT 文件
-</code></pre><p>其中 TXT 文件详细记录了每段圆弧的起点终点坐标/圆心坐标/圆弧半径等信息，便于后续的数据分析和优化。格式如下：</p>
-<pre><code>第 1 段 - 标准起点坐标: [247.3028, -0.0000], 标准终点坐标: [241.4712, -64.4415], 平滑起点坐标: [247.3145, 0.0000], 平滑终点坐标: [241.4568, -64.4388]
-          圆弧半径: 349.3673, 圆心坐标: [-102.0634, -0.8690], 圆弧相对圆心角度范围: [0.1425, -10.4842]
-第 2 段 - 标准起点坐标: [241.4420, -64.4361], 标准终点坐标: [224.9668, -121.3544], 平滑起点坐标: [241.4568, -64.4388], 平滑终点坐标: [224.9540, -121.3493]
-          圆弧半径: 299.4235, 圆心坐标: [-53.0011, -10.0519], 圆弧相对圆心角度范围: [349.5353, 338.1781]
-...
-</code></pre><h2 id="拟合误差">拟合误差</h2>
-<p>拟合误差参数用于控制圆弧拟合的精度。设置值越小，拟合结果越接近原始离散点曲线，精度越高，但同时会增加圆弧段的数量。通常情况下，建议将该参数设置为 1，以达到精度与效率的平衡。</p>
-<p>以下图形中，左侧是误差设置为 10 的拟合效果，右侧是误差设置为 1 的拟合效果：
-<img src="resources/fit_arc_compare.jpg" alt="img"></img></p>
+<ul>
+<li><strong>功能</strong>: 将计算出的离散点修整轨迹拟合为一系列 G02/G03 圆弧指令。</li>
+<li><strong>优点</strong>:<ul>
+<li><strong>显著减少 G 代码行数</strong>。</li>
+<li>提高程序在 CNC 系统上的<strong>执行效率</strong>和<strong>平滑性</strong>。</li>
+</ul>
+</li>
+<li><strong>方法</strong>: 启用后，系统采用<strong>最小二乘法</strong>算法进行圆弧拟合。</li>
+<li><strong>选项</strong>:<ul>
+<li><strong>启用/禁用</strong>: 控制是否执行圆弧拟合。</li>
+<li><strong>G3/G2 反转</strong>: 若机床坐标系定义或圆弧插补方向与标准不同（例如，垂直轴向上为负），可能需要勾选此项来交换 G02 和 G03 指令。</li>
+</ul>
+</li>
+<li><strong>代码示例 (启用后)</strong>:<pre><code class="lang-gcode">  <span class="hljs-comment">; G02/G03 指令替代了大量的 G01 线性插补指令</span>
+  <span class="hljs-title function_">G02</span> AX[AX_VER]=<span class="hljs-number">0.0104</span>*VER_MODE AX[AX_HORI]=<span class="hljs-number">0.1664</span> CR=<span class="hljs-number">1.5149</span>
+  <span class="hljs-title function_">G02</span> AX[AX_VER]=<span class="hljs-number">0.3789</span>*VER_MODE AX[AX_HORI]=<span class="hljs-number">1.3165</span> CR=<span class="hljs-number">2.9761</span>
+  <span class="hljs-title function_">G02</span> AX[AX_VER]=<span class="hljs-number">0.8107</span>*VER_MODE AX[AX_HORI]=<span class="hljs-number">1.8929</span> CR=<span class="hljs-number">2.8071</span>
+  <span class="hljs-comment">; ... more G02/G03 commands ...</span>
+</code></pre>
+</li>
+<li><strong>额外输出文件</strong>: 启用圆弧拟合后，在输出目录的 <code>特定砂轮直径下加工运行轨迹</code> 子文件夹内会额外生成：<pre><code>  特定砂轮直径下加工运行轨迹/
+  ├── 圆弧拟合后 DXF 文件
+  ├── 圆弧拟合后 HTML 文件
+  └── 圆弧拟合后 TXT 文件
+</code></pre></li>
+<li><strong>拟合数据 (TXT 文件)</strong>: <code>圆弧拟合后 TXT 文件</code> 包含了详细的拟合信息，便于分析和验证，格式如下：<pre><code class="lang-text">  圆弧段:
+  第 1 段 - 标准起点坐标: [0.0000, 0.0001], 标准终点坐标: [-0.1384, -0.0076], 平滑起点坐标: [0.0000, 0.0000], 平滑终点坐标: [-0.1384, -0.0074]
+           圆弧半径: 1.2104, 圆心坐标: [-0.0027, -1.2103], 圆弧相对圆心角度范围: [89.8704, 96.4367]
+  第 2 段 - 标准起点坐标: [-0.1384, -0.0075], 标准终点坐标: [-1.5076, -0.4804], 平滑起点坐标: [-0.1384, -0.0074], 平滑终点坐标: [-1.5075, -0.4805]
+           圆弧半径: 3.0657, 圆心坐标: [0.1495, -3.0597], 圆弧相对圆心角度范围: [95.3890, 122.7188]
+  第 3 段 - 标准起点坐标: [-1.5074, -0.4806], 标准终点坐标: [-2.1256, -1.0124], 平滑起点坐标: [-1.5075, -0.4805], 平滑终点坐标: [-2.1255, -1.0125]
+           圆弧半径: 2.9302, 圆心坐标: [0.0758, -2.9463], 圆弧相对圆心角度范围: [122.7056, 138.7031]
+  ...
+</code></pre>
+</li>
+</ul>
+<h2 id="拟合误差">拟合误差</h2>
+<ul>
+<li><strong>定义</strong>: 在启用<strong>拟合圆弧</strong>功能时，此参数控制拟合出的圆弧与原始离散点轨迹之间的最大允许偏差。</li>
+<li><strong>单位</strong>: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">mm</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">mm</span></span></span></span> (通常)</li>
+<li><strong>影响</strong>:<ul>
+<li><strong>值越小</strong>: 拟合精度越高（圆弧更贴近原始点），但生成的<strong>圆弧段数量会增加</strong>。</li>
+<li><strong>值越大</strong>: 拟合精度降低，但生成的圆弧段数量减少，代码更简洁。</li>
+</ul>
+</li>
+<li><strong>推荐</strong>: <strong>建议设置为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 或根据实际精度需求调整</strong>。这是一个在精度和代码量之间取得良好平衡的常用值。</li>
+<li><strong>效果对比</strong>: 下图展示了不同拟合误差设置下的效果差异（左：误差 10，右：误差 1）：
+  <img src="resources/fit_arc_compare.jpg" alt="不同拟合误差效果对比"></img>
+  <em>图 4: 拟合误差对圆弧段数量和精度的影响</em></li>
+</ul>
+<h2 id="输出程序路径">输出程序路径</h2>
+<ul>
+<li><strong>定义</strong>: 指定用于存放生成的砂轮修整 G 代码及相关分析文件的根目录。</li>
+<li><strong>操作</strong>: 点击浏览按钮选择或直接输入路径。</li>
+<li><strong>自动子文件夹</strong>: 软件会在指定路径下自动创建一个子文件夹来存放本次计算的所有输出，文件夹名称格式通常为 <code>CV_中径_导程</code> (具体格式可能略有不同)，例如：<code>CV_26_12_0</code>。</li>
+<li><p><strong>输出文件结构 (示例)</strong>:</p>
+<pre><code>  &lt;输出程序路径&gt;/CV_26_12_0/
+  ├── 砂轮修整代码/             (Dressing G-code files)
+  ├── 齿型的法向轮廓DXF文件    (Input Normal profile DXF)
+  ├── 齿型的轴向轮廓DXF文件    (Calculated Axial profile DXF)
+  ├── 齿型的端面轮廓DXF文件    (Calculated Transverse profile DXF)
+  ├── 输入的齿型轮廓HTML文件   (Input profile visualization HTML)
+  ├── 齿型法向轴向端面轮廓对比HTML文件 (Profile comparison HTML)
+  ├── 两个相邻砂轮直径间隔下砂轮形状轨迹对比HTML文件 (Diameter interval comparison HTML)
+  └── 特定砂轮直径下加工运行轨迹/ (Files for a specific wheel diameter, usually the first calculated)
+      ├── 修整出的砂轮形状轨迹DXF文件       (Dressed wheel shape DXF)
+      ├── 以中径线为基准的砂轮形状轨迹DXF文件 (Wheel shape relative to pitch line DXF)
+      ├── 修整程序运行的轮廓轨迹DXF文件     (Dressing tool path DXF)
+      ├── 三维中滚道和砂轮的接触线轨迹HTML文件 (3D Contact line visualization HTML)
+      ├── 砂轮修整形状和标准滚道法向截形轨迹对比HTML文件 (Dressed vs Normal profile comparison HTML)
+      ├── 砂轮修整形状和机床实际运行的轮廓轨迹对比HTML文件 (Dressed vs Tool path comparison HTML)
+      ├── 圆弧拟合后 DXF 文件              (If Fit Arcs enabled)
+      ├── 圆弧拟合后 HTML 文件             (If Fit Arcs enabled)
+      └── 圆弧拟合后 TXT 文件              (If Fit Arcs enabled)
+</code></pre></li>
+<li><strong>说明</strong>: <code>特定砂轮直径下加工运行轨迹</code> 文件夹中的文件通常对应计算出的第一组（或标称）砂轮直径下的详细轨迹和对比信息。</li>
+</ul>
+<hr></hr>
+<p><strong>操作流程</strong>: 完成所有参数设置后，生成代码。然后，将位于 <code>砂轮修整代码</code> 文件夹下的 G 代码文件传输到机床数控系统中，即可调用执行砂轮修整操作。</p>
+<hr></hr>
+<h1 id="高级参数---程序信息">高级参数 - 程序信息</h1>
+<p>本节介绍如何在生成的 G 代码文件中添加辅助性的程序信息。</p>
+<h2 id="程序头信息">程序头信息</h2>
+<ul>
+<li><strong>功能</strong>: 允许用户在生成的 G 代码文件顶部（通常在程序开始的注释部分）添加自定义文本信息。</li>
+<li><strong>目的</strong>: 方便操作人员识别程序用途，记录关键参数或工件信息，便于程序管理和追溯。</li>
+<li><p><strong>应用</strong>: 可以在软件的指定输入框内（如下图所示界面）填入工件名称、图号、齿型特点、操作员、日期等信息。
+  <img src="resources/prg_header.jpg" alt="程序头信息输入示例"></img>
+  <em>图 5: 软件中设置程序头信息的位置示例</em></p>
+</li>
+<li><p><strong>生成效果</strong>: 这些信息会以注释的形式出现在最终 G 代码文件的开头，如下例所示：</p>
+<pre><code class="lang-gcode">  <span class="hljs-comment">;行星三角</span>
+  <span class="hljs-comment">;左右半角 45 度</span>
+  <span class="hljs-comment">;********************************</span>
+  <span class="hljs-comment">;砂轮直径范围:17.2839 - 16.2848</span>
+  <span class="hljs-comment">;砂轮步距:0.5</span>
+  <span class="hljs-comment">;轨迹程序段数:20</span>
+  <span class="hljs-comment">;********************************</span>
+  <span class="hljs-comment">;砂轮杆安装角:3.0</span>
+  <span class="hljs-comment">;工件螺旋升角:8.2948</span>
+  <span class="hljs-comment">;工件中径:26.2</span>
+  <span class="hljs-comment">;工件导程:12.0</span>
+  <span class="hljs-comment">;滚轮圆弧半径:1.0</span>
+  <span class="hljs-comment">;砂轮齿高：1.9900 - 2.0460</span>
+  <span class="hljs-comment">;砂轮齿宽：3.1764 - 3.2639</span>
+  <span class="hljs-comment">;********************************</span>
+  <span class="hljs-comment">;软件版本:1.7.1</span>
+  <span class="hljs-comment">;生成日期:2025-04-25 16:55:24</span>
+  <span class="hljs-comment">;********************************</span>
+</code></pre>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -565,7 +696,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"高级参数","level":"1.3.2","depth":2,"next":{"title":"齿型绘制","level":"1.4","depth":1,"path":"drawing/README.md","ref":"drawing/README.md","articles":[{"title":"三角","level":"1.4.1","depth":2,"path":"drawing/triangle.md","ref":"drawing/triangle.md","articles":[]},{"title":"梯形","level":"1.4.2","depth":2,"path":"drawing/trapez.md","ref":"drawing/trapez.md","articles":[]},{"title":"双圆弧","level":"1.4.3","depth":2,"path":"drawing/doublearc.md","ref":"drawing/doublearc.md","articles":[]},{"title":"XY点位文件","level":"1.4.4","depth":2,"path":"drawing/point.md","ref":"drawing/point.md","articles":[]},{"title":"渐开线","level":"1.4.5","depth":2,"path":"drawing/gradual.md","ref":"drawing/gradual.md","articles":[]}]},"previous":{"title":"基本参数","level":"1.3.1","depth":2,"path":"genaration/base.md","ref":"genaration/base.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"genaration/advance.md","mtime":"2025-04-25T03:41:56.815Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-04-25T03:42:01.397Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"高级参数","level":"1.3.2","depth":2,"next":{"title":"齿型绘制","level":"1.4","depth":1,"path":"drawing/README.md","ref":"drawing/README.md","articles":[{"title":"三角","level":"1.4.1","depth":2,"path":"drawing/triangle.md","ref":"drawing/triangle.md","articles":[]},{"title":"梯形","level":"1.4.2","depth":2,"path":"drawing/trapez.md","ref":"drawing/trapez.md","articles":[]},{"title":"双圆弧","level":"1.4.3","depth":2,"path":"drawing/doublearc.md","ref":"drawing/doublearc.md","articles":[]},{"title":"XY点位文件","level":"1.4.4","depth":2,"path":"drawing/point.md","ref":"drawing/point.md","articles":[]},{"title":"渐开线","level":"1.4.5","depth":2,"path":"drawing/gradual.md","ref":"drawing/gradual.md","articles":[]}]},"previous":{"title":"基本参数","level":"1.3.1","depth":2,"path":"genaration/base.md","ref":"genaration/base.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"genaration/advance.md","mtime":"2025-04-25T09:04:24.082Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-04-25T09:04:31.686Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
