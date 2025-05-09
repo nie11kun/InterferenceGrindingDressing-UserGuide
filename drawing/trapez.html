@@ -479,23 +479,57 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="cam-图形变换">CAM 图形变换</h1>
-<p>此工具用于将已有的凸轮 DXF 文件进行一定的变换生成新的凸轮曲线。</p>
-<h2 id="原始凸轮文件">原始凸轮文件</h2>
-<p>输入一个凸轮 DXF 文件，用于图形变换。</p>
-<h2 id="尺寸变换值">尺寸变换值</h2>
-<p>设置凸轮放大或缩小的尺寸，正值为放大，负值为缩小。</p>
-<h2 id="尺寸变换模式">尺寸变换模式</h2>
+                                <h1 id="梯形">梯形</h1>
+<p>典型齿型图纸：</p>
+<p><img src="resources/trapez.png" alt="img"></img></p>
+<hr></hr>
+<h2 id="梯形齿型参数详解">梯形齿型参数详解</h2>
+<p>此工具用于生成标准梯形齿型的DXF文件。各参数说明如下：</p>
+<h3 id="1-工件小径">1. 工件小径</h3>
 <ul>
-<li>极径方向：以坐标原点为基准，原始凸轮曲线上每个角度下的的点沿着和圆心连线方向进行放大或缩小。此种方式生成的新凸轮和原始凸轮的升程曲线完全一致。</li>
-<li>法线方向：原始曲线上每一点沿着曲线的法线方向进行放大或缩小。此种方式生成的新凸轮和原始凸轮生成曲线不一样。此方法可用于已知滚子中心轨迹生成凸轮轨迹，或者已知凸轮轨迹生成滚子中心轨迹。</li>
+<li><strong>定义</strong>：齿型最小直径，即梯形齿底部的直径。</li>
+<li><strong>用途</strong>：决定齿根的最小尺寸，影响齿型的整体高度。</li>
 </ul>
-<p>以下图片中以同一个凸轮曲线进行操作，左边是极径方向缩小 50 mm，右边是法线方向缩小 50 mm：
-<img src="resources/tranform.jpg" alt="img"></img></p>
-<h2 id="图形旋转角度">图形旋转角度</h2>
-<p>将生成的新凸轮曲线进行旋转操作，以X轴正向坐标轴为基准，顺时针为正，逆时针为负。</p>
-<h2 id="dxf-保存地址">DXF 保存地址</h2>
-<p>新凸轮的生成地址。</p>
+<h3 id="2-工件中径">2. 工件中径</h3>
+<ul>
+<li><strong>定义</strong>：齿型的中间直径，通常为齿高的一半位置的直径。</li>
+<li><strong>用途</strong>：用于齿型计算的基准直径，常用于螺纹等中性线计算。</li>
+</ul>
+<h3 id="3-工件大径">3. 工件大径</h3>
+<ul>
+<li><strong>定义</strong>：齿型最大直径，即梯形齿顶部的直径。</li>
+<li><strong>用途</strong>：决定齿顶的最大尺寸，影响齿型的外轮廓。</li>
+</ul>
+<h3 id="4-工件螺距">4. 工件螺距</h3>
+<ul>
+<li><strong>定义</strong>：相邻两齿同侧对应点之间的轴向距离。</li>
+<li><strong>用途</strong>：决定齿的密度和分布，影响啮合精度。</li>
+</ul>
+<h3 id="5-右半角">5. 右半角</h3>
+<ul>
+<li><strong>定义</strong>：齿型右侧与中轴线的夹角（单位：度）。</li>
+<li><strong>用途</strong>：影响齿型的斜度和受力方向，常见标准为15°、20°等。</li>
+</ul>
+<h3 id="6-右半角修正">6. 右半角修正</h3>
+<ul>
+<li><strong>定义</strong>：对右半角的微调修正值（单位：度）。</li>
+<li><strong>用途</strong>：用于补偿加工或设计误差，输入正负值均可。</li>
+</ul>
+<h3 id="7-左半角">7. 左半角</h3>
+<ul>
+<li><strong>定义</strong>：齿型左侧与中轴线的夹角（单位：度）。</li>
+<li><strong>用途</strong>：与右半角类似，影响齿型对称性和受力。</li>
+</ul>
+<h3 id="8-左半角修正">8. 左半角修正</h3>
+<ul>
+<li><strong>定义</strong>：对左半角的微调修正值（单位：度）。</li>
+<li><strong>用途</strong>：用于补偿加工或设计误差，输入正负值均可。</li>
+</ul>
+<h3 id="9-保存文件">9. 保存文件</h3>
+<ul>
+<li><strong>定义</strong>：生成的DXF文件保存路径。</li>
+<li><strong>用途</strong>：指定文件保存位置，便于后续查找和使用。</li>
+</ul>
 
                                 
                                 </section>
@@ -539,7 +573,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"梯形","level":"1.4.2","depth":2,"next":{"title":"双圆弧","level":"1.4.3","depth":2,"path":"drawing/doublearc.md","ref":"drawing/doublearc.md","articles":[]},"previous":{"title":"三角","level":"1.4.1","depth":2,"path":"drawing/triangle.md","ref":"drawing/triangle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"drawing/trapez.md","mtime":"2025-04-25T09:04:24.081Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-04-25T09:04:31.686Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"梯形","level":"1.4.2","depth":2,"next":{"title":"双圆弧","level":"1.4.3","depth":2,"path":"drawing/doublearc.md","ref":"drawing/doublearc.md","articles":[]},"previous":{"title":"三角","level":"1.4.1","depth":2,"path":"drawing/triangle.md","ref":"drawing/triangle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"drawing/trapez.md","mtime":"2025-05-09T02:10:03.086Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-09T02:10:07.784Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

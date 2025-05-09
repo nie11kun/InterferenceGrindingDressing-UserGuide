@@ -479,69 +479,66 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="cam-数据文件">CAM 数据文件</h1>
-<p>使用此工具生成凸轮曲线文件，需要提供已知的凸轮升程数据、基圆半径及滚子直径等信息。</p>
-<p>标准的 CAM 数据文件格式如下：</p>
-<pre><code>B,20 #基圆半径
-G,5 #测杆滚轮半径 如果是平面随动件则可以近似设置一个10倍基圆半径的滚子
-
-A,0,90,10 #角度范围及角度步距
-0.0 #每个角度下的升程
-0.1
-0.2
-0.3
-0.4
-0.5
-0.6
-0.7
-0.8
-0.9
-
-A,100,180,10
-1.0 #定义一个升程表示这一段角度范围都是同一个升程 此处会被识别为基圆所在位置
-
-A,190,350,10
-0.9
-0.8
-0.7
-0.6
-0.5
-0.4
-0.3
-0.2
-0.1
-0
-0
-0
-0
-</code></pre><ul>
-<li><code>B</code> 标识符指定基圆半径大小。</li>
-<li><code>G</code> 标识符指定测杆滚轮半径大小，如果升程数据是凸轮曲线数据，则滚子半径设置为 0 即可。如果是<strong>平面随动件</strong>的数据则可以近似设置一个10倍基圆半径的滚子半径即可得到凸轮曲线。</li>
-<li><code>A</code> 标识符指定了一个角度范围，后面的两位数字分别是起始角度和结束角度，最后一位数字是角度步距，即每隔多少度定义一个升程数据。</li>
-</ul>
-<p><code>A</code> 标识下需要逐行定义此角度范围下每个间隔的升程数据，如果只写一行标识这一角度范围内升程一致。</p>
-<h2 id="cam-数据文件地址">CAM 数据文件地址</h2>
-<p>输入按照以上标准格式保存的文件路径。</p>
-<h2 id="数据角度方向">数据角度方向</h2>
-<p>以 X 轴正向坐标轴为基准，指定数据文件中的角度是按照顺时针还是逆时针定义。</p>
-<h2 id="数据类型">数据类型</h2>
+                                <h1 id="三角">三角</h1>
+<p>典型齿型图纸：</p>
+<p><img src="resources/triangle.png" alt="img"></img></p>
+<hr></hr>
+<h2 id="三角齿型参数详解">三角齿型参数详解</h2>
+<p>此工具用于生成标准三角齿型的DXF文件。各参数说明如下：</p>
+<h3 id="1-工件小径">1. 工件小径</h3>
 <ul>
-<li>绝对值：文件中的升程数据是绝对数据，会直接和基圆半径进行叠加计算得到凸轮曲线。</li>
-<li>相对值：文件中的生成数据是相对数据，首先会找出数据中的最小值并将所有数据平移使得最小值为0，然后在和基圆半径进行叠加计算得到凸轮曲线。</li>
+<li><strong>定义</strong>：齿型最小直径，即三角齿底部的直径。</li>
+<li><strong>用途</strong>：决定齿根的最小尺寸，影响齿型的整体高度。</li>
 </ul>
-<h2 id="图形旋转角度">图形旋转角度</h2>
-<p>可以将绘制的凸轮图形进行旋转操作，默认为 0 度，即不旋转。</p>
-<p>输入正值为顺时针旋转，输入负值为逆时针旋转，单位为角度。</p>
-<h2 id="绘制升程图形">绘制升程图形</h2>
-<p>同 <code>XY 点位文件</code> 工具介绍。</p>
-<h2 id="基圆半径">基圆半径</h2>
-<p>同 <code>XY 点位文件</code> 工具介绍。</p>
-<h2 id="升程方向">升程方向</h2>
-<p>同 <code>XY 点位文件</code> 工具介绍。</p>
-<h2 id="x-轴缩放">X 轴缩放</h2>
-<p>同 <code>XY 点位文件</code> 工具介绍。</p>
-<h2 id="dxf-保存地址">DXF 保存地址</h2>
-<p>同 <code>XY 点位文件</code> 工具介绍。</p>
+<h3 id="2-工件中径">2. 工件中径</h3>
+<ul>
+<li><strong>定义</strong>：齿型的中间直径，通常为齿高的一半位置的直径。</li>
+<li><strong>用途</strong>：用于齿型计算的基准直径，常用于螺纹等中性线计算。</li>
+</ul>
+<h3 id="3-工件大径">3. 工件大径</h3>
+<ul>
+<li><strong>定义</strong>：齿型最大直径，即三角齿顶部的直径。</li>
+<li><strong>用途</strong>：决定齿顶的最大尺寸，影响齿型的外轮廓。</li>
+</ul>
+<h3 id="4-工件螺距">4. 工件螺距</h3>
+<ul>
+<li><strong>定义</strong>：相邻两齿同侧对应点之间的轴向距离。</li>
+<li><strong>用途</strong>：决定齿的密度和分布，影响啮合精度。</li>
+</ul>
+<h3 id="5-右半角">5. 右半角</h3>
+<ul>
+<li><strong>定义</strong>：齿型右侧与中轴线的夹角（单位：度）。</li>
+<li><strong>用途</strong>：影响齿型的斜度和受力方向，常见标准为30°、45°等。</li>
+</ul>
+<h3 id="6-右半角修正">6. 右半角修正</h3>
+<ul>
+<li><strong>定义</strong>：对右半角的微调修正值（单位：度）。</li>
+<li><strong>用途</strong>：用于补偿加工或设计误差，输入正负值均可。</li>
+</ul>
+<h3 id="7-左半角">7. 左半角</h3>
+<ul>
+<li><strong>定义</strong>：齿型左侧与中轴线的夹角（单位：度）。</li>
+<li><strong>用途</strong>：与右半角类似，影响齿型对称性和受力。</li>
+</ul>
+<h3 id="8-左半角修正">8. 左半角修正</h3>
+<ul>
+<li><strong>定义</strong>：对左半角的微调修正值（单位：度）。</li>
+<li><strong>用途</strong>：用于补偿加工或设计误差，输入正负值均可。</li>
+</ul>
+<h3 id="9-保存文件">9. 保存文件</h3>
+<ul>
+<li><strong>定义</strong>：生成的DXF文件保存路径。</li>
+<li><strong>用途</strong>：指定文件保存位置，便于后续查找和使用。</li>
+</ul>
+<hr></hr>
+<h2 id="操作说明">操作说明</h2>
+<ol>
+<li>按照实际需求填写各参数。</li>
+<li>点击"选择文件"可自定义保存路径。</li>
+<li>填写完成后，点击"生成齿形文件"按钮，即可生成对应的DXF文件。</li>
+</ol>
+<hr></hr>
+<p>如需进一步了解每个参数的工程意义或标准推荐值，请参考相关机械设计手册或齿轮设计标准。</p>
 
                                 
                                 </section>
@@ -585,7 +582,7 @@ A,190,350,10
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"三角","level":"1.4.1","depth":2,"next":{"title":"梯形","level":"1.4.2","depth":2,"path":"drawing/trapez.md","ref":"drawing/trapez.md","articles":[]},"previous":{"title":"齿型绘制","level":"1.4","depth":1,"path":"drawing/README.md","ref":"drawing/README.md","articles":[{"title":"三角","level":"1.4.1","depth":2,"path":"drawing/triangle.md","ref":"drawing/triangle.md","articles":[]},{"title":"梯形","level":"1.4.2","depth":2,"path":"drawing/trapez.md","ref":"drawing/trapez.md","articles":[]},{"title":"双圆弧","level":"1.4.3","depth":2,"path":"drawing/doublearc.md","ref":"drawing/doublearc.md","articles":[]},{"title":"XY点位文件","level":"1.4.4","depth":2,"path":"drawing/point.md","ref":"drawing/point.md","articles":[]},{"title":"渐开线","level":"1.4.5","depth":2,"path":"drawing/gradual.md","ref":"drawing/gradual.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"drawing/triangle.md","mtime":"2025-04-25T09:04:24.081Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-04-25T09:04:31.686Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"三角","level":"1.4.1","depth":2,"next":{"title":"梯形","level":"1.4.2","depth":2,"path":"drawing/trapez.md","ref":"drawing/trapez.md","articles":[]},"previous":{"title":"齿型绘制","level":"1.4","depth":1,"path":"drawing/README.md","ref":"drawing/README.md","articles":[{"title":"三角","level":"1.4.1","depth":2,"path":"drawing/triangle.md","ref":"drawing/triangle.md","articles":[]},{"title":"梯形","level":"1.4.2","depth":2,"path":"drawing/trapez.md","ref":"drawing/trapez.md","articles":[]},{"title":"双圆弧","level":"1.4.3","depth":2,"path":"drawing/doublearc.md","ref":"drawing/doublearc.md","articles":[]},{"title":"XY点位文件","level":"1.4.4","depth":2,"path":"drawing/point.md","ref":"drawing/point.md","articles":[]},{"title":"渐开线","level":"1.4.5","depth":2,"path":"drawing/gradual.md","ref":"drawing/gradual.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"drawing/triangle.md","mtime":"2025-05-09T02:10:03.086Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-09T02:10:07.784Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
