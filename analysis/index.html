@@ -479,21 +479,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="曲线分析">曲线分析</h1>
-<p>本章介绍如何使用 <strong>Cam Grinding</strong> 对凸轮进行曲线分析。主要包含<code>凸轮转生成曲线</code>、<code>升程转凸轮曲线</code>、<code>速度转升程曲线</code>等功能。</p>
-<p><img src="resources/cam_run.jpg" alt="img"></img></p>
-<p>通过这些功能，可以对一个凸轮设计进行完整的分析，了解凸轮的曲线特性，以及发现设计缺陷等问题。</p>
+                                <h1 id="分析工具">分析工具</h1>
+<p>本章介绍如何使用 <strong>Interference Grinding Dressing</strong> 进行数据分析。主要包含<code>最大偏移计算</code>、<code>滚道曲线计算</code>等功能。</p>
+<p><img src="resources/main.png" alt="img"></img></p>
+<h2 id="功能概述">功能概述</h2>
+<p>提供以下核心功能：</p>
 <ol>
-<li><p><strong>凸轮曲线</strong>: 凸轮曲线描述了从动件随时间或凸轮转角的运动轨迹，常见曲线类型包括等速、等加速减速、简谐运动等。</p>
+<li><p><strong>最大偏移计算</strong></p>
+<ul>
+<li>计算磨杆相对工件中心的最大偏移量</li>
+<li>用于生成修整程序时砂轮杆最大偏移量的设置</li>
+</ul>
 </li>
-<li><p><strong>升程（行程）</strong>: 升程是指从动件从最低位置移动到最高位置的距离，决定了机构的工作行程。升程通常分为升程段、停歇段和回程段。</p>
-</li>
-<li><p><strong>速度</strong>: 速度表示从动件运动的快慢，受凸轮曲线形状的影响。合理的速度曲线可以减少冲击，提高系统平稳性。</p>
-</li>
-<li><p><strong>加速度</strong>: 加速度是速度变化的速率，直接影响机构的惯性负载。平滑的加速度曲线可减少振动和噪声，延长机械寿命。</p>
+<li><p><strong>滚道曲线计算</strong></p>
+<ul>
+<li>精确计算滚道轮廓</li>
+<li>提前了解干涉加工对滚道的影响</li>
+<li>模拟砂轮杆偏离回转中心时对滚道产生的影响</li>
+</ul>
 </li>
 </ol>
-<p>选择合适的凸轮曲线，可优化系统的运动特性，达到平稳、高效的工作效果。</p>
 
                                 
                                 </section>
@@ -537,7 +542,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"分析工具","level":"1.5","depth":1,"next":{"title":"最大偏移计算","level":"1.5.1","depth":2,"path":"analysis/max_offset.md","ref":"analysis/max_offset.md","articles":[]},"previous":{"title":"渐开线","level":"1.4.5","depth":2,"path":"drawing/gradual.md","ref":"drawing/gradual.md","articles":[]},"articles":[{"title":"最大偏移计算","level":"1.5.1","depth":2,"path":"analysis/max_offset.md","ref":"analysis/max_offset.md","articles":[]},{"title":"滚道曲线计算","level":"1.5.2","depth":2,"path":"analysis/rollpath.md","ref":"analysis/rollpath.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"analysis/README.md","mtime":"2025-05-09T02:16:06.156Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-09T02:16:10.882Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"分析工具","level":"1.5","depth":1,"next":{"title":"最大偏移计算","level":"1.5.1","depth":2,"path":"analysis/max_offset.md","ref":"analysis/max_offset.md","articles":[]},"previous":{"title":"渐开线","level":"1.4.5","depth":2,"path":"drawing/gradual.md","ref":"drawing/gradual.md","articles":[]},"articles":[{"title":"最大偏移计算","level":"1.5.1","depth":2,"path":"analysis/max_offset.md","ref":"analysis/max_offset.md","articles":[]},{"title":"滚道曲线计算","level":"1.5.2","depth":2,"path":"analysis/rollpath.md","ref":"analysis/rollpath.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"analysis/README.md","mtime":"2025-05-09T03:23:03.274Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-09T03:23:08.053Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

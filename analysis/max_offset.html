@@ -479,39 +479,47 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="凸轮转升程曲线">凸轮转升程曲线</h1>
-<p>此工具用于输入凸轮曲线文件，计算凸轮的升程/速度/加速度信息。</p>
-<h2 id="凸轮曲线文件">凸轮曲线文件</h2>
-<p>输入一个凸轮 DXF 曲线文件，该文件必须为凸轮的轮廓线，形式如下：
-<img src="resources/cam.jpg" alt="img"></img></p>
-<h2 id="dxf-读取精度">DXF 读取精度</h2>
-<p>DXF 读取精度参数用于设置凸轮 DXF 文件的离散精度，定义原始凸轮曲线离散化后相邻离散点之间的最大距离。设置值越小，对凸轮曲线的识别精度越高，建议设置为 0.005mm，即可满足大多数加工精度要求。</p>
-<h2 id="基圆半径">基圆半径</h2>
-<p>定义输入的凸轮的基圆半径。通常情况下升程最小处为基圆所在区域。</p>
-<p>以下图形显示凸轮曲线和基圆的关系：
-<img src="resources/base_circle.jpg" alt="img"></img></p>
-<h2 id="滚子半径">滚子半径</h2>
-<p>如果输入的曲线是滚子中心的轨迹，要想得到凸轮实际的升程信息，需要设置滚子半径。否则最终生成的信息为滚子中心轨迹的信息。</p>
-<p>以下图片中外围曲线为滚子中心曲线，内部为凸轮曲线：
-<img src="resources/gunzi.jpg" alt="img"></img></p>
-<h2 id="图形旋转角度">图形旋转角度</h2>
-<p>可以对输入的凸轮曲线进行旋转，旋转角度定义为顺时针为正，逆时针为负，单位为度。</p>
-<p>此功能主要用于将生成的数据按照期望的形式呈现，一般起始位置为升程最小处，可以先设置为 0，根据输出的 html 图形信息再设置旋转角度。</p>
-<p>以下图片展示图片中，左侧为旋转角度为0时生成的升程曲线，右边为旋转 -130 度后的升程曲线：
-<img src="resources/rotate.jpg" alt="img"></img></p>
-<h2 id="升程方向">升程方向</h2>
-<p>以X轴正向坐标轴为基准，可选顺时针或逆时针方向绘制升程曲线，由于机床加工方向为顺时针方向，所以推荐生成顺时针方向生成曲线以便于对照。</p>
-<h2 id="x-轴缩放">X 轴缩放</h2>
-<p>此参数用于输出的 html 图形中 X 轴坐标进行缩放处理。设置 0.1 则生成的 html X 轴数据会缩小到标准数据的 0.1 倍。</p>
-<p>主要为了方便观察部分升程过小的曲线。</p>
-<h2 id="dxf-保存地址">DXF 保存地址</h2>
-<p>定义输出的升程数据的文件路径。同一个目录中会输出速度以及加速度数据。</p>
-<p>同时会输出一个 TXT 升程文件，例如：<code>xiaocam-distance-99_0800.txt</code>。此文件记录了每 0.5 度下的升程量，可用于克林伯格 P65 测量仪进行凸轮的测量。</p>
-<h2 id="速度加速度">速度/加速度</h2>
-<p>此工具同时会生成凸轮的速度/加速度曲线，通过观察速度曲线，能够直观的鉴定凸轮设计是否合理，加速性能是否线性。</p>
+                                <h1 id="最大偏移参数设置">最大偏移参数设置</h1>
+<h2 id="1-工作加工长度">1. 工作加工长度</h2>
+<ul>
+<li><strong>说明</strong>：指工件需要加工的总长度。</li>
+<li><strong>设置方法</strong>：输入实际工件的加工长度（单位通常为毫米 mm）。</li>
+</ul>
+<h2 id="2-工件小径">2. 工件小径</h2>
+<ul>
+<li><strong>说明</strong>：指工件最小直径。</li>
+<li><strong>设置方法</strong>：输入工件的最小直径数值。</li>
+</ul>
+<h2 id="3-砂轮杆直径">3. 砂轮杆直径</h2>
+<ul>
+<li><strong>说明</strong>：指砂轮杆的直径。</li>
+<li><strong>设置方法</strong>：输入砂轮杆的实际直径。</li>
+</ul>
+<h2 id="4-砂轮杆安装角">4. 砂轮杆安装角</h2>
+<ul>
+<li><strong>说明</strong>：指砂轮杆与工件轴线的夹角。</li>
+<li><strong>设置方法</strong>：输入实际安装时测量的角度（单位为度°）。</li>
+</ul>
+<h2 id="5-理论最大偏移">5. 理论最大偏移</h2>
+<ul>
+<li><strong>说明</strong>：系统根据上述参数自动计算出的理论最大偏移量。</li>
+<li><strong>设置方法</strong>：此项通常为只读，系统会自动填充，无需手动输入。</li>
+</ul>
+<h2 id="6-计算按钮">6. 计算按钮</h2>
+<ul>
+<li><strong>说明</strong>：点击后，系统会根据你输入的参数自动计算理论最大偏移。</li>
+<li><strong>操作方法</strong>：确认所有参数输入无误后，点击"计算"按钮。</li>
+</ul>
 <hr></hr>
-<p>以下是同一个凸轮的升程/速度/加速度曲线对比：
-<img src="resources/lift_velocity_acc.jpg" alt="img"></img></p>
+<h3 id="示例操作流程">示例操作流程</h3>
+<ol>
+<li>在"工件加工长度"输入框中输入如 <code>100</code>。</li>
+<li>在"工件小径"输入框中输入如 <code>20</code>。</li>
+<li>在"砂轮杆直径"输入框中输入如 <code>10</code>。</li>
+<li>在"砂轮杆安装角"输入框中输入如 <code>8</code>。</li>
+<li>检查输入无误后，点击下方蓝色的"计算"按钮。</li>
+<li>"理论最大偏移"会自动显示计算结果。</li>
+</ol>
 
                                 
                                 </section>
@@ -555,7 +563,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"最大偏移计算","level":"1.5.1","depth":2,"next":{"title":"滚道曲线计算","level":"1.5.2","depth":2,"path":"analysis/rollpath.md","ref":"analysis/rollpath.md","articles":[]},"previous":{"title":"分析工具","level":"1.5","depth":1,"path":"analysis/README.md","ref":"analysis/README.md","articles":[{"title":"最大偏移计算","level":"1.5.1","depth":2,"path":"analysis/max_offset.md","ref":"analysis/max_offset.md","articles":[]},{"title":"滚道曲线计算","level":"1.5.2","depth":2,"path":"analysis/rollpath.md","ref":"analysis/rollpath.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"analysis/max_offset.md","mtime":"2025-05-09T02:16:06.156Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-09T02:16:10.882Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"最大偏移计算","level":"1.5.1","depth":2,"next":{"title":"滚道曲线计算","level":"1.5.2","depth":2,"path":"analysis/rollpath.md","ref":"analysis/rollpath.md","articles":[]},"previous":{"title":"分析工具","level":"1.5","depth":1,"path":"analysis/README.md","ref":"analysis/README.md","articles":[{"title":"最大偏移计算","level":"1.5.1","depth":2,"path":"analysis/max_offset.md","ref":"analysis/max_offset.md","articles":[]},{"title":"滚道曲线计算","level":"1.5.2","depth":2,"path":"analysis/rollpath.md","ref":"analysis/rollpath.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"analysis/max_offset.md","mtime":"2025-05-09T03:23:03.274Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-09T03:23:08.053Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

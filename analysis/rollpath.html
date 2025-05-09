@@ -479,27 +479,84 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="升程转凸轮曲线">升程转凸轮曲线</h1>
-<p>此工具输入一个升程曲线文件，输出一个凸轮曲线文件。</p>
-<h2 id="升程曲线文件">升程曲线文件</h2>
-<p>输入一个 DXF 格式的升程曲线文件，文件中的曲线数据中的 X 轴表示角度，Y 坐标表示对应角度下的升程量。X 轴坐标必须大于 0。Y 轴坐标一般最小值为 0 表示基圆部分。曲线必须是线性的。</p>
-<p>以下是一个典型的升程曲线示例：
-<img src="resources/lift.jpg" alt="img"></img></p>
-<h2 id="dxf-读取精度">DXF 读取精度</h2>
-<p>DXF 读取精度参数用于设置 DXF 文件的离散精度，定义原始凸轮曲线离散化后相邻离散点之间的最大距离。设置值越小，对凸轮曲线的识别精度越高，建议设置为 0.005mm，即可满足精度要求。</p>
-<h2 id="基圆半径">基圆半径</h2>
-<p>设置对应目标凸轮的基圆半径，基圆半径会影响凸轮的尺寸大小。</p>
-<h2 id="滚子半径">滚子半径</h2>
-<p>如果输入的升程数据是滚子中心的升程曲线，则必须在此处设置对应测杆滚子半径，才能正确的生成凸轮轨迹。</p>
-<h2 id="升程方向">升程方向</h2>
-<p>设置升程曲线中 X 轴的角度数据是以 X 轴正向为基准，按照顺时针方向还是逆时针方向定义的角度。</p>
-<p>对设置为顺时针生成的凸轮曲线和设置逆时针生成的凸轮曲线比较，两者是相对于X轴上下镜像的关系：
-<img src="resources/lift_direction.jpg" alt="img"></img></p>
-<h2 id="x-轴缩放">X 轴缩放</h2>
-<p>此参数用于输出的 html 图形中 X 轴坐标进行缩放处理。设置 0.1 则生成的 html X 轴数据会缩小到标准数据的 0.1 倍。</p>
-<p>主要为了方便观察部分升程过小的曲线。</p>
-<h2 id="dxf-保存地址">DXF 保存地址</h2>
-<p>定义输出的凸轮曲线的文件路径。</p>
+                                <h1 id="滚道曲线计算">滚道曲线计算</h1>
+<p>此工具通过输入修整齿型文件，加工时安装角，砂轮直径，工件实际大径和砂轮杆左右偏移等相关参数，生成实际加工出来的滚道法向截形。此工具主要用于提前判断加工出的滚道形状是否符合预期，以进行对应参数调整。同时可以模拟砂轮杆过长或过短对齿型会产生怎样的影响。</p>
+<hr></hr>
+<h2 id="参数设置">参数设置</h2>
+<ol>
+<li><p><strong>工件类型</strong></p>
+<ul>
+<li>选择工件的类型，可选"内螺纹" 和 "外螺纹"。</li>
+</ul>
+</li>
+<li><p><strong>工件大径</strong></p>
+<ul>
+<li>输入工件的最大外径，单位为毫米（mm）。该参数用于确定工件的外部尺寸。</li>
+</ul>
+</li>
+<li><p><strong>工件中径</strong></p>
+<ul>
+<li>输入工件的中径，单位为毫米（mm）。中径通常用于螺纹等结构的几何计算。</li>
+<li>此参数用于计算标准螺旋升角。</li>
+</ul>
+</li>
+<li><p><strong>导程</strong></p>
+<ul>
+<li>输入工件的导程，单位为毫米（mm）。导程是指螺纹每转一圈轴向移动的距离。</li>
+<li>此参数用于计算标准螺旋升角。</li>
+</ul>
+</li>
+<li><p><strong>砂轮直径</strong></p>
+<ul>
+<li>输入砂轮的直径，单位为毫米（mm）。该参数影响砂轮与工件的接触关系。</li>
+</ul>
+</li>
+<li><p><strong>砂轮安装角</strong></p>
+<ul>
+<li>输入砂轮的安装角度，单位为度（°）。此参数右侧显示的是工件标准螺旋升角。</li>
+<li>如果是干涉磨削砂轮安装角则输入数据和标准螺旋升角不一样。</li>
+</ul>
+</li>
+<li><p><strong>砂轮杆左右偏移</strong></p>
+<ul>
+<li>输入砂轮杆的左右偏移量，单位为毫米（mm）。用于调整砂轮在加工时的横向位置。</li>
+<li>如果砂轮在标准回转中心上，则偏移为 0。</li>
+<li>如果砂轮杆过长，即砂轮在回转中心左侧，则输入正值。反之则输入负值。</li>
+</ul>
+</li>
+<li><p><strong>砂轮修整类型</strong></p>
+<ul>
+<li>输入砂轮修整文件路径。砂轮修整曲线需要齿顶最高点在坐标系原点。</li>
+</ul>
+</li>
+<li><p><strong>保存文件</strong></p>
+<ul>
+<li>设置生成的工件截面曲线文件的保存路径，通常为DXF格式。</li>
+</ul>
+</li>
+<li><p><strong>生成工件截面曲线</strong></p>
+<ul>
+<li>点击此按钮，根据以上参数生成工件的截面曲线文件。</li>
+</ul>
+</li>
+</ol>
+<h2 id="实际应用">实际应用</h2>
+<h3 id="干涉磨削">干涉磨削</h3>
+<p>对于干涉磨削，砂轮和滚道接触线包含异常区域，通常会舍弃这部分，从而导致在实际加工中在滚道部分区域会偏离标准轨迹。</p>
+<p>通过此工具可以模拟实际加工出来的滚道到底是什么样子的，以及误差区域是否会影响工件品质以及检验要求。</p>
+<p>以下是一个双圆弧齿型标准螺旋角为 8.29 度的工件，砂轮杆在 3 度情况下加工时的砂轮轨迹和标准轨迹对比：
+<img src="resources/test1.png" alt="img"></img></p>
+<p>打开 <strong>plot_contour_curve.html</strong> 文件可以查看特定砂轮直径下的工件大径等数据：
+<img src="resources/test2.png" alt="img"></img></p>
+<p>将数据输入 <strong>Interference Grinding Dressing</strong> 的<strong>滚道曲线计算</strong>工具中，<strong>砂轮修整齿型</strong>文件导入输出文件夹中的 <strong>dxf_dress_wheel_curve_xxxxx.dxf</strong> 文件，点击<strong>生成工件截面曲线</strong>按钮输出实际加工的滚道形状，然后通过 DXF 工具和标准滚道曲线进行对比：
+<img src="resources/test3.png" alt="img"></img></p>
+<p>可以看到轨迹大部分区域都是和标准吻合的，在截面两侧区域，干涉磨削会导致多磨。</p>
+<h3 id="砂轮杆偏移">砂轮杆偏移</h3>
+<p>通过设置砂轮杆左右偏移参数，可以模拟砂轮不在回转中心时会对滚道参数什么样的影响。</p>
+<p>以下结果是砂轮杆偏移设置为 <code>10</code> 时，滚道轨迹和标准轨迹对比情况：
+<img src="resources/test4.jpg" alt="img"></img></p>
+<p>可以看到滚道左侧区域会多磨，右侧区域会少磨。</p>
+<p>以上就是滚道曲线计算的使用方法。</p>
 
                                 
                                 </section>
@@ -543,7 +600,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"滚道曲线计算","level":"1.5.2","depth":2,"next":{"title":"误差补偿","level":"1.6","depth":1,"path":"deviation/README.md","ref":"deviation/README.md","articles":[{"title":"齿型误差","level":"1.6.1","depth":2,"path":"deviation/shape_deviation.md","ref":"deviation/shape_deviation.md","articles":[]}]},"previous":{"title":"最大偏移计算","level":"1.5.1","depth":2,"path":"analysis/max_offset.md","ref":"analysis/max_offset.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"analysis/rollpath.md","mtime":"2025-05-09T02:16:06.156Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-09T02:16:10.882Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"滚道曲线计算","level":"1.5.2","depth":2,"next":{"title":"误差补偿","level":"1.6","depth":1,"path":"deviation/README.md","ref":"deviation/README.md","articles":[{"title":"齿型误差","level":"1.6.1","depth":2,"path":"deviation/shape_deviation.md","ref":"deviation/shape_deviation.md","articles":[]}]},"previous":{"title":"最大偏移计算","level":"1.5.1","depth":2,"path":"analysis/max_offset.md","ref":"analysis/max_offset.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"analysis/rollpath.md","mtime":"2025-05-09T03:23:03.276Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-09T03:23:08.053Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
