@@ -513,6 +513,19 @@
 <li><strong>场景</strong>: 有时，直径较大的新砂轮所需的修整宽度反而可能<em>小于</em>直径变小后的旧砂轮。若不加延长，当砂轮磨损变小时，可能无法完整修整出所需形状的边缘部分。</li>
 <li><strong>作用</strong>: 设置合理的切线延长长度，可以确保修整路径始终比实际需求稍宽，从而<strong>防止砂轮变小后无法完整修整出所需轮廓</strong>。</li>
 </ul>
+<h2 id="内收角度">内收角度</h2>
+<ul>
+<li><strong>定义</strong>: 将切线延长线部分沿端点向内旋转的角度。</li>
+<li><strong>单位</strong>: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">°</mi></mrow><annotation encoding="application/x-tex">°</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">°</span></span></span></span></li>
+<li><strong>目的</strong>: 优化滚道两侧边沿过切部分。</li>
+<li><strong>场景</strong>: 对于双圆弧等齿型进行干涉加工时，滚道外侧边沿无法求的砂轮接触线部分默认修整一段切线延长线，加工出的滚道两侧边沿会产生过切部分。</li>
+<li><strong>作用</strong>: 可以通过调整延长线的角度来优化过切部分面积。</li>
+</ul>
+<p>以下是按照标准切线延长线延申修整砂轮后模拟加工出的滚道轮廓和标准滚道轮廓的对比图：
+<img src="resources/demo-1.jpg" alt="程序头信息输入示例"></img></p>
+<p>以下是将切线延长线向内旋转10度修整砂轮后模拟加工出的滚道轮廓和标准滚道轮廓的对比图：
+<img src="resources/demo-2.jpg" alt="程序头信息输入示例"></img></p>
+<p>可以看出向内旋转后加工出的滚道两侧边沿部分的过切部分面积降低了。</p>
 <h2 id="垂直延长长度">垂直延长长度</h2>
 <ul>
 <li><strong>定义</strong>: 在计算出的砂轮修整轨迹两端，沿近似垂直于齿型表面的方向增加一段延长轨迹。</li>
@@ -696,7 +709,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"高级参数","level":"1.3.2","depth":2,"next":{"title":"齿型绘制","level":"1.4","depth":1,"path":"drawing/README.md","ref":"drawing/README.md","articles":[{"title":"三角","level":"1.4.1","depth":2,"path":"drawing/triangle.md","ref":"drawing/triangle.md","articles":[]},{"title":"梯形","level":"1.4.2","depth":2,"path":"drawing/trapez.md","ref":"drawing/trapez.md","articles":[]},{"title":"双圆弧","level":"1.4.3","depth":2,"path":"drawing/doublearc.md","ref":"drawing/doublearc.md","articles":[]},{"title":"XY点位文件","level":"1.4.4","depth":2,"path":"drawing/point.md","ref":"drawing/point.md","articles":[]},{"title":"渐开线","level":"1.4.5","depth":2,"path":"drawing/gradual.md","ref":"drawing/gradual.md","articles":[]}]},"previous":{"title":"基本参数","level":"1.3.1","depth":2,"path":"genaration/base.md","ref":"genaration/base.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"genaration/advance.md","mtime":"2025-05-09T03:49:11.231Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-05-09T03:49:15.895Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"高级参数","level":"1.3.2","depth":2,"next":{"title":"齿型绘制","level":"1.4","depth":1,"path":"drawing/README.md","ref":"drawing/README.md","articles":[{"title":"三角","level":"1.4.1","depth":2,"path":"drawing/triangle.md","ref":"drawing/triangle.md","articles":[]},{"title":"梯形","level":"1.4.2","depth":2,"path":"drawing/trapez.md","ref":"drawing/trapez.md","articles":[]},{"title":"双圆弧","level":"1.4.3","depth":2,"path":"drawing/doublearc.md","ref":"drawing/doublearc.md","articles":[]},{"title":"XY点位文件","level":"1.4.4","depth":2,"path":"drawing/point.md","ref":"drawing/point.md","articles":[]},{"title":"渐开线","level":"1.4.5","depth":2,"path":"drawing/gradual.md","ref":"drawing/gradual.md","articles":[]}]},"previous":{"title":"基本参数","level":"1.3.1","depth":2,"path":"genaration/base.md","ref":"genaration/base.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"genaration/advance.md","mtime":"2025-07-02T06:29:06.842Z","type":"markdown"},"gitbook":{"version":"6.0.2","time":"2025-07-02T06:29:11.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
