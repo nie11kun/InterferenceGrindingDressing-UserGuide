@@ -17,6 +17,7 @@
 * [分析工具](analysis/README.md)
     * [最大偏移计算](analysis/max_offset.md)
     * [滚道曲线计算](analysis/rollpath.md)
+    * [齿型曲线转换](analysis/exchange.md)
 * [误差补偿](deviation/README.md)
     * [齿型误差](deviation/shape_deviation.md)
 * [DXF 工具](dxf_tools/README.md)
