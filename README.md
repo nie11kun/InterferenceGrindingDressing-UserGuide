@@ -33,7 +33,7 @@
 
 7. [误差对比](7_error_compare/README.md): 将两种曲线进行误差对比分析，输出直观的误差分布曲线图。
 
-8. [DXF工具](8_dxf_tools/README.md): 包含 DXF 文件读取，比较，离散化，拟合圆弧等实用功能。
+8. [DXF工具](8_dxf_tools/README.md): 包含 DXF 文件读取，比较，离散化，拟合圆弧，等距线，变换等实用功能。
 
 9. [故障排除](9_troubleshooting/README.md): 提供常见问题解决方案，帮助您快速排除障碍。
 

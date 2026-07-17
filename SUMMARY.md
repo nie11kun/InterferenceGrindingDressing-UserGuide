@@ -34,4 +34,5 @@
     * [DXF 离散化](8_dxf_tools/dxf_discretize.md)
     * [DXF 拟合圆弧](8_dxf_tools/dxf_fit_arc.md)
     * [DXF 等距线](8_dxf_tools/dxf_offset_line.md)
+    * [DXF 变换](8_dxf_tools/dxf_transform.md)
 * [故障排除](9_troubleshooting/README.md)
