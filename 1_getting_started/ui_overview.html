@@ -706,86 +706,71 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="12-主界面布局、三色输入框与画布操作">1.2 主界面布局、三色输入框与画布操作</h1>
-<p>成功进入 <strong>IGD</strong> 主窗口后，软件采用工业 CAE 软件经典的<strong>“左参数控制面板 + 右交互式绘图画布”</strong>双栏分屏架构。理解界面分区与<strong>输入框三色视觉编码规范</strong>是高效操作本软件的基础。</p>
+<p>进入 <strong>IGD</strong> 软件后，主窗口采用<strong>“左侧参数控制面板 + 右侧交互式绘图画布”</strong>的双栏工程分屏架构。</p>
+<p><img src="../images/ui_overview_annotated.png" alt="主界面双栏布局真实软件截图"></img></p>
 <hr></hr>
-<h2 id="一、主界面五大功能分区">一、主界面五大功能分区</h2>
-<p><img src="../images/ui_overview_annotated.png" alt="主界面双栏布局与功能分区导览"></img></p>
-<p>如上图所示，主窗口由五大核心区域构成：</p>
-<ol>
-<li><strong>① 顶部系统菜单栏</strong><ul>
-<li><strong><code>设置</code></strong>：支持实时切换界面 <strong><code>语言</code></strong>（<code>中文</code> / <code>English</code>，无需重启）、执行 <strong><code>检查更新</code></strong> 以及查看版本 <strong><code>更新日志</code></strong>；</li>
-<li><strong><code>工具</code></strong>：打开 <strong><code>零件库</code></strong> 管理窗口，支持将常用工件的完整参数与 DXF 齿形一键归档或回填；</li>
-<li><strong><code>关于</code></strong>：提供 <strong><code>官方网站</code></strong>、<strong><code>用户手册</code></strong> 与 <strong><code>关于我们</code></strong> 入口。</li>
-</ul>
-</li>
-<li><strong>② 左侧四大核心工作台标签页</strong><ul>
-<li><strong><code>基本参数</code></strong>：日常磨削修整计算最核心的输入面板，定义工件螺旋参数、导入 <code>DXF 齿型文件</code> 并设置砂轮直径/杆偏移范围与安装角；</li>
-<li><strong><code>高级参数</code></strong>：分为 <strong><code>初始化配置</code></strong>（滚轮半径、点密度、延长高度、圆弧拟合、特殊工艺开关）与 <strong><code>程序信息</code></strong>（13 种数控系统 <code>程序模式</code> 与修整轴定义）；</li>
-<li><strong><code>绘图工具</code></strong>：内置参数化标准齿形生成器，涵盖 <strong><code>螺纹</code></strong>（<code>三角</code> / <code>梯形</code> / <code>双圆弧</code>）、<strong><code>XY 点位文件</code></strong>、<strong><code>齿轮</code></strong>（<code>渐开线</code>）与 <strong><code>蜗杆</code></strong>（7 种包络蜗杆），底部操作按钮为 <strong><code>生成齿形文件</code></strong>；</li>
-<li><strong><code>工具箱</code></strong>：集成 6 大工程辅助与仿真校验工具（<code>最大偏移</code>、<code>滚道曲线计算</code>、<code>DXF 处理</code>、<code>曲线转换</code>、<code>曲线误差对比</code>、<code>车刀计算</code>）。</li>
-</ul>
-</li>
-<li><strong>③ 左下角主操作与授权状态区</strong><ul>
-<li>当处于 <code>基本参数</code> 或 <code>高级参数</code> 标签页时，底部主按钮显示为 <strong><code>生成代码</code></strong>（快捷键或鼠标点击触发空间包络修整计算）；</li>
-<li>当切换至 <code>绘图工具</code> 或 <code>工具箱</code> 各子标签页时，底部主按钮会<strong>自动切换</strong>为对应模块的专属执行按钮（如 <code>生成齿形文件</code>、<code>生成工件截面曲线</code>、<code>生成车刀数据</code> 等）；</li>
-<li>最下方状态栏实时显示当前加密狗或授权激活状态（如 <code>🟢 加密狗授权已激活</code>）。</li>
-</ul>
-</li>
-<li><strong>④ 右侧交互式绘图画布（Matplotlib 工具栏 + 主绘图区）</strong><ul>
-<li>顶部集成标准图形交互工具栏（复位视图、回退/前进、平移拖曳、框选局部放大、保存高清图片），鼠标在画布内移动时右上角实时显示当前十字光标的精确物理坐标 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">,</mo><mi>Y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(X, Y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span>（单位：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>mm</mtext></mrow><annotation encoding="application/x-tex">\text{mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord text"><span class="mord">mm</span></span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>）。</li>
-</ul>
-</li>
-<li><strong>⑤ 右下角多视图切换栏</strong><ul>
-<li>在执行 <code>生成代码</code> 后，右下角提供 6 个核心计算结果视图按钮：<strong><code>加载图形</code></strong>、<strong><code>间隔变化</code></strong>、<strong><code>圆弧拟合</code></strong>、<strong><code>干涉齿形</code></strong>、<strong><code>修形轮廓</code></strong>、<strong><code>模拟计算</code></strong>；</li>
-<li>当在 <code>工具箱</code> 中执行 <code>滚道曲线计算</code> 或 <code>曲线误差对比</code> 时，该区域还会动态浮现紫色的 <strong><code>误差曲线</code></strong> 专属分析按钮。</li>
-</ul>
-</li>
-</ol>
-<hr></hr>
-<h2 id="二、输入框三色视觉编码规范（核心交互约定）">二、输入框三色视觉编码规范（核心交互约定）</h2>
-<p>在 <code>基本参数</code>、<code>绘图工具</code> 与 <code>工具箱</code> 的眾多参数行中，您会看到三种不同背景颜色的输入框。这是 IGD 专为<strong>“理论标准值 + 现场工艺微调补偿”</strong>设计的视觉编码体系：</p>
-<p><img src="../images/ui_color_coding_guide.png" alt="输入框三色视觉编码体系详解"></img></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">输入框背景色</th>
-<th style="text-align:left">色值标识</th>
-<th style="text-align:left">属性定位</th>
-<th style="text-align:left">工程含义与操作规范</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>标准白色底框</strong></td>
-<td style="text-align:left"><code>#FFFFFF</code>（深色模式下为标准底色）</td>
-<td style="text-align:left"><strong>基础设计输入项</strong></td>
-<td style="text-align:left">根据产品加工图纸或机床刀具规格<strong>必填</strong>的公称几何参数（如 <code>工件中径</code>、<code>导程</code>、<code>最大砂轮直径</code>、<code>滚轮圆弧半径</code> 等）。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>青绿色底框</strong></td>
-<td style="text-align:left"><code>#6bb1aa</code></td>
-<td style="text-align:left"><strong>公差微调 / 偏置补偿项</strong></td>
-<td style="text-align:left">紧跟在基础参数右侧的<strong>增量修正框</strong>（默认值为 <code>0</code>）。用于在<strong>不破坏图纸公称参数</strong>的前提下，输入现场试磨后的角度微调量、直径磨损补偿量或变位修正量。<br></br><strong>叠加法则</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>实际生效值</mtext><mo>=</mo><mtext>左侧白底标准值</mtext><mo>+</mo><mtext>右侧青绿框微调值</mtext></mrow><annotation encoding="application/x-tex">\text{实际生效值} = \text{左侧白底标准值} + \text{右侧青绿框微调值}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">实际生效值</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord cjk_fallback">左侧白底标准值</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">右侧青绿框微调值</span></span></span></span></span>。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>蓝灰色底框</strong></td>
-<td style="text-align:left"><code>#78a6bc</code></td>
-<td style="text-align:left"><strong>正向自动计算结果 / 逆向反算输入项</strong></td>
-<td style="text-align:left">专用于 <code>绘图工具 -&gt; 螺纹 -&gt; 双圆弧</code> 面板中的圆弧半径与水平/垂直偏心参数：<br></br>• 点击 <strong><code>计算</code></strong> 时：系统由 <code>计算系数</code>、<code>钢球直径</code>、<code>接触角</code> 自动推算这 6 个参数并填入蓝灰色框；<br></br>• 点击 <strong><code>反算</code></strong> 时：允许工程师直接在蓝灰色框内填入图纸给定的圆弧半径与偏心值，逆向解算接触角与圆弧过渡。</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>现场调机最佳实践</strong>：例如在 <code>绘图工具 -&gt; 螺纹 -&gt; 梯形</code> 中，图纸要求半角为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">15^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">5</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>，但三坐标实测磨出的螺纹牙型半角偏小 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.0</mn><msup><mn>5</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">0.05^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">0.0</span><span class="mord"><span class="mord">5</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>。此时<strong>切勿修改</strong>左侧白底框中的 <code>15</code>，而应在右侧 <strong><code>#6bb1aa</code> 青绿色修正框</strong>中输入 <code>0.05</code>（或 <code>-0.05</code>）。这样既保留了图纸原始基准 <code>15</code>，又清晰记录了本次修整的工艺补偿量。</p>
-</blockquote>
-<hr></hr>
-<h2 id="三、右侧绘图画布快捷操作指南">三、右侧绘图画布快捷操作指南</h2>
-<p>右侧画布支持亚微米级局部细节放大审阅（例如放大到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.001</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">0.001\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0.001</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 级别检查齿根倒圆过渡或双圆弧交点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">X=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 处的台阶差）：</p>
+<h2 id="一、主界面五大功能分区速览">一、主界面五大功能分区速览</h2>
 <ul>
-<li><strong>框选放大（Zoom）</strong>：点击画布顶部工具栏的 <strong>放大镜图标</strong>，在画布上按住鼠标左键拖拽拉出矩形框，即可将齿顶、齿根或圆弧拟合段放大至微米级视野；</li>
-<li><strong>自由平移（Pan）</strong>：点击 <strong>十字箭头图标</strong>，按住鼠标左键拖动可平移视图；按住鼠标右键拖动可按比例缩放坐标轴；</li>
-<li><strong>一键复位（Home）</strong>：点击最左侧 <strong>房屋图标</strong>，立即恢复全景自适应比例视图；</li>
-<li><strong>高分辨率截图保存（Save）</strong>：点击 <strong>软盘图标</strong>，可将当前画布视图导出为高分辨率 <code>.png</code>、<code>.svg</code> 或 <code>.pdf</code> 矢量图，用于编制车间工艺卡。</li>
+<li><strong>① 顶部系统菜单栏</strong>：<ul>
+<li><strong><code>设置</code></strong>：支持 <code>中文</code> / <code>English</code> 实时切换（无需重启）、<code>检查更新</code> 与查看 <code>更新日志</code>。</li>
+<li><strong><code>工具</code></strong>：打开 <code>零件库</code> 独立管理窗口，实现工艺数据与 DXF 一键归档导入。</li>
+<li><strong><code>关于</code></strong>：访问官方网站、查看用户手册及当前版本信息。</li>
+</ul>
+</li>
+<li><strong>② 左侧主选项卡（四大工作台）</strong>：<ul>
+<li><strong><code>基本参数</code></strong>：定义工件螺旋面、导入目标 DXF、设定砂轮范围与安装角。</li>
+<li><strong><code>高级参数</code></strong>：分为 <code>初始化配置</code>（滚轮补偿/防过切/圆弧拟合）与 <code>程序信息</code>（数控系统模板与修整轴）。</li>
+<li><strong><code>绘图工具</code></strong>：参数化生成 <code>螺纹</code>、<code>XY 点位文件</code>、<code>齿轮</code>、<code>蜗杆</code> 标准齿形 DXF。</li>
+<li><strong><code>工具箱</code></strong>：集成 <code>最大偏移</code>、<code>滚道曲线计算</code>、<code>DXF 处理</code>、<code>曲线转换</code>、<code>曲线误差对比</code>、<code>车刀计算</code> 6 大辅助工具。</li>
+</ul>
+</li>
+<li><strong>③ 左下角主操作与状态指示区</strong>：<ul>
+<li>在 <code>基本参数</code> / <code>高级参数</code> 下，显示主操作按钮 <strong><code>生成代码</code></strong>。</li>
+<li>在 <code>绘图工具</code> / <code>工具箱</code> 各子模块下，自动联动为对应执行按钮（如 <code>生成齿形文件</code>、<code>生成工件截面曲线</code> 等）。</li>
+<li>底部状态栏实时显示当前授权状态（如 <code>🟢 加密狗授权已激活</code>）。</li>
+</ul>
+</li>
+<li><strong>④ 右侧交互式绘图画布</strong>：<ul>
+<li>顶部集成标准 Matplotlib 绘图工具栏（复位、撤销、平移拖曳、局部框选放大、高清保存图片）。</li>
+<li>画布右上角实时跟踪当前鼠标十字光标的绝对坐标 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">,</mo><mi>Y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(X, Y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span>。</li>
+</ul>
+</li>
+<li><strong>⑤ 右下角 6 大结果视图切换栏</strong>：<ul>
+<li>计算完成后，提供 <strong><code>加载图形</code></strong>、<strong><code>间隔变化</code></strong>、<strong><code>圆弧拟合</code></strong>、<strong><code>干涉齿形</code></strong>、<strong><code>修形轮廓</code></strong>、<strong><code>模拟计算</code></strong> 六大快捷视图。</li>
+<li>在 <code>滚道曲线计算</code> 与 <code>曲线误差对比</code> 中，还会自动浮现专属的紫色 <strong><code>误差曲线</code></strong> 按钮。</li>
+</ul>
+</li>
+</ul>
+<hr></hr>
+<h2 id="二、输入框三色视觉编码规范">二、输入框三色视觉编码规范</h2>
+<p>软件在参数输入框中采用了严格的<strong>三色视觉编码</strong>，帮助操作人员清晰区分“图纸设计基准”与“现场工艺补偿”：</p>
+<p><img src="../images/ui_color_coding_guide.png" alt="输入框三色视觉编码说明"></img></p>
+<ul>
+<li><strong>标准白色底框</strong>：<ul>
+<li><strong>属性</strong>：图纸公称基准值。</li>
+<li><strong>说明</strong>：直接根据零件加工图纸或砂轮物理尺寸填写的标准参数（如工件中径、导程、砂轮直径等）。</li>
+</ul>
+</li>
+<li><strong>青绿色底框（<code>#6bb1aa</code>）</strong>：<ul>
+<li><strong>属性</strong>：现场试磨公差补偿 / 磨损微调值（默认值为 <code>0</code>）。</li>
+<li><strong>计算法则</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>实际生效参数</mtext><mo>=</mo><mtext>左侧白底标准值</mtext><mo>+</mo><mtext>右侧青绿框微调值</mtext></mrow><annotation encoding="application/x-tex">\text{实际生效参数} = \text{左侧白底标准值} + \text{右侧青绿框微调值}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">实际生效参数</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord cjk_fallback">左侧白底标准值</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">右侧青绿框微调值</span></span></span></span></span>。</li>
+<li><strong>优势</strong>：试磨出现半角偏差或尺寸偏差时，直接在青绿框内输入增量修正值（如 <code>+0.03</code> 或 <code>-0.02</code>），无需涂改图纸基准值。</li>
+</ul>
+</li>
+<li><strong>蓝灰色底框（<code>#78a6bc</code>）</strong>：<ul>
+<li><strong>属性</strong>：正向自动计算结果 / 逆向反算输入项。</li>
+<li><strong>专用于</strong>：<code>绘图工具 -&gt; 螺纹 -&gt; 双圆弧</code> 中的圆弧半径与水平/垂直偏心值。</li>
+<li><strong>操作</strong>：点击 <code>计算</code> 时系统自动推导并填入；点击 <code>反算</code> 时允许工程师直接键入图纸圆弧偏心反解接触角。</li>
+</ul>
+</li>
+</ul>
+<hr></hr>
+<h2 id="三、右侧绘图画布快捷操作规范">三、右侧绘图画布快捷操作规范</h2>
+<ul>
+<li><strong>框选放大</strong>：点击顶部放大镜图标，在画布上按住鼠标左键拖动框选目标区域（例如放大至微米级视野检查齿根倒圆过渡）。</li>
+<li><strong>平移视图</strong>：点击十字方向图标，按住鼠标左键自由拖动画布。</li>
+<li><strong>一键复位</strong>：点击最左侧“主页”房屋图标，立即恢复全景自适应比例居中。</li>
+<li><strong>高分辨率存图</strong>：点击软盘图标，可将当前分析视图直接导出为 PNG、SVG 或 PDF 图档。</li>
 </ul>
 
                                 
@@ -830,7 +815,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2 主界面布局、三色输入框与画布操作","level":"1.2.2","depth":2,"next":{"title":"1.3 3 分钟快速上手：从齿形生成到 G 代码输出","level":"1.2.3","depth":2,"path":"1_getting_started/quickstart.md","ref":"1_getting_started/quickstart.md","articles":[]},"previous":{"title":"1.1 系统要求、安装与授权激活","level":"1.2.1","depth":2,"path":"1_getting_started/installation.md","ref":"1_getting_started/installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"1_getting_started/ui_overview.md","mtime":"2026-11-06T02:06:07.489Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:06:15.064Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.2 主界面布局、三色输入框与画布操作","level":"1.2.2","depth":2,"next":{"title":"1.3 3 分钟快速上手：从齿形生成到 G 代码输出","level":"1.2.3","depth":2,"path":"1_getting_started/quickstart.md","ref":"1_getting_started/quickstart.md","articles":[]},"previous":{"title":"1.1 系统要求、安装与授权激活","level":"1.2.1","depth":2,"path":"1_getting_started/installation.md","ref":"1_getting_started/installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"1_getting_started/ui_overview.md","mtime":"2026-11-06T02:41:04.718Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:41:12.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

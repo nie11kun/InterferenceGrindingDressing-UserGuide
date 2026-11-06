@@ -703,61 +703,133 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="igd-磨削修整计算软件-用户操作手册">IGD 磨削修整计算软件 用户操作手册</h1>
-<p><img src="images/cover_small.jpg" alt="软件封面"></img></p>
-<p>欢迎使用 <strong>IGD 磨削修整计算软件（Interference Grinding &amp; Dressing，v3.22.1）</strong> 官方用户操作手册。</p>
-<p><strong>IGD</strong> 是一款面向高精度内/外螺纹、滚珠丝杠副、行星滚柱丝杠、双螺杆压缩机阴阳转子、多包络精密蜗杆（ZI / ZA / ZN1 / ZC1 / ZC2 / ZC3 / ZK1）以及渐开线齿轮/花键的<strong>三维空间包络磨削干涉计算与数控修整宏程序生成软件</strong>。软件基于空间啮合包络原理，自动消除大导程或小砂轮直径工况下的曲率干涉与过切，补偿左右金刚石滚轮圆弧半径，一键生成适配 <strong>Siemens（西门子 <code>.SPF</code> / 加密 <code>.CPF</code>）</strong>、<strong>Fanuc（发那科 <code>O2010</code>）</strong> 与 <strong>Syntec（新代 <code>O2010.txt</code>）</strong> 数控系统的多砂轮直径阶梯修整宏程序。</p>
+                                <h1 id="igd-用户操作指南">IGD 用户操作指南</h1>
+<p>欢迎使用 <strong>IGD 磨削修整计算软件（Interference Grinding &amp; Dressing，v3.22.1）</strong> 官方用户操作手册！</p>
+<p>本指南面向<strong>数控螺纹磨床操作工、磨削工艺工程师、刀具设计工程师与现场调试人员</strong>，以清晰的列表、换行排版、真实工业零件数据与软件实机截图，帮助您快速掌握内/外螺纹、滚珠丝杠螺母、行星滚柱丝杠、双螺杆压缩机阴阳转子、多包络精密蜗杆（ZI / ZA / ZN1 / ZC1 / ZC2 / ZC3 / ZK1）及渐开线齿轮/花键的空间啮合包络磨削干涉消除与多砂轮直径宏程序生成全流程。</p>
 <hr></hr>
-<h2 id="核心功能矩阵">核心功能矩阵</h2>
+<h2 id="核心功能速览">核心功能速览</h2>
+<ul>
+<li><strong>三维空间螺旋面包络与干涉修正</strong><ul>
+<li>基于真实空间啮合方程，消除大导程螺纹与非对称型线在磨削过程中的曲率干涉与二次过切。</li>
+<li>支持 <code>内螺纹</code> 与 <code>外螺纹</code>（含 <code>普通砂轮</code> 外啮合与 <code>内旋风铣</code> 内包络两种拓扑构型）。</li>
+</ul>
+</li>
+<li><strong>金刚石滚轮半径法向补偿与双切圆弧高精拟合</strong><ul>
+<li>支持左右金刚石滚轮半径（<code>滚轮圆弧半径</code>）独立偏置。</li>
+<li>内置防过切安全下限保护法则（<code>齿根倒圆半径</code> 自动钳制防啃齿）。</li>
+<li>双切圆弧（Bi-arc）自适应逼近，输出平滑无折痕的 <code>G2</code>/<code>G3</code> 圆弧插补代码，法向拟合残差达亚微米级（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>1</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\le 1\ \mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>）。</li>
+</ul>
+</li>
+<li><strong>多砂轮直径阶梯数控宏程序生成（覆盖三大主流系统）</strong><ul>
+<li>支持 <code>砂轮杆偏移</code> 与 <code>砂轮直径</code> 双输入模式。</li>
+<li>根据 <code>砂轮直径间隔</code> 自动生成全寿命周期内的阶梯补偿子程序。</li>
+<li>预设 13 种 <code>程序模式</code>，直通 <strong>Siemens（.SPF / 加密 .CPF）</strong>、<strong>Fanuc（O2010）</strong> 与 <strong>Syntec 新代（O2010.txt）</strong> 系统。</li>
+</ul>
+</li>
+<li><strong>全系工业级标准齿形参数化建模（免 CAD 依赖）</strong><ul>
+<li><strong>螺纹</strong>：<code>三角</code>（米制/管螺纹/行星滚柱丝杠）、<code>梯形</code>（Tr/锯齿形）、<code>双圆弧</code>（哥特式滚珠滚道正向 <code>计算</code> 与逆向 <code>反算</code>）。</li>
+<li><strong>点表</strong>：<code>XY 点位文件</code> 支持单文件/文件夹批量转换并指定列索引。</li>
+<li><strong>齿轮</strong>：<code>渐开线</code> 齿轮与 DIN 5480 渐开线 <code>花键</code> 建模。</li>
+<li><strong>蜗杆</strong>：涵盖 <code>渐开线(ZI)</code>、<code>阿基米德(ZA)</code>、<code>齿槽法向(ZN1)</code>、<code>圆环面包络(ZC1)</code>、<code>特定交角包络(ZC2)</code>、<code>轴向圆弧齿(ZC3)</code> 与 <code>盘状锥面包络(ZK1)</code> 共 7 种包络蜗杆。</li>
+</ul>
+</li>
+<li><strong>六大工程辅助分析与车刀反求工具箱</strong><ul>
+<li><strong><code>最大偏移</code></strong>：螺母孔长、小径、接长杆直径与倾角三维空间防撞干涉分析。</li>
+<li><strong><code>滚道曲线计算</code></strong>：反演实际磨出的工件截形，评估砂轮直径与对刀公差敏感度。</li>
+<li><strong><code>DXF 处理</code></strong>：提供文件对比、点云离散化、圆弧拟合、等距偏置与基准对齐变换。</li>
+<li><strong><code>曲线转换</code></strong>：实现 <code>法向</code>、<code>轴向</code>、<code>端面(左)</code> 三维空间截面互转。</li>
+<li><strong><code>曲线误差对比</code></strong>：双曲线微米级法向偏差统计与误差梳状图生成。</li>
+<li><strong><code>车刀计算</code></strong>：针对带前角与侧倾角的成形车刀，精确求解刃口交线 DXF 与三维交互式网页报表。</li>
+</ul>
+</li>
+<li><strong>三文件自包含零件库（数据永不丢失）</strong><ul>
+<li>完整归档工程参数、源齿形 DXF 与伴随说明文本，支持五列双向排序与一键调用回填。</li>
+</ul>
+</li>
+</ul>
+<hr></hr>
+<h2 id="章节导航">章节导航</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">功能模块</th>
-<th style="text-align:left">界面导航入口</th>
-<th style="text-align:left">核心能力概述</th>
+<th style="text-align:center">章节</th>
+<th style="text-align:left">主题</th>
+<th style="text-align:left">核心内容</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong>空间干涉磨削与数控修整计算</strong></td>
-<td style="text-align:left"><code>基本参数</code> + <code>高级参数</code></td>
-<td style="text-align:left">支持 <code>内螺纹</code> 与 <code>外螺纹</code>（含 <code>普通砂轮</code> 与 <code>内旋风铣</code> 两种 <code>外螺纹模式</code>）；支持 <code>砂轮杆偏移</code> 与 <code>砂轮直径</code> 双输入模式；自动完成三维螺旋面空间包络、左右 <code>滚轮圆弧半径</code> 补偿、双切圆弧拟合（<code>拟合圆弧</code>）及 13 种数控 <code>程序模式</code> 输出</td>
+<td style="text-align:center"><strong>第 1 章</strong></td>
+<td style="text-align:left"><strong><a href="1_getting_started/">快速入门与界面导览</a></strong></td>
+<td style="text-align:left">系统环境配置、四种授权激活方式、主界面双栏布局、三色输入框编码与 3 分钟上手</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>多类型标准齿形参数化建模</strong></td>
-<td style="text-align:left"><code>绘图工具</code></td>
-<td style="text-align:left">涵盖 <code>螺纹</code>（<code>三角</code> / <code>梯形</code> / <code>双圆弧</code> 正向 <code>计算</code> 与逆向 <code>反算</code>）、<code>XY 点位文件</code>、<code>齿轮</code>（<code>渐开线</code>：<code>齿轮</code> / <code>花键</code>）与 <code>蜗杆</code>（<code>渐开线(ZI)</code>、<code>阿基米德(ZA)</code>、<code>齿槽法向(ZN1)</code>、<code>圆环面包络(ZC1)</code>、<code>特定交角包络(ZC2)</code>、<code>轴向圆弧齿(ZC3)</code>、<code>盘状锥面包络(ZK1)</code>）</td>
+<td style="text-align:center"><strong>第 2 章</strong></td>
+<td style="text-align:left"><strong><a href="2_basic_params/">基本参数：工件、齿形与砂轮定义</a></strong></td>
+<td style="text-align:left">工件螺旋几何、导程、DXF 齿型导入、<code>*-info.txt</code> 回填、砂轮范围与安装角设置</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>空间防撞与反演仿真分析</strong></td>
-<td style="text-align:left"><code>工具箱</code></td>
-<td style="text-align:left">包含 <code>最大偏移</code>（砂轮杆三维防撞仿真）、<code>滚道曲线计算</code>（已知修整砂轮反演实际磨削出的工件截面及误差）、<code>曲线转换</code>（<code>法向</code> / <code>轴向</code> / <code>端面(左)</code> 空间截面互转）与 <code>曲线误差对比</code>（亚微米级双曲线法向偏差统计）</td>
+<td style="text-align:center"><strong>第 3 章</strong></td>
+<td style="text-align:left"><strong><a href="3_advanced_params/">高级参数：初始化配置与数控程序信息</a></strong></td>
+<td style="text-align:left">滚轮圆弧半径补偿、齿根防过切、拟合圆弧、内旋风铣、转子匹配与 13 种程序模式</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>DXF 批处理与粗加工车刀设计</strong></td>
-<td style="text-align:left"><code>工具箱</code></td>
-<td style="text-align:left">包含 <code>DXF 处理</code>（<code>DXF 文件对比</code>、<code>DXF 离散化</code>、<code>DXF 拟合圆弧</code>、<code>DXF 等距线</code>、<code>DXF 变换</code>）与 <code>车刀计算</code>（考虑 <code>前角</code>、<code>侧倾角</code>、<code>侧倾角偏移</code> 的成形车刀法向刃口计算与三维交互式报表输出）</td>
+<td style="text-align:center"><strong>第 4 章</strong></td>
+<td style="text-align:left"><strong><a href="4_plots_and_outputs/">可视化交互画布与输出文件解析</a></strong></td>
+<td style="text-align:left">6 大实机计算结果视图（加载/间隔/圆弧/干涉/修形/模拟）判读与宏程序输出体系</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>企业级零件库与配置管理</strong></td>
-<td style="text-align:left"><code>工具</code> ➔ <code>零件库</code></td>
-<td style="text-align:left">支持完整加工工程参数、源齿形 DXF 与说明信息的归档管理，提供五列排序检索与一键 <code>导入</code> 回填</td>
+<td style="text-align:center"><strong>第 5 章</strong></td>
+<td style="text-align:left"><strong><a href="5_drawing_tools/">绘图工具：标准齿形与空间曲线建模</a></strong></td>
+<td style="text-align:left">三角、梯形、双圆弧正/反算、点位文件、渐开线齿轮/花键及 7 种蜗杆建模详解</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 6 章</strong></td>
+<td style="text-align:left"><strong><a href="6_toolbox_analysis/">工具箱（一）：空间校验、滚道仿真与曲线分析</a></strong></td>
+<td style="text-align:left">砂轮杆 3D 防撞最大偏移、滚道逆向反演仿真、空间截面互转与亚微米误差对比</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 7 章</strong></td>
+<td style="text-align:left"><strong><a href="7_toolbox_dxf_lathe/">工具箱（二）：DXF 曲线工程处理与车刀设计</a></strong></td>
+<td style="text-align:left">DXF 5 大子模块批处理与大导程螺纹/蜗杆粗车成形刀刃口空间交线设计</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 8 章</strong></td>
+<td style="text-align:left"><strong><a href="8_menus_and_library/">零件库管理与系统设置</a></strong></td>
+<td style="text-align:left">零件库三文件打包归档、五列表格排序导入、中英双语切换与本地配置维护</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 9 章</strong></td>
+<td style="text-align:left"><strong><a href="9_workflows_cases/">典型工程实战案例集（5 大行业标准场景）</a></strong></td>
+<td style="text-align:left">涵盖双圆弧螺母、行星丝杠、压缩机转子、ZC1 蜗杆及渐开线花键 5 大实际工业案例</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 10 章</strong></td>
+<td style="text-align:left"><strong><a href="10_troubleshooting/">常见报警排查与工程 FAQ</a></strong></td>
+<td style="text-align:left">软件弹窗报警速查字典、过切排查手册与车间现场高频调试问答</td>
 </tr>
 </tbody>
 </table>
 <hr></hr>
-<h2 id="手册章节导览">手册章节导览</h2>
+<h2 id="系统需求与技术支持">系统需求与技术支持</h2>
 <ul>
-<li><strong><a href="1_getting_started/">第 1 章 快速入门与界面导览</a></strong>：系统环境要求、四种授权激活方式（<code>加密狗</code> / <code>导入授权文件</code> / <code>硬件ID</code> / <code>账户登录</code>）、主界面双栏布局、输入框三色视觉编码规范，以及基于 <code>BNS-2020-R</code> 滚珠丝杠螺母的 3 分钟快速上手闭环。</li>
-<li><strong><a href="2_basic_params/">第 2 章 基本参数：工件、齿形与砂轮定义</a></strong>：<code>工件类型</code>、<code>螺纹旋向</code>、<code>工件中径</code>、<code>导程</code> 与自动螺旋升角计算，<code>DXF 齿型文件</code>（含 <code>*-info.txt</code> 自动关联读取）、<code>DXF 齿形类型</code>（<code>法向</code> / <code>轴向</code> / <code>端面(左)</code>）与 <code>镜像</code>，以及 <code>砂轮杆偏移</code> / <code>砂轮直径</code>、<code>砂轮直径间隔</code> 与 <code>砂轮安装角</code> 调优策略。</li>
-<li><strong><a href="3_advanced_params/">第 3 章 高级参数：初始化配置与数控程序信息</a></strong>：<code>滚轮圆弧半径</code>、<code>最终曲线点密度</code>、<code>螺旋面生成角度</code>、<code>齿高延长高度</code>、<code>齿根倒圆半径</code> 防过切钳制、<code>水平延长</code>、<code>拟合圆弧</code> 与 <code>拟合误差</code>；<code>外螺纹模式</code>（<code>普通砂轮</code> / <code>内旋风铣</code>）、<code>法向作为砂轮廓形</code>、<code>轮廓x0法向匹配齿型x0</code> 与 <code>Siemens程序加密</code>；以及 <code>程序模式</code>（<code>模式-0</code> ~ <code>模式-100</code> 共 13 种模板）完整参数矩阵。</li>
-<li><strong><a href="4_plots_and_outputs/">第 4 章 可视化交互画布与输出文件解析</a></strong>：右侧 6 大核心结果视图（<code>加载图形</code>、<code>间隔变化</code>、<code>圆弧拟合</code>、<code>干涉齿形</code>、<code>修形轮廓</code>、<code>模拟计算</code>）判读方法，以及 <code>.SPF</code> / <code>.CPF</code> / <code>O2010</code> / <code>O2010.txt</code> / <code>.dxf</code> / <code>.html</code> 等输出文件全解析。</li>
-<li><strong><a href="5_drawing_tools/">第 5 章 绘图工具：标准齿形与空间曲线建模</a></strong>：<code>螺纹</code>（<code>三角</code>、<code>梯形</code>、<code>双圆弧</code>）、<code>XY 点位文件</code>、<code>齿轮</code>（<code>渐开线</code>）与 <code>蜗杆</code>（7 种包络齿形）的数学建模参数、蓝底计算值（<code>#78a6bc</code>）与青绿修正框（<code>#6bb1aa</code>）实战指南。</li>
-<li><strong><a href="6_toolbox_analysis/">第 6 章 工具箱（一）：空间校验、滚道仿真与曲线分析</a></strong>：<code>最大偏移</code>、<code>滚道曲线计算</code>、<code>曲线转换</code> 与 <code>曲线误差对比</code> 四大仿真与精度校验工具详解。</li>
-<li><strong><a href="7_toolbox_dxf_lathe/">第 7 章 工具箱（二）：DXF 曲线工程处理与车刀设计</a></strong>：<code>DXF 处理</code> 五大子模块与 <code>车刀计算</code> 模块操作指南。</li>
-<li><strong><a href="8_menus_and_library/">第 8 章 零件库管理与系统设置</a></strong>：<code>工具 -&gt; 零件库</code> 三文件归档结构与检索导入工作流，以及顶部菜单与 <code>~/.igd</code> 本地配置体系。</li>
-<li><strong><a href="9_workflows_cases/">第 9 章 典型工程实战案例集（5 大行业标准场景）</a></strong>：涵盖内螺纹双圆弧螺母、多头行星滚柱丝杠、压缩机阴阳转子、ZC1 蜗杆磨削与车刀设计、以及渐开线花键 DXF 逆向修整 5 大工业级端到端完整案例。</li>
-<li><strong><a href="10_troubleshooting/">第 10 章 常见报警排查与工程 FAQ</a></strong>：软件弹窗报警字典、过切与轮廓跳变排查手册、以及现场常见问题速查。</li>
+<li><strong>硬件运行环境</strong>：<ul>
+<li><strong>处理器 (CPU)</strong>：Intel Core i5 / AMD Ryzen 5 及以上（推荐 4 核以上主频处理器，多线程加速空间点云迭代计算）。</li>
+<li><strong>内存 (RAM)</strong>：建议 8 GB 及以上（处理密集型转子与多档阶梯修整时推荐 16 GB）。</li>
+<li><strong>显示器</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1920</mn><mo>×</mo><mn>1080</mn></mrow><annotation encoding="application/x-tex">1920 \times 1080</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1920</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1080</span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2560</mn><mo>×</mo><mn>1440</mn></mrow><annotation encoding="application/x-tex">2560 \times 1440</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2560</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1440</span></span></span></span>，支持 Windows 高分屏 DPI 自动高清缩放。</li>
+<li><strong>接口设备</strong>：标准 USB 2.0 / 3.0 接口（使用硬件加密狗授权时）。</li>
+</ul>
+</li>
+<li><strong>操作系统支持</strong>：<ul>
+<li>Windows 10 (64-bit) / Windows 11 (64-bit)。</li>
+<li>macOS 12+（说明：<code>Siemens程序加密</code> 模块为 Windows 专用，其余核心计算模块全平台支持）。</li>
+</ul>
+</li>
+<li><strong>在线技术支持</strong>：<ul>
+<li><strong>常见问题排查</strong>：<a href="10_troubleshooting/">第 10 章 常见报警排查与工程 FAQ</a></li>
+<li><strong>官方网站与咨询</strong>：请联系对应技术支持工程师获取最新版本授权许可或机床专用定制宏程序后处理模板。</li>
+</ul>
+</li>
 </ul>
 
                                 
@@ -798,7 +870,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"软件简介与导读","level":"1.1","depth":1,"next":{"title":"第 1 章 快速入门与界面导览","level":"1.2","depth":1,"path":"1_getting_started/README.md","ref":"1_getting_started/README.md","articles":[{"title":"1.1 系统要求、安装与授权激活","level":"1.2.1","depth":2,"path":"1_getting_started/installation.md","ref":"1_getting_started/installation.md","articles":[]},{"title":"1.2 主界面布局、三色输入框与画布操作","level":"1.2.2","depth":2,"path":"1_getting_started/ui_overview.md","ref":"1_getting_started/ui_overview.md","articles":[]},{"title":"1.3 3 分钟快速上手：从齿形生成到 G 代码输出","level":"1.2.3","depth":2,"path":"1_getting_started/quickstart.md","ref":"1_getting_started/quickstart.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"README.md","mtime":"2026-11-06T02:06:07.491Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:06:15.064Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"软件简介与导读","level":"1.1","depth":1,"next":{"title":"第 1 章 快速入门与界面导览","level":"1.2","depth":1,"path":"1_getting_started/README.md","ref":"1_getting_started/README.md","articles":[{"title":"1.1 系统要求、安装与授权激活","level":"1.2.1","depth":2,"path":"1_getting_started/installation.md","ref":"1_getting_started/installation.md","articles":[]},{"title":"1.2 主界面布局、三色输入框与画布操作","level":"1.2.2","depth":2,"path":"1_getting_started/ui_overview.md","ref":"1_getting_started/ui_overview.md","articles":[]},{"title":"1.3 3 分钟快速上手：从齿形生成到 G 代码输出","level":"1.2.3","depth":2,"path":"1_getting_started/quickstart.md","ref":"1_getting_started/quickstart.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"README.md","mtime":"2026-11-06T02:41:04.720Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:41:12.708Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

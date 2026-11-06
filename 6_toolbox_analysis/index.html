@@ -706,19 +706,51 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="第-6-章-工具箱（一）：空间校验、滚道仿真与曲线分析">第 6 章 工具箱（一）：空间校验、滚道仿真与曲线分析</h1>
-<p><strong><code>工具箱</code></strong> 标签页汇集了 6 大高阶工程分析与 CAD/CAM 辅助模块。本章重点介绍其中面向<strong>内螺纹防撞空间校验</strong>、<strong>砂轮逆向包络磨削误差仿真</strong>、<strong>三维空间齿形截面互转</strong>以及<strong>双曲线亚微米级偏差统计</strong>的四大核心分析工具。</p>
+<p><strong><code>工具箱</code></strong> 集成了 6 大高阶工程分析与反求设计工具。本章重点讲解面向深孔内螺纹防撞校核、砂轮逆向包络磨削仿真、截面空间投影转换及双曲线亚微米误差对比的四大分析器。</p>
 <hr></hr>
-<h2 id="本章内容导航">本章内容导航</h2>
-<ol>
-<li><strong><a href="max_offset.html">6.1 最大偏移：内螺纹磨削砂轮杆防干涉计算与 3D 视图</a></strong>
-详解 <strong><code>工具箱 -&gt; 最大偏移</code></strong> 如何根据螺母孔长、小径、砂轮杆直径与安装角实时解算 <strong><code>理论最大偏移</code></strong>，并在右侧画布渲染三维内孔—砂轮杆空间干涉模型。</li>
-<li><strong><a href="rollpath_calc.html">6.2 滚道曲线计算：逆向包络仿真与公差敏感度验证</a></strong>
-详解 <strong><code>工具箱 -&gt; 滚道曲线计算</code></strong> 的逆向仿真原理：已知修整好的砂轮廓形，反推当机床上存在直径误差、安装角误差或砂轮杆左右偏移时实际磨出的工件滚道截面及 <strong><code>误差曲线</code></strong>。</li>
-<li><strong><a href="curve_conversion.html">6.3 曲线转换：法向、轴向与端面(左)空间齿形互转</a></strong>
-详解 <strong><code>工具箱 -&gt; 曲线转换</code></strong> 如何将任意 DXF 齿形在 <strong><code>法向</code></strong>、<strong><code>轴向</code></strong> 与 <strong><code>端面(左)</code></strong> 三种空间截面之间无损投影互转。</li>
-<li><strong><a href="error_compare.html">6.4 曲线误差对比：理论齿形与实测/拟合曲线偏差分析</a></strong>
-详解 <strong><code>工具箱 -&gt; 曲线误差对比</code></strong> 如何对 <strong><code>曲线 1 (基准)</code></strong> 与 <strong><code>曲线 2 (对比)</code></strong> 执行自动法向距离匹配、生成可视化误差矢量 DXF、输出统计报表并绘制 <strong><code>误差曲线</code></strong>。</li>
-</ol>
+<h2 id="一、最大偏移（砂轮杆-3d-防干涉计算）">一、<code>最大偏移</code>（砂轮杆 3D 防干涉计算）</h2>
+<p>面向深孔或大导程内螺纹螺母磨削，在编程前精确计算砂轮杆不撞孔口的物理极限：</p>
+<p><img src="../images/ui_tab4_max_distance.png" alt="工具箱 - 最大偏移实机截图"></img></p>
+<ul>
+<li><strong>输入参数</strong>：<code>工件加工长度</code>、<code>工件小径</code>、<code>砂轮杆直径</code>、<code>砂轮杆安装角</code>。</li>
+<li><strong>状态提示</strong>：<ul>
+<li><strong>安全状态</strong>：实时输出 <code>理论最大偏移: X.XXXX mm</code>。</li>
+<li><strong>超限报警</strong>：倾角过大导致孔口干涉时，显示 <code>安装角设置过大</code>。</li>
+</ul>
+</li>
+<li><strong>3D 交互画布</strong>：右侧实时绘制螺母内孔网格与倾斜砂轮杆实体，支持按住鼠标左键 360° 旋转检视最小间隙点。</li>
+</ul>
+<hr></hr>
+<h2 id="二、滚道曲线计算（逆向包络磨削与公差敏感度仿真）">二、<code>滚道曲线计算</code>（逆向包络磨削与公差敏感度仿真）</h2>
+<p>已知修整好的砂轮廓形，反求在不同砂轮直径、进刀深度及对刀偏差下实际磨出的工件滚道截形：</p>
+<p><img src="../images/ui_tab4_rollpath.png" alt="工具箱 - 滚道曲线计算实机截图"></img></p>
+<ul>
+<li><strong>青绿框偏差注入</strong>：<ul>
+<li>砂轮直径偏差（如砂轮磨小 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.5</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">0.5\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0.5</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 未修整时磨出的滚道变化）。</li>
+<li>砂轮杆左右对刀偏心量。</li>
+<li>径向进刀深度误差。</li>
+</ul>
+</li>
+<li><strong><code>误差曲线</code> 专属视图</strong>：计算完成后右下角激活紫色按钮，一键展示齿槽全长各点的法向过切/欠切微米级偏差。</li>
+</ul>
+<hr></hr>
+<h2 id="三、曲线转换-与-曲线误差对比">三、<code>曲线转换</code> 与 <code>曲线误差对比</code></h2>
+<p><img src="../images/ui_tab4_curve_conversion.png" alt="工具箱 - 曲线转换实机截图"></img></p>
+<ul>
+<li><strong><code>曲线转换</code></strong>：<ul>
+<li>在 <code>法向</code>、<code>轴向</code> 与 <code>端面(左)</code> 三种空间截面之间无损解析投影互转。</li>
+<li>解决蜗杆端面图转车刀法向图、轮廓仪轴向测量比对等工艺转换难题。</li>
+</ul>
+</li>
+</ul>
+<p><img src="../images/ui_tab4_error_compare.png" alt="工具箱 - 曲线误差对比实机截图"></img></p>
+<ul>
+<li><strong><code>曲线误差对比</code></strong>：<ul>
+<li>自动对齐基准曲线与对比曲线，生成微米级法向误差梳状图 DXF。</li>
+<li>输出最大误差、平均误差、RMS 误差统计文本（TXT）。</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -762,7 +794,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第 6 章 工具箱（一）：空间校验、滚道仿真与曲线分析","level":"1.7","depth":1,"next":{"title":"6.1 最大偏移：内螺纹磨削砂轮杆防干涉计算与 3D 视图","level":"1.7.1","depth":2,"path":"6_toolbox_analysis/max_offset.md","ref":"6_toolbox_analysis/max_offset.md","articles":[]},"previous":{"title":"5.5 蜗杆：7 种标准蜗杆（ZI/ZA/ZN1/ZC1/ZC2/ZC3/ZK1）建模","level":"1.6.5","depth":2,"path":"5_drawing_tools/worm_profiles.md","ref":"5_drawing_tools/worm_profiles.md","articles":[]},"articles":[{"title":"6.1 最大偏移：内螺纹磨削砂轮杆防干涉计算与 3D 视图","level":"1.7.1","depth":2,"path":"6_toolbox_analysis/max_offset.md","ref":"6_toolbox_analysis/max_offset.md","articles":[]},{"title":"6.2 滚道曲线计算：逆向包络仿真与公差敏感度验证","level":"1.7.2","depth":2,"path":"6_toolbox_analysis/rollpath_calc.md","ref":"6_toolbox_analysis/rollpath_calc.md","articles":[]},{"title":"6.3 曲线转换：法向、轴向与端面(左)空间齿形互转","level":"1.7.3","depth":2,"path":"6_toolbox_analysis/curve_conversion.md","ref":"6_toolbox_analysis/curve_conversion.md","articles":[]},{"title":"6.4 曲线误差对比：理论齿形与实测/拟合曲线偏差分析","level":"1.7.4","depth":2,"path":"6_toolbox_analysis/error_compare.md","ref":"6_toolbox_analysis/error_compare.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"6_toolbox_analysis/README.md","mtime":"2026-11-06T02:06:07.490Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:06:15.064Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第 6 章 工具箱（一）：空间校验、滚道仿真与曲线分析","level":"1.7","depth":1,"next":{"title":"6.1 最大偏移：内螺纹磨削砂轮杆防干涉计算与 3D 视图","level":"1.7.1","depth":2,"path":"6_toolbox_analysis/max_offset.md","ref":"6_toolbox_analysis/max_offset.md","articles":[]},"previous":{"title":"5.5 蜗杆：7 种标准蜗杆（ZI/ZA/ZN1/ZC1/ZC2/ZC3/ZK1）建模","level":"1.6.5","depth":2,"path":"5_drawing_tools/worm_profiles.md","ref":"5_drawing_tools/worm_profiles.md","articles":[]},"articles":[{"title":"6.1 最大偏移：内螺纹磨削砂轮杆防干涉计算与 3D 视图","level":"1.7.1","depth":2,"path":"6_toolbox_analysis/max_offset.md","ref":"6_toolbox_analysis/max_offset.md","articles":[]},{"title":"6.2 滚道曲线计算：逆向包络仿真与公差敏感度验证","level":"1.7.2","depth":2,"path":"6_toolbox_analysis/rollpath_calc.md","ref":"6_toolbox_analysis/rollpath_calc.md","articles":[]},{"title":"6.3 曲线转换：法向、轴向与端面(左)空间齿形互转","level":"1.7.3","depth":2,"path":"6_toolbox_analysis/curve_conversion.md","ref":"6_toolbox_analysis/curve_conversion.md","articles":[]},{"title":"6.4 曲线误差对比：理论齿形与实测/拟合曲线偏差分析","level":"1.7.4","depth":2,"path":"6_toolbox_analysis/error_compare.md","ref":"6_toolbox_analysis/error_compare.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"6_toolbox_analysis/README.md","mtime":"2026-11-06T02:41:04.719Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:41:12.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

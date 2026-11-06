@@ -706,83 +706,133 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="94-案例四：zc1-圆弧圆柱蜗杆精密磨削与粗车刀设计（zc1-9808）">9.4 案例四：ZC1 圆弧圆柱蜗杆精密磨削与粗车刀设计（ZC1-9808）</h1>
-<p>圆环面包络圆弧圆柱蜗杆（<strong><code>ZC1</code></strong>）因其凸凹共轭接触线性能优异、易于形成动压油膜，广泛应用于重载电梯曳引机、精密回转工作台与工业机器人关节减速器。本案例以标准工业蜗杆 <strong><code>ZC1-9808</code>（外径 98 mm、轴向模数 2.3 mm、单头右旋）</strong> 为例，演示如何在 IGD 中一次建模，同时打通<strong>“路线 A：磨床精磨砂轮修整宏程序生成”</strong>与<strong>“路线 B：数控车床粗车成形刀刃口设计”</strong>两条工艺路线！</p>
+<p>圆环面包络圆弧圆柱蜗杆（<strong><code>ZC1</code></strong>）广泛应用于电梯曳引机与精密减速机。本案例参数严格取自零件库实际工程档案（档案代号：<code>华盛昌2N225-1 ZC1</code>，工业标准脱敏代号 <strong><code>ZC1-9808</code></strong>），一次打通精磨宏程序与数控车床粗车成形刀刃口设计两条路线。</p>
 <hr></hr>
-<h2 id="一、第一步：在-绘图工具---蜗杆-中建立-zc1-9808-端面标准齿形">一、第一步：在 <code>绘图工具 -&gt; 蜗杆</code> 中建立 <code>ZC1-9808</code> 端面标准齿形</h2>
-<ol>
-<li>切换至 <strong><code>绘图工具</code></strong> ➔ <strong><code>蜗杆</code></strong> ➔ <strong><code>圆弧圆柱(ZC)</code></strong> ➔ <strong><code>圆环面包络(ZC1)</code></strong>；</li>
-<li>依次填入 <code>ZC1-9808</code> 图纸参数：<ul>
-<li><strong><code>输入模式</code></strong>：选择 <code>工件外径 (da)</code></li>
-<li><strong><code>蜗杆外径</code></strong>：输入 <code>98</code></li>
-<li><strong><code>轴向模数</code></strong>：输入 <code>2.3</code></li>
-<li><strong><code>头数</code></strong>：输入 <code>1</code></li>
-<li><strong><code>圆弧半径</code></strong>：输入 <code>9.5</code>（蜗杆齿侧母线圆弧半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mn>9.5</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\rho = 9.5\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ρ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9.5</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）</li>
-<li><strong><code>标准砂轮直径</code></strong>：输入 <code>350</code>（定义包络生成该 ZC1 蜗杆理论螺旋面的基准砂轮直径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mrow><mi>w</mi><mn>0</mn></mrow></msub><mo>=</mo><mn>350</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">D_{w0} = 350\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">350</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）</li>
-<li><strong><code>法向压力角</code></strong>：输入 <code>22.5</code>（右侧 <code>右:</code> / <code>左:</code> 青绿微调框保持 <code>0</code>）</li>
-<li><strong><code>变位系数</code></strong>：<code>0</code>；<strong><code>齿厚系数</code></strong>：<code>0.5</code>（右侧 <code>#6bb1aa</code> 青绿微调框可根据公法线或三针测量余量填入 <code>-0.0259</code>）</li>
-<li><strong><code>齿高模式</code></strong>：选择 <code>设置直径</code>，填入 <strong><code>齿顶圆直径</code></strong> = <code>98</code>、<strong><code>齿根圆直径</code></strong> = <code>86.96</code></li>
-<li><strong><code>修整延长</code></strong>：输入 <code>0.5</code></li>
-<li><strong><code>齿顶倒圆半径</code></strong>：<code>右:</code> 输入 <code>0.6</code>，<code>左:</code> 输入 <code>0.6</code></li>
-</ul>
-</li>
-<li>将 <strong><code>保存文件</code></strong> 路径设为 <code>D:/IGD_Workspace/ZC1-9808/ZC1-9808_end.dxf</code>，点击左下角 <strong><code>生成齿形文件</code></strong>。<ul>
-<li>系统生成端面齿槽曲线 <code>ZC1-9808_end.dxf</code> 及伴随文件 <code>ZC1-9808_end-info.txt</code>（自动算出分度圆中径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>93.4</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">d = 93.4\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">93.4</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>、导程 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>h</mi></msub><mo>=</mo><mi>π</mi><mo>×</mo><mn>2.3</mn><mo>×</mo><mn>1</mn><mo>=</mo><mn>7.2257</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">P_h = \pi \times 2.3 \times 1 = 7.2257\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2.3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7.2257</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>、标记 <code>DXF 齿形类型</code> = <code>端面(左)</code>）。</li>
-</ul>
-</li>
-</ol>
+<h2 id="一、真实工程参数一览表（型号：zc1-9808）">一、真实工程参数一览表（型号：<code>ZC1-9808</code>）</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数面板</th>
+<th style="text-align:left">核心参数名称</th>
+<th style="text-align:left">真实输入数值</th>
+<th style="text-align:left">工艺解析与现场设定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>绘图工具 -&gt; 蜗杆 -&gt; ZC1</code></strong></td>
+<td style="text-align:left"><code>输入模式</code> / <code>分度圆直径 (d)</code></td>
+<td style="text-align:left"><code>分度圆直径 (d)</code> / <code>98.1 mm</code></td>
+<td style="text-align:left">真实重载圆弧蜗杆节圆直径。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>轴向模数</code> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">m_x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>) / <code>头数</code> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">z_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>)</td>
+<td style="text-align:left"><code>8.5 mm</code> / <strong><code>8</code></strong></td>
+<td style="text-align:left">8 头超大模数圆弧蜗杆，导程 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mo>×</mo><mn>8.5</mn><mo>×</mo><mn>8</mn><mo>=</mo><mn>213.6283</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\pi \times 8.5 \times 8 = 213.6283\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">8.5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">213.6283</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>圆弧半径</code> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi></mrow><annotation encoding="application/x-tex">\rho</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ρ</span></span></span></span>)</td>
+<td style="text-align:left"><code>42.5 mm</code></td>
+<td style="text-align:left">ZC1 蜗杆母线圆弧半径。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>标准砂轮直径</code> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mrow><mi>w</mi><mn>0</mn></mrow></msub></mrow><annotation encoding="application/x-tex">D_{w0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>)</td>
+<td style="text-align:left"><code>500.0 mm</code></td>
+<td style="text-align:left">定义该蜗杆理论包络螺旋面的标准砂轮直径。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>法向压力角</code></td>
+<td style="text-align:left"><code>20.0°</code></td>
+<td style="text-align:left">标准压力角。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>压力角修正</code> (<code>右:</code> / <code>左:</code>)</td>
+<td style="text-align:left"><strong><code>-0.98°</code></strong> / <strong><code>-0.85°</code></strong></td>
+<td style="text-align:left">试磨左右非对称齿形角补偿。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>齿厚系数</code></td>
+<td style="text-align:left"><code>0.45</code></td>
+<td style="text-align:left">减薄控制齿侧啮合侧隙。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>齿高调节</code></td>
+<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>a</mi></msub><mo>=</mo><mn>80.0</mn><mtext>&nbsp;mm</mtext><mo separator="true">,</mo><msub><mi>d</mi><mi>f</mi></msub><mo>=</mo><mn>65.0</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">d_a=80.0\text{ mm}, d_f=65.0\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord">80.0</span><span class="mord text"><span class="mord">&nbsp;mm</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">65.0</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></td>
+<td style="text-align:left">齿顶与齿根圆直径。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>基本参数</code></strong></td>
+<td style="text-align:left"><code>工件类型</code> / <code>螺纹旋向</code></td>
+<td style="text-align:left"><code>外螺纹</code> / <code>右旋</code></td>
+<td style="text-align:left">外螺纹磨削构型。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>工件中径</code> / <code>导程</code></td>
+<td style="text-align:left"><code>98.1 mm</code> / <code>213.6283 mm</code></td>
+<td style="text-align:left">自动计算中径螺旋升角为 <strong><code>34.7285°</code></strong>。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>DXF 齿形类型</code></td>
+<td style="text-align:left"><code>端面(左)</code></td>
+<td style="text-align:left">蜗杆建模输出为端面截形。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>最大砂轮</code> / <code>最小砂轮</code></td>
+<td style="text-align:left"><code>500.0 mm</code> / <code>420.0 mm</code></td>
+<td style="text-align:left">实际磨床工作砂轮范围。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>砂轮安装角</code></td>
+<td style="text-align:left"><strong><code>34.7285°</code></strong></td>
+<td style="text-align:left">自动同步理论螺旋升角。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>高级参数</code></strong></td>
+<td style="text-align:left"><code>滚轮圆弧半径</code> (<code>右:</code> / <code>左:</code>)</td>
+<td style="text-align:left"><code>0.5 mm</code> / <code>0.5 mm</code></td>
+<td style="text-align:left">修整轮刀尖半径。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>拟合圆弧</code> / <code>拟合误差</code></td>
+<td style="text-align:left"><code>是</code> / <code>1.0 μm</code></td>
+<td style="text-align:left">输出圆弧宏程序。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>程序模式</code></td>
+<td style="text-align:left"><strong><code>模式-4</code></strong> (或 <code>模式-0</code>)</td>
+<td style="text-align:left">循环修整宏程序。</td>
+</tr>
+</tbody>
+</table>
 <hr></hr>
-<h2 id="二、路线-a：生成精磨砂轮修整宏程序（当砂轮从-∅400varnothing-400∅400-磨损至-∅300&nbsp;mmvarnothing-300text-mm∅300&nbsp;mm-时）">二、路线 A：生成精磨砂轮修整宏程序（当砂轮从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>400</mn></mrow><annotation encoding="application/x-tex">\varnothing 400</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">400</span></span></span></span> 磨损至 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>300</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 300\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">300</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 时）</h2>
-<blockquote>
-<p><strong>工程痛点</strong>：图纸规定 <code>ZC1-9808</code> 是由 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>350</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 350\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">350</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 标准砂轮包络定义的，但车间蜗杆磨床上的新砂轮直径为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>400</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 400\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">400</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>，且一直要用到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>300</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 300\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">300</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 才更换。如何保证无论砂轮是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>400</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">400\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">400</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 还是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>300</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">300\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">300</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>，磨出的蜗杆螺旋面始终与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>350</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 350\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">350</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 标准砂轮包络出的螺旋面完全一致？</p>
-</blockquote>
-<ol>
-<li>切换至 <strong><code>基本参数</code></strong> 标签页，点击 <strong><code>DXF 齿型文件</code></strong> 右侧的 <strong><code>选择文件</code></strong>，加载刚才生成的 <code>ZC1-9808_end.dxf</code>；<ul>
-<li>系统自动回填：<strong><code>工件类型</code></strong> = <code>外螺纹</code>、<strong><code>螺纹旋向</code></strong> = <code>右旋</code>、<strong><code>工件中径</code></strong> = <code>93.4</code>、<strong><code>导程</code></strong> = <code>7.2257</code>、<strong><code>DXF 齿形类型</code></strong> = <code>端面(左)</code>，并自动算出中径螺旋升角 <strong><code>1.4109°</code></strong>；</li>
+<h2 id="二、双路线工艺实操">二、双路线工艺实操</h2>
+<ul>
+<li><strong>路线 A：精磨砂轮多直径修整宏程序</strong>：<ul>
+<li>在 <code>绘图工具 -&gt; 蜗杆 -&gt; 圆弧圆柱(ZC) -&gt; 圆环面包络(ZC1)</code> 填入上述参数，点击 <code>生成齿形文件</code> 导出 <code>zc1.dxf</code>。</li>
+<li>切换至 <code>基本参数</code> 加载该文件，填入砂轮范围 <code>500</code> ~ <code>420 mm</code>。</li>
+<li>点击 <code>生成代码</code>，即可输出消除大导程干涉的数控修整程序。</li>
 </ul>
 </li>
-<li>在 <strong><code>基本参数</code></strong> 中设置实际磨床砂轮直径范围：<ul>
-<li><strong><code>最大砂轮直径</code></strong>：<code>400</code></li>
-<li><strong><code>最小砂轮直径</code></strong>：<code>300</code></li>
-<li><strong><code>砂轮直径间隔</code></strong>：<code>5</code>（每隔 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">5\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 重新计算一档包络修正廓形，共 21 档）</li>
-<li><strong><code>砂轮安装角</code></strong>：保持勾选自动同步（<code>1.4109°</code>）；</li>
+<li><strong>路线 B：数控车床粗车刀刃口反求</strong>：<ul>
+<li>切换至 <code>工具箱 -&gt; 曲线转换</code>，将 <code>zc1.dxf</code> 从 <code>端面(左)</code> 转换为 <code>法向</code> 截形 <code>zc1_normal.dxf</code>。</li>
+<li>切换至 <code>工具箱 -&gt; 车刀计算</code>，载入 <code>zc1_normal.dxf</code>，输入车刀装夹前角（<code>0°</code>）与侧倾角（<code>34.7285°</code>）。</li>
+<li>点击 <code>生成车刀数据</code>，即可导出线切割刀片用的刃口 DXF 及三维空间报告 <code>_3D.html</code>。</li>
 </ul>
 </li>
-<li>在 <strong><code>高级参数 -&gt; 初始化配置</code></strong> 中设置：<ul>
-<li><strong><code>滚轮圆弧半径</code></strong>：<code>右:</code> <code>0.5</code>，<code>左:</code> <code>0.5</code></li>
-<li><strong><code>齿高延长高度</code></strong>：<code>0.2</code>，<strong><code>内收角度</code></strong>：<code>5</code></li>
-<li><strong><code>齿根倒圆半径</code></strong>：<code>右:</code> <code>0.5</code>，<code>左:</code> <code>0.5</code></li>
-<li><strong><code>拟合圆弧</code></strong>：<code>是</code>，<strong><code>拟合误差</code></strong>：<code>1</code></li>
 </ul>
-</li>
-<li>点击左下角 <strong><code>生成代码</code></strong>：<ul>
-<li>在右下角 <strong><code>间隔变化</code></strong> 视图中可以看到：当砂轮直径为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>350</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">350\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">350</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 时，修整出的砂轮齿侧正好是纯粹的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mn>9.5</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">R9.5\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord">9.5</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 圆弧；当砂轮为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>400</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">400\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">400</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>300</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">300\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">300</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 时，软件自动对砂轮廓形进行了微米级曲率补偿，使磨出的蜗杆齿面恒定不变！</li>
-</ul>
-</li>
-</ol>
-<hr></hr>
-<h2 id="三、路线-b：通过-曲线转换--车刀计算-设计粗加工成形车刀">三、路线 B：通过 <code>曲线转换</code> + <code>车刀计算</code> 设计粗加工成形车刀</h2>
-<p>在蜗杆渗碳淬火前的数控车床开粗工序中，需要设计一把平前刀面、水平正装的成形车刀：</p>
-<ol>
-<li><strong>先将 <code>端面(左)</code> 齿形转换为 <code>法向</code> 标准齿形</strong>：<ul>
-<li>切换至 <strong><code>工具箱 -&gt; 曲线转换</code></strong>；</li>
-<li><strong><code>原始曲线类型</code></strong> 选择 <code>端面(左)</code>，<strong><code>目标曲线类型</code></strong> 选择 <strong><code>法向</code></strong>；</li>
-<li>导入 <code>ZC1-9808_end.dxf</code>（系统自动回填 <code>工件中径</code> = <code>93.4</code>、<code>导程</code> = <code>7.2257</code>）；</li>
-<li>保存路径设为 <code>D:/IGD_Workspace/ZC1-9808/ZC1-9808_normal.dxf</code>，点击左下角 <strong><code>生成曲线转换文件</code></strong>。</li>
-</ul>
-</li>
-<li><strong>若粗车需留单边 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.15</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">0.15\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0.15</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 精磨余量（可选）</strong>：<ul>
-<li>进入 <strong><code>工具箱 -&gt; DXF 处理 -&gt; DXF 等距线</code></strong>，导入 <code>ZC1-9808_normal.dxf</code>，设置 <strong><code>等距宽度</code></strong> = <code>0.15</code>、<strong><code>等距方向</code></strong> = <code>曲线内侧</code>，点击 <strong><code>生成等距线</code></strong>，得到减薄了精磨余量的粗车目标法向槽形。</li>
-</ul>
-</li>
-<li><strong>在 <code>工具箱 -&gt; 车刀计算</code> 中求解车刀刃口 DXF 与 3D 报告</strong>：<ul>
-<li>切换至 <strong><code>工具箱 -&gt; 车刀计算</code></strong>；</li>
-<li>确认 <code>工件类型</code> = <code>外螺纹</code>、<code>螺纹旋向</code> = <code>右旋</code>、<code>工件中径</code> = <code>93.4</code>、<code>导程</code> = <code>7.2257</code>；</li>
-<li>输入车刀装夹角度：<strong><code>前角</code></strong> = <code>0</code>、<strong><code>侧倾角</code></strong> = <code>0</code>（水平装刀；若刀垫倾斜 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.4</mn><msup><mn>1</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">1.41^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">1.4</span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span> 则填 <code>1.41</code>）、<strong><code>侧倾角偏移</code></strong> = <code>0</code>；</li>
-<li><strong><code>标准法向齿形文件</code></strong> 选择 <code>ZC1-9808_normal.dxf</code>，设置 <strong><code>车刀齿形保存路径</code></strong> 为 <code>D:/IGD_Workspace/ZC1-9808/ZC1-9808_lathe_tool.dxf</code>；</li>
-<li>点击左下角 <strong><code>生成车刀数据</code></strong>：直接获得线切割车刀片所需的 <code>ZC1-9808_lathe_tool.dxf</code> 与三维交互校验网页 <code>ZC1-9808_lathe_tool_3D.html</code>！</li>
-</ul>
-</li>
-</ol>
 
                                 
                                 </section>
@@ -826,7 +876,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.4 案例四：ZC1 圆弧圆柱蜗杆精密磨削与粗车刀设计（ZC1-9808）","level":"1.10.4","depth":2,"next":{"title":"9.5 案例五：渐开线花键/非标 DXF 齿形处理与圆弧拟合（SPL-60T）","level":"1.10.5","depth":2,"path":"9_workflows_cases/case5_spline_dxf_fitting.md","ref":"9_workflows_cases/case5_spline_dxf_fitting.md","articles":[]},"previous":{"title":"9.3 案例三：螺杆压缩机阴阳转子外螺纹成形磨削（SRM-300F / 301M）","level":"1.10.3","depth":2,"path":"9_workflows_cases/case3_compressor_rotor.md","ref":"9_workflows_cases/case3_compressor_rotor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"9_workflows_cases/case4_worm_and_lathe.md","mtime":"2026-11-06T02:06:07.491Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:06:15.064Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.4 案例四：ZC1 圆弧圆柱蜗杆精密磨削与粗车刀设计（ZC1-9808）","level":"1.10.4","depth":2,"next":{"title":"9.5 案例五：渐开线花键/非标 DXF 齿形处理与圆弧拟合（SPL-60T）","level":"1.10.5","depth":2,"path":"9_workflows_cases/case5_spline_dxf_fitting.md","ref":"9_workflows_cases/case5_spline_dxf_fitting.md","articles":[]},"previous":{"title":"9.3 案例三：螺杆压缩机阴阳转子外螺纹成形磨削（SRM-300F / 301M）","level":"1.10.3","depth":2,"path":"9_workflows_cases/case3_compressor_rotor.md","ref":"9_workflows_cases/case3_compressor_rotor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"9_workflows_cases/case4_worm_and_lathe.md","mtime":"2026-11-06T02:41:04.720Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:41:12.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

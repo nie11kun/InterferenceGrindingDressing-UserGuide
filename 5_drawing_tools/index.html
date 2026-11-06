@@ -706,21 +706,60 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="第-5-章-绘图工具：标准齿形与空间曲线建模">第 5 章 绘图工具：标准齿形与空间曲线建模</h1>
-<p>在无需借助外部 AutoCAD 或三维 CAD 软件的前提下，<strong>IGD</strong> 的 <strong><code>绘图工具</code></strong> 标签页内置了完备的参数化标准齿形建模引擎。所有由 <code>绘图工具</code> 点击左下角 <strong><code>生成齿形文件</code></strong> 导出的 <code>.dxf</code> 文件，不仅严格满足 <strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">Y=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 基准线位于 <code>工件中径</code></strong> 的空间包络坐标系要求，还会自动生成伴随文件 <strong><code>*-info.txt</code></strong>，供 <code>基本参数</code> 一键加载并自动回填几何参数。</p>
+<p><strong><code>绘图工具</code></strong> 标签页内置了完备的参数化几何建模引擎。点击左下角 <strong><code>生成齿形文件</code></strong> 导出的全部 <code>.dxf</code> 文件，均严格保证 <strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">Y=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 位于 <code>工件中径</code></strong>，并同步输出记录几何参数的伴随文件 <strong><code>*-info.txt</code></strong>，可被 <code>基本参数</code> 一键识别加载。</p>
 <hr></hr>
-<h2 id="本章内容导航">本章内容导航</h2>
-<ol>
-<li><strong><a href="triangle_trapezoid.html">5.1 螺纹：三角与梯形齿形生成</a></strong>
-详解 <strong><code>螺纹 -&gt; 三角</code></strong> 与 <strong><code>螺纹 -&gt; 梯形</code></strong> 齿形生成面板的参数定义、青绿色微调框（<code>#6bb1aa</code>）半角独立补偿、以及多头行星滚柱丝杠螺母（如 <code>PRS-2065-3S</code>）的建模方法。</li>
-<li><strong><a href="double_arc.html">5.2 螺纹：双圆弧（哥特式）齿形正向计算与反算</a></strong>
-深入剖析滚珠丝杠核心滚道——<strong><code>螺纹 -&gt; 双圆弧</code></strong> 的两种工作流：由钢球直径与接触角出发的<strong>正向 <code>计算</code></strong>，以及由图纸圆弧半径与偏心量出发的<strong>逆向 <code>反算</code></strong>，并讲解 <code>左右圆弧X0处高度差</code> 的工艺判据。</li>
-<li><strong><a href="xy_points_file.html">5.3 XY 点位文件导入与坐标缩放转换</a></strong>
-讲解 <strong><code>XY 点位文件</code></strong> 模块如何将三坐标测量点云或压缩机转子离散点表（单文件或文件夹批量）按指定 <strong><code>XY 数据索引号</code></strong>、<strong><code>交换 XY 数据</code></strong> 与 <strong><code>比例系数</code></strong> 转换为标准 DXF 齿形。</li>
-<li><strong><a href="gear_spline.html">5.4 齿轮：渐开线齿轮与花键齿形生成</a></strong>
-详解 <strong><code>齿轮 -&gt; 渐开线</code></strong> 面板在 <strong><code>齿轮</code></strong> 与 <strong><code>花键</code></strong> 两种 <code>渐开线类型</code> 下的建模逻辑、两种 <code>齿高模式</code>（<code>设置直径</code> vs <code>设置系数</code>）以及变位与齿厚微调。</li>
-<li><strong><a href="worm_profiles.html">5.5 蜗杆：7 种标准蜗杆（ZI/ZA/ZN1/ZC1/ZC2/ZC3/ZK1）建模</a></strong>
-全面梳理 <strong><code>蜗杆</code></strong> 标签页下 5 大类别共 <strong>7 种国家标准与行业标准蜗杆齿形</strong>（<code>渐开线(ZI)</code>、<code>阿基米德(ZA)</code>、<code>齿槽法向(ZN1)</code>、<code>圆环面包络(ZC1)</code>、<code>特定交角包络(ZC2)</code>、<code>轴向圆弧齿(ZC3)</code>、<code>盘状锥面包络(ZK1)</code>）的数学机理与参数配置。</li>
-</ol>
+<h2 id="一、双圆弧（哥特式）滚道建模模块">一、双圆弧（哥特式）滚道建模模块</h2>
+<p>专用于滚珠丝杠内螺纹螺母与外螺纹丝杠轴的哥特式滚道生成，提供正向 <code>计算</code> 与逆向 <code>反算</code> 两种工作流：</p>
+<p><img src="../images/ui_tab3_double_arc.png" alt="绘图工具 - 螺纹 - 双圆弧实机截图"></img></p>
+<ul>
+<li><strong><code>计算</code> 模式</strong>：输入 <code>计算系数</code>（<code>1.11</code>/<code>1.08</code>）、<code>钢球直径</code> 与 <code>接触角</code>（默认 <code>45°</code>），系统自动求解左右圆弧半径与偏心坐标并填入蓝灰底框（<code>#78a6bc</code>）。</li>
+<li><strong><code>反算</code> 模式</strong>：在蓝灰框中直接键入图纸给定的半径与偏心，系统逆向推算接触角与钢球规格。</li>
+<li><strong>公差微调</strong>：在蓝灰框右侧的青绿色微调框（<code>#6bb1aa</code>）中直接输入试磨补偿量（如半径补偿 <code>-0.01</code>）。</li>
+</ul>
+<hr></hr>
+<h2 id="二、三角与梯形螺纹建模模块">二、三角与梯形螺纹建模模块</h2>
+<p>用于行星滚柱丝杠内齿圈（螺母）、精密三角螺纹、梯形丝杠及锯齿形螺纹：</p>
+<p><img src="../images/ui_tab3_triangle.png" alt="绘图工具 - 螺纹 - 三角螺纹实机截图"></img></p>
+<ul>
+<li><strong>多头参数规范</strong>：严格按单牙填写 <code>工件螺距</code>，按实际头数填写 <code>工件头数</code>（系统自动按导程折算法向截面宽度）。</li>
+<li><strong>半角独立补偿</strong>：在 <code>右半角</code> 与 <code>左半角</code> 右侧均配备青绿色微调框（<code>#6bb1aa</code>），支持非对称锯齿螺纹及试磨半角修正。</li>
+</ul>
+<hr></hr>
+<h2 id="三、xy-点位文件与渐开线齿轮花键模块">三、XY 点位文件与渐开线齿轮/花键模块</h2>
+<p><img src="../images/ui_tab3_xy_points.png" alt="绘图工具 - XY 点位文件实机截图"></img></p>
+<ul>
+<li><strong><code>XY 点位文件</code></strong>：<ul>
+<li>支持单文件或文件夹批量读取离散点云。</li>
+<li><strong><code>XY 数据索引号</code></strong>：指定哪两列为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>（如 <code>01</code> 代表第 1、2 列，<code>12</code> 代表第 2、3 列）。</li>
+<li><strong><code>比例系数</code></strong>：支持公英制转换（<code>25.4</code>）或方向倒置（<code>-1</code>）。</li>
+</ul>
+</li>
+</ul>
+<p><img src="../images/ui_tab3_gear.png" alt="绘图工具 - 齿轮 - 渐开线实机截图"></img></p>
+<ul>
+<li><strong><code>齿轮 -&gt; 渐开线</code></strong>：<ul>
+<li><strong><code>渐开线类型</code></strong>：下拉切换 <code>齿轮</code> 与 <code>花键</code>（DIN 5480 标准）。</li>
+<li><strong><code>齿高模式</code></strong>：支持 <code>设置直径</code>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>a</mi></msub><mo separator="true">,</mo><msub><mi>d</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">d_a, d_f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>）与 <code>设置系数</code>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>h</mi><mi>a</mi><mo>∗</mo></msubsup><mo separator="true">,</mo><msup><mi>c</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">h_a^*, c^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9414399999999999em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>）。</li>
+<li><strong>齿厚微调</strong>：通过 <code>齿厚系数</code> 右侧的青绿框微调公法线或跨棒距。</li>
+</ul>
+</li>
+</ul>
+<hr></hr>
+<h2 id="四、蜗杆全系-7-种齿形建模模块">四、蜗杆全系 7 种齿形建模模块</h2>
+<p>涵盖国家标准与国际通用标准的 7 种圆柱蜗杆端面齿形参数化建模：</p>
+<p><img src="../images/ui_tab3_worm.png" alt="绘图工具 - 蜗杆建模实机截图"></img></p>
+<ul>
+<li><strong>类型导航</strong>：<ul>
+<li><strong><code>渐开线(ZI)</code></strong>：渐开线螺旋面精密分度蜗杆。</li>
+<li><strong><code>阿基米德(ZA)</code></strong>：轴向剖面直线齿廓蜗杆。</li>
+<li><strong><code>齿槽法向(ZN1)</code></strong>：齿槽法向直线齿廓蜗杆。</li>
+<li><strong><code>圆环面包络(ZC1)</code></strong>：盘状凸圆弧砂轮包络蜗杆（专属参数：<code>圆弧半径</code>、<code>标准砂轮直径</code>）。</li>
+<li><strong><code>特定交角包络(ZC2)</code></strong>：指定砂轮轴交角包络蜗杆。</li>
+<li><strong><code>轴向圆弧齿(ZC3)</code></strong>：轴向剖面圆弧齿形蜗杆。</li>
+<li><strong><code>盘状锥面包络(ZK1)</code></strong>：双锥面盘状砂轮包络蜗杆。</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -764,7 +803,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第 5 章 绘图工具：标准齿形与空间曲线建模","level":"1.6","depth":1,"next":{"title":"5.1 螺纹：三角与梯形齿形生成","level":"1.6.1","depth":2,"path":"5_drawing_tools/triangle_trapezoid.md","ref":"5_drawing_tools/triangle_trapezoid.md","articles":[]},"previous":{"title":"4.2 输出文件体系详解（DXF、宏程序与 HTML 报表）","level":"1.5.2","depth":2,"path":"4_plots_and_outputs/output_files.md","ref":"4_plots_and_outputs/output_files.md","articles":[]},"articles":[{"title":"5.1 螺纹：三角与梯形齿形生成","level":"1.6.1","depth":2,"path":"5_drawing_tools/triangle_trapezoid.md","ref":"5_drawing_tools/triangle_trapezoid.md","articles":[]},{"title":"5.2 螺纹：双圆弧（哥特式）齿形正向计算与反算","level":"1.6.2","depth":2,"path":"5_drawing_tools/double_arc.md","ref":"5_drawing_tools/double_arc.md","articles":[]},{"title":"5.3 XY 点位文件导入与坐标缩放转换","level":"1.6.3","depth":2,"path":"5_drawing_tools/xy_points_file.md","ref":"5_drawing_tools/xy_points_file.md","articles":[]},{"title":"5.4 齿轮：渐开线齿轮与花键齿形生成","level":"1.6.4","depth":2,"path":"5_drawing_tools/gear_spline.md","ref":"5_drawing_tools/gear_spline.md","articles":[]},{"title":"5.5 蜗杆：7 种标准蜗杆（ZI/ZA/ZN1/ZC1/ZC2/ZC3/ZK1）建模","level":"1.6.5","depth":2,"path":"5_drawing_tools/worm_profiles.md","ref":"5_drawing_tools/worm_profiles.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"5_drawing_tools/README.md","mtime":"2026-11-06T02:06:07.490Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:06:15.064Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第 5 章 绘图工具：标准齿形与空间曲线建模","level":"1.6","depth":1,"next":{"title":"5.1 螺纹：三角与梯形齿形生成","level":"1.6.1","depth":2,"path":"5_drawing_tools/triangle_trapezoid.md","ref":"5_drawing_tools/triangle_trapezoid.md","articles":[]},"previous":{"title":"4.2 输出文件体系详解（DXF、宏程序与 HTML 报表）","level":"1.5.2","depth":2,"path":"4_plots_and_outputs/output_files.md","ref":"4_plots_and_outputs/output_files.md","articles":[]},"articles":[{"title":"5.1 螺纹：三角与梯形齿形生成","level":"1.6.1","depth":2,"path":"5_drawing_tools/triangle_trapezoid.md","ref":"5_drawing_tools/triangle_trapezoid.md","articles":[]},{"title":"5.2 螺纹：双圆弧（哥特式）齿形正向计算与反算","level":"1.6.2","depth":2,"path":"5_drawing_tools/double_arc.md","ref":"5_drawing_tools/double_arc.md","articles":[]},{"title":"5.3 XY 点位文件导入与坐标缩放转换","level":"1.6.3","depth":2,"path":"5_drawing_tools/xy_points_file.md","ref":"5_drawing_tools/xy_points_file.md","articles":[]},{"title":"5.4 齿轮：渐开线齿轮与花键齿形生成","level":"1.6.4","depth":2,"path":"5_drawing_tools/gear_spline.md","ref":"5_drawing_tools/gear_spline.md","articles":[]},{"title":"5.5 蜗杆：7 种标准蜗杆（ZI/ZA/ZN1/ZC1/ZC2/ZC3/ZK1）建模","level":"1.6.5","depth":2,"path":"5_drawing_tools/worm_profiles.md","ref":"5_drawing_tools/worm_profiles.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"5_drawing_tools/README.md","mtime":"2026-11-06T02:41:04.719Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:41:12.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

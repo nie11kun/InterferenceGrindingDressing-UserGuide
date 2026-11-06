@@ -706,87 +706,38 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="81-零件库：参数归档、排序检索与一键导入">8.1 零件库：参数归档、排序检索与一键导入</h1>
-<p>点击主窗口顶部菜单栏 <strong><code>工具</code></strong> ➔ <strong><code>零件库</code></strong>，即可打开独立的 <strong>零件库（Parts Library）</strong> 管理窗口。</p>
+<p>点击主窗口顶部菜单栏 <strong><code>工具</code></strong> ➔ <strong><code>零件库</code></strong>，即可打开独立的 <strong>零件库（Parts Library）</strong> 窗口。</p>
+<p><img src="../images/ui_parts_library.png" alt="工具 -> 零件库实机运行截图"></img></p>
 <hr></hr>
-<h2 id="一、零件库-窗口布局与五列排序表格">一、<code>零件库</code> 窗口布局与五列排序表格</h2>
-<p><img src="../images/ui_parts_library.png" alt="工具 -> 零件库管理窗口与三文件自包含归档结构"></img></p>
-<p>零件库列表包含 5 个标准信息列，并支持<strong>点击任意列标题实现升序 <code>▲</code> / 降序 <code>▼</code> 快速排序</strong>：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">表格列名</th>
-<th style="text-align:left">显示内容与格式说明</th>
-<th style="text-align:center">排序功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong><code>零件名称</code></strong></td>
-<td style="text-align:left">归档时命名的唯一产品代号或图号（如 <code>BNS-2020-R</code>、<code>SRM-300F</code>、<code>ZC1-9808</code>）。</td>
-<td style="text-align:center">支持按字母/数字字典序 <code>▲</code>/<code>▼</code> 排序</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong><code>配置详情</code></strong></td>
-<td style="text-align:left">自动提取核心螺旋参数生成摘要：<code>&lt;DXF齿形类型&gt;-中径&lt;d2&gt;-导程&lt;Ph&gt;-&lt;旋向&gt;</code>（例如 <code>法向-中径20-导程20-右旋</code>）。</td>
-<td style="text-align:center">支持按配置摘要分组排序</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong><code>工件类型</code></strong></td>
-<td style="text-align:left">显示 <code>内螺纹</code> 或 <code>外螺纹</code>。</td>
-<td style="text-align:center">支持将内/外螺纹集中归类排序</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong><code>程序模式</code></strong></td>
-<td style="text-align:left">显示该零件所使用的数控宏程序模板编号（如 <code>模式-0</code>、<code>模式-1</code>、<code>模式-5</code>）。</td>
-<td style="text-align:center">支持按机床程序模板归类排序</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong><code>创建日期</code></strong></td>
-<td style="text-align:left">该零件配置的归档或最后修改时间戳（<code>YYYY-MM-DD HH:MM</code>）。</td>
-<td style="text-align:center">默认按时间排序，方便找回最近加工的工件</td>
-</tr>
-</tbody>
-</table>
+<h2 id="一、零件库五列表格与双向排序">一、零件库五列表格与双向排序</h2>
+<p>零件库支持对全部归档零件按以下 5 列进行信息展示与升降序点击排序：</p>
+<ul>
+<li><strong><code>零件名称</code></strong>：产品代号或工件图号，支持按字母/数字字典序双向排序。</li>
+<li><strong><code>配置详情</code></strong>：自动提炼的核心螺旋参数标签（格式：<code>&lt;齿形类型&gt;-中径&lt;d2&gt;-导程&lt;Ph&gt;-&lt;旋向&gt;</code>）。</li>
+<li><strong><code>工件类型</code></strong>：标示 <code>内螺纹</code> 或 <code>外螺纹</code>，方便按磨削类型集中归类。</li>
+<li><strong><code>程序模式</code></strong>：标示所使用的数控系统宏程序模板代号（如 <code>模式-0</code>、<code>模式-2</code>、<code>模式-5</code>）。</li>
+<li><strong><code>创建日期</code></strong>：参数建档或最后修改时间戳（<code>YYYY-MM-DD HH:MM</code>）。</li>
+</ul>
 <hr></hr>
-<h2 id="二、底层三文件自包含归档机制（永不丢失-dxf-关联）">二、底层“三文件自包含”归档机制（永不丢失 DXF 关联）</h2>
-<p>许多工艺软件在保存项目时只记录外部 DXF 文件的绝对路径——一旦源 DXF 文件被移动、改名或换了一台电脑，项目就会报错无法打开。</p>
-<p><strong>IGD 的 <code>零件库</code> 采用了严谨的“三文件自包含”物理归档机制</strong>：每当您在零件库中点击 <strong><code>新增</code></strong> 保存一个名为 <code>&lt;PartName&gt;</code> 的零件时，系统会在 <code>C:\Users\&lt;用户名&gt;\.igd\PartsLibrary\&lt;PartName&gt;\</code> 目录下建立独立子文件夹，并自动打包以下 3 个文件：</p>
-<ol>
-<li><strong><code>settings.json</code></strong>：完整快照记录当前主界面 <code>基本参数</code>、<code>高级参数</code>、<code>绘图工具</code> 及 <code>工具箱</code> 的全部输入框数值与开关状态；</li>
-<li><strong><code>&lt;PartName&gt;.dxf</code></strong>：自动将当前 <code>基本参数 -&gt; DXF 齿型文件</code> 所指向的源 <code>.dxf</code> 文件<strong>物理拷贝一份</strong>到该零件库子文件夹内并重命名为 <code>&lt;PartName&gt;.dxf</code>；</li>
-<li><strong><code>&lt;PartName&gt;-info.txt</code></strong>（若源 DXF 同目录存在伴随说明文件）：同步物理拷贝并重命名为 <code>&lt;PartName&gt;-info.txt</code>。</li>
-</ol>
+<h2 id="二、三文件自包含归档机制">二、三文件自包含归档机制</h2>
+<p>当在零件库中点击 <strong><code>新增</code></strong> 保存一个零件档案时，系统会在本地持久化目录 <code>~/.igd/PartsLibrary/&lt;零件名&gt;/</code> 下自动生成自包含三文件：</p>
+<ul>
+<li><strong><code>igd_config_main.json</code></strong>：完整记录当前主界面 <code>基本参数</code> 与 <code>高级参数</code> 的全部数值及状态。</li>
+<li><strong><code>igd_config_draw.json</code></strong>：完整快照记录 <code>绘图工具</code> 各子模块的参数。</li>
+<li><strong><code>igd_config_tool.json</code></strong>：完整快照记录 <code>工具箱</code> 各子模块的参数。</li>
+</ul>
 <blockquote>
-<p><strong>核心优势</strong>：即使您日后删除了桌面或 D 盘上的临时 DXF 文件，或者将整个 <code>PartsLibrary</code> 文件夹拷贝到车间另一台磨床工控机上，零件库中的每一个零件依然自带完整的 <code>.dxf</code> 齿形与全部参数，随时可一键复现！</p>
+<p><strong>数据安全保证</strong>：换用电脑或升级软件时，只需将整个 <code>~/.igd/PartsLibrary/</code> 文件夹打包复制到新工控机对应目录下，点击零件库中的 <strong><code>刷新</code></strong> 即可完整恢复，绝对不会丢失任何历史工艺参数！</p>
 </blockquote>
 <hr></hr>
-<h2 id="三、五大操作按钮功能详解">三、五大操作按钮功能详解</h2>
-<p>在零件库窗口底部，提供 5 个操作按钮（也可在表格行上点击鼠标右键呼出快捷菜单）：</p>
-<ol>
-<li><strong><code>新增</code>（将当前主界面配置归档入库）</strong>：<ul>
-<li>在主界面完成参数调试并确认计算无误后，打开 <code>零件库</code> 点击 <strong><code>新增</code></strong>；</li>
-<li>在弹出的对话框中输入唯一的 <strong><code>零件名称</code></strong>（如 <code>BNS-5250-2S</code>）并确认；</li>
-<li>系统即刻完成三文件打包归档并刷新列表。</li>
+<h2 id="三、五大操作按钮速查">三、五大操作按钮速查</h2>
+<ul>
+<li><strong><code>新增</code></strong>：以当前主界面调试好的全部参数创建一个新的零件档案。</li>
+<li><strong><code>导入</code></strong>：选中表格行后点击，一键将该零件的所有参数自动回填至主界面，可直接点击 <code>生成代码</code>。</li>
+<li><strong><code>修改</code></strong>：重命名零件或以主界面当前最新数据覆盖保存。</li>
+<li><strong><code>刷新</code></strong>：重新扫描本地零件库目录（用于加载外部手动拷贝进来的档案）。</li>
+<li><strong><code>删除</code></strong>：安全移除选中的历史零件档案。</li>
 </ul>
-</li>
-<li><strong><code>导入</code>（一键将选中零件回填至主界面）</strong>：<ul>
-<li>在表格中单击选中目标零件行（或直接<strong>双击</strong>该行），点击底部 <strong><code>导入</code></strong> 按钮；</li>
-<li>系统自动将该零件的 <code>settings.json</code> 全部参数、归档的 <code>&lt;PartName&gt;.dxf</code> 齿形路径以及 <code>程序模式</code> 完整回填至主界面，并在右下角弹出提示，您只需点击 <code>生成代码</code> 即可立即重新产出宏程序！</li>
-</ul>
-</li>
-<li><strong><code>修改</code>（重命名或以当前主界面参数覆盖更新）</strong>：<ul>
-<li>选中列表中的已有零件后点击 <strong><code>修改</code></strong>，支持修改零件名称或将主界面最新微调后的参数覆盖更新至该零件档案。</li>
-</ul>
-</li>
-<li><strong><code>刷新</code></strong>：<ul>
-<li>当您直接通过 Windows 资源管理器向 <code>~/.igd/PartsLibrary/</code> 目录手动拷入了其他同事分享的零件文件夹后，点击 <strong><code>刷新</code></strong> 即可立即重新扫描加载。</li>
-</ul>
-</li>
-<li><strong><code>删除</code></strong>：<ul>
-<li>选中不再需要的历史零件行，点击 <strong><code>删除</code></strong> 并在确认弹窗中点击“是”，即可彻底移除该零件档案文件夹。</li>
-</ul>
-</li>
-</ol>
 
                                 
                                 </section>
@@ -830,7 +781,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8.1 零件库：参数归档、排序检索与一键导入","level":"1.9.1","depth":2,"next":{"title":"8.2 顶部菜单、多语言切换、在线更新与配置管理","level":"1.9.2","depth":2,"path":"8_menus_and_library/menus_settings.md","ref":"8_menus_and_library/menus_settings.md","articles":[]},"previous":{"title":"第 8 章 零件库管理与系统设置","level":"1.9","depth":1,"path":"8_menus_and_library/README.md","ref":"8_menus_and_library/README.md","articles":[{"title":"8.1 零件库：参数归档、排序检索与一键导入","level":"1.9.1","depth":2,"path":"8_menus_and_library/parts_library.md","ref":"8_menus_and_library/parts_library.md","articles":[]},{"title":"8.2 顶部菜单、多语言切换、在线更新与配置管理","level":"1.9.2","depth":2,"path":"8_menus_and_library/menus_settings.md","ref":"8_menus_and_library/menus_settings.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"8_menus_and_library/parts_library.md","mtime":"2026-11-06T02:06:07.491Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:06:15.064Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8.1 零件库：参数归档、排序检索与一键导入","level":"1.9.1","depth":2,"next":{"title":"8.2 顶部菜单、多语言切换、在线更新与配置管理","level":"1.9.2","depth":2,"path":"8_menus_and_library/menus_settings.md","ref":"8_menus_and_library/menus_settings.md","articles":[]},"previous":{"title":"第 8 章 零件库管理与系统设置","level":"1.9","depth":1,"path":"8_menus_and_library/README.md","ref":"8_menus_and_library/README.md","articles":[{"title":"8.1 零件库：参数归档、排序检索与一键导入","level":"1.9.1","depth":2,"path":"8_menus_and_library/parts_library.md","ref":"8_menus_and_library/parts_library.md","articles":[]},{"title":"8.2 顶部菜单、多语言切换、在线更新与配置管理","level":"1.9.2","depth":2,"path":"8_menus_and_library/menus_settings.md","ref":"8_menus_and_library/menus_settings.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"8_menus_and_library/parts_library.md","mtime":"2026-11-06T02:41:04.720Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:41:12.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -706,164 +706,145 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="91-案例一：内螺纹双圆弧滚珠丝杠螺母磨削修整（bns-5250-2s）">9.1 案例一：内螺纹双圆弧滚珠丝杠螺母磨削修整（BNS-5250-2S）</h1>
-<p>内螺纹双圆弧滚珠丝杠螺母是数控机床进给轴与新能源汽车转向/制动执行器的核心元件。本案例以重载大导程双头螺母 <strong><code>BNS-5250-2S</code></strong> 为主线，同时对比微型螺母 <strong><code>BNS-0802-M</code></strong>（逆向 <code>反算</code>）与发那科系统螺母 <strong><code>BNS-2208-FN</code></strong>（<code>模式-5</code>），完整展示内螺纹滚珠螺母的工程配置全流程。</p>
+<p>内螺纹双圆弧滚珠丝杠螺母是精密传动与执行机构的核心零件。本案例数据严格源自零件库真实实际工件（档案代号：<code>五分厂GQ51.8X50</code>，工业标准脱敏代号 <strong><code>BNS-5250-2S</code></strong>），演示大导程双头螺母从双圆弧建模、防撞校核到西门子宏程序生成的完整闭环。</p>
 <hr></hr>
-<h2 id="一、三种典型滚珠螺母工业参数对比表">一、三种典型滚珠螺母工业参数对比表</h2>
+<h2 id="一、真实工程参数一览表（型号：bns-5250-2s）">一、真实工程参数一览表（型号：<code>BNS-5250-2S</code>）</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数位置</th>
-<th style="text-align:left">参数名称</th>
-<th style="text-align:left">主算例：<code>BNS-5250-2S</code><br></br><em>(重载大导程双头螺母)</em></th>
-<th style="text-align:left">扩展算例 A：<code>BNS-0802-M</code><br></br><em>(微型医疗/仪器螺母)</em></th>
-<th style="text-align:left">扩展算例 B：<code>BNS-2208-FN</code><br></br><em>(发那科系统标准螺母)</em></th>
+<th style="text-align:left">参数面板</th>
+<th style="text-align:left">核心参数名称</th>
+<th style="text-align:left">真实输入数值</th>
+<th style="text-align:left">工艺解析与现场设定</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left"><strong><code>绘图工具 -&gt; 双圆弧</code></strong></td>
-<td style="text-align:left">建模模式</td>
-<td style="text-align:left">点击 <strong><code>计算</code></strong> + <code>#6bb1aa</code> 微调</td>
-<td style="text-align:left">点击 <strong><code>反算</code></strong>（图纸给半径偏心）</td>
-<td style="text-align:left">点击 <strong><code>计算</code></strong></td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
 <td style="text-align:left"><code>计算系数</code> / <code>钢球直径</code> / <code>接触角</code></td>
-<td style="text-align:left"><code>1.08</code> / <code>9.525 mm</code> / <code>45°</code></td>
-<td style="text-align:left"><code>1.11</code> / 反算得 <code>0.8 mm</code> / <code>45°</code></td>
-<td style="text-align:left"><code>1.08</code> / <code>4.7625 mm</code> / <code>45°</code></td>
+<td style="text-align:left"><code>1.06</code> / <code>7.938 mm</code> / <code>45°</code></td>
+<td style="text-align:left">真实重载丝杠钢球公称尺寸与接触角。</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
 <td style="text-align:left"><code>右圆弧半径</code> (<code>#78a6bc</code> + <code>#6bb1aa</code>)</td>
-<td style="text-align:left"><code>5.1435</code> + <strong><code>0</code></strong></td>
-<td style="text-align:left"><strong><code>0.46</code></strong> + <code>0</code></td>
-<td style="text-align:left"><code>2.5718</code> + <code>-0.0718</code></td>
+<td style="text-align:left"><code>4.2071</code> + <strong><code>0</code></strong></td>
+<td style="text-align:left">理论计算圆弧半径。</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
-<td style="text-align:left"><code>右水平偏心</code> (<code>#78a6bc</code> + <code>#6bb1aa</code>)</td>
-<td style="text-align:left"><code>-0.2694</code> + <strong><code>0</code></strong></td>
-<td style="text-align:left"><strong><code>-0.025</code></strong> + <code>0</code></td>
-<td style="text-align:left"><code>-0.1347</code> + <code>0</code></td>
+<td style="text-align:left"><code>左圆弧半径</code> (<code>#78a6bc</code> + <code>#6bb1aa</code>)</td>
+<td style="text-align:left"><code>4.2071</code> + <strong><code>0.02</code></strong></td>
+<td style="text-align:left"><strong>现场微调</strong>：左齿侧在青绿框补偿 <code>+0.02 mm</code>。</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
-<td style="text-align:left"><code>右垂直偏心</code> (<code>#78a6bc</code> + <code>#6bb1aa</code>)</td>
-<td style="text-align:left"><code>-0.2694</code> + <strong><code>-0.0082</code></strong></td>
-<td style="text-align:left"><strong><code>-0.036</code></strong> + <code>0</code></td>
-<td style="text-align:left"><code>-0.1347</code> + <code>0</code></td>
+<td style="text-align:left"><code>水平偏心</code> (<code>右:</code> / <code>左:</code>)</td>
+<td style="text-align:left"><code>0.1684</code> / <code>0.1684</code></td>
+<td style="text-align:left">理论偏心值。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>垂直偏心</code> (<code>右:</code> / <code>左:</code> + <code>#6bb1aa</code>)</td>
+<td style="text-align:left"><code>0.1684</code> / <code>0.1684</code> (<strong><code>+0.02</code></strong>)</td>
+<td style="text-align:left"><strong>现场微调</strong>：左齿侧垂直偏心微调 <code>+0.02 mm</code>。</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
 <td style="text-align:left"><code>工件中径</code> / <code>工件大径</code></td>
-<td style="text-align:left"><code>52 mm</code> / <code>60.38 mm</code></td>
-<td style="text-align:left"><code>8.15 mm</code> / <code>8.55 mm</code></td>
-<td style="text-align:left"><code>22.7 mm</code> / <code>25.2 mm</code></td>
+<td style="text-align:left"><code>51.8 mm</code> / <code>54.0 mm</code></td>
+<td style="text-align:left">螺母内孔节圆中径与滚道槽底外径。</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
 <td style="text-align:left"><code>工件螺距</code> / <code>工件头数</code></td>
-<td style="text-align:left"><code>25 mm</code> / <strong><code>2</code></strong>（双头）</td>
-<td style="text-align:left"><code>2 mm</code> / <code>1</code></td>
-<td style="text-align:left"><code>8 mm</code> / <code>1</code></td>
+<td style="text-align:left"><code>25.0 mm</code> / <strong><code>2</code></strong></td>
+<td style="text-align:left">双头螺纹，导程 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>25</mn><mo>×</mo><mn>2</mn><mo>=</mo><mn>50.0</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">25 \times 2 = 50.0\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">25</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">50.0</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>基本参数</code></strong></td>
 <td style="text-align:left"><code>工件类型</code> / <code>螺纹旋向</code></td>
 <td style="text-align:left"><code>内螺纹</code> / <code>右旋</code></td>
-<td style="text-align:left"><code>内螺纹</code> / <code>右旋</code></td>
-<td style="text-align:left"><code>内螺纹</code> / <code>右旋</code></td>
+<td style="text-align:left">内螺纹磨削空间构型。</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
 <td style="text-align:left"><code>工件中径</code> / <code>导程</code></td>
-<td style="text-align:left"><code>52 mm</code> / <strong><code>50 mm</code></strong></td>
-<td style="text-align:left"><code>8.15 mm</code> / <code>2 mm</code></td>
-<td style="text-align:left"><code>22.7 mm</code> / <code>8 mm</code></td>
+<td style="text-align:left"><code>51.8 mm</code> / <code>50.0 mm</code></td>
+<td style="text-align:left">自动解算螺旋升角为 <strong><code>17.0652°</code></strong>。</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
-<td style="text-align:left">理论螺旋升角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span></span></span></span></td>
-<td style="text-align:left"><strong><code>17.0054°</code></strong></td>
-<td style="text-align:left"><code>4.4667°</code></td>
-<td style="text-align:left"><code>6.3980°</code></td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left"><code>输入方式</code> 及范围</td>
-<td style="text-align:left"><code>砂轮直径</code>：<code>43</code> ~ <code>35 mm</code></td>
-<td style="text-align:left"><code>砂轮杆偏移</code>：<code>0.2</code> ~ <code>1.2 mm</code></td>
-<td style="text-align:left"><code>砂轮杆偏移</code>：<code>1.5</code> ~ <code>3.5 mm</code></td>
+<td style="text-align:left"><code>输入方式</code> 与范围</td>
+<td style="text-align:left"><code>砂轮杆偏移</code>：<code>13.2</code> ~ <code>16.0 mm</code></td>
+<td style="text-align:left">对应新砂轮与报废砂轮的中心偏移极限。</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
 <td style="text-align:left"><code>砂轮直径间隔</code> / <code>砂轮安装角</code></td>
-<td style="text-align:left"><code>0.1 mm</code> / <strong><code>13.5°</code></strong> <em>(受孔深限制)</em></td>
-<td style="text-align:left"><code>0.05 mm</code> / <code>4.0°</code></td>
-<td style="text-align:left"><code>0.1 mm</code> / <code>6.0°</code></td>
+<td style="text-align:left"><code>0.1 mm</code> / <strong><code>3.5°</code></strong></td>
+<td style="text-align:left">因受螺母孔长与接长杆防撞限制，实际安装角设为 <code>3.5°</code>。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>高级参数</code></strong></td>
 <td style="text-align:left"><code>滚轮圆弧半径</code> (<code>右:</code> / <code>左:</code>)</td>
-<td style="text-align:left"><code>0.25 mm</code> / <code>0.25 mm</code></td>
-<td style="text-align:left"><code>0.1 mm</code> / <code>0.1 mm</code></td>
-<td style="text-align:left"><code>0.2 mm</code> / <code>0.2 mm</code></td>
+<td style="text-align:left"><code>0.98 mm</code> / <code>0.98 mm</code></td>
+<td style="text-align:left">金刚石滚轮实测圆弧半径。</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
 <td style="text-align:left"><code>齿高延长高度</code> / <code>内收角度</code></td>
-<td style="text-align:left"><code>0.2 mm</code> / <code>5°</code></td>
-<td style="text-align:left"><code>0.05 mm</code> / <code>3°</code></td>
-<td style="text-align:left"><code>0.1 mm</code> / <code>5°</code></td>
+<td style="text-align:left"><code>0.5 mm</code> / <code>15.0°</code></td>
+<td style="text-align:left">延长切线高度与内收角度。</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
 <td style="text-align:left"><code>齿根倒圆半径</code> (<code>右:</code> / <code>左:</code>)</td>
-<td style="text-align:left"><code>0.25 mm</code> / <code>0.25 mm</code></td>
-<td style="text-align:left"><code>0.1 mm</code> / <code>0.1 mm</code></td>
-<td style="text-align:left"><code>0.2 mm</code> / <code>0.2 mm</code></td>
+<td style="text-align:left"><code>0.98 mm</code> / <code>0.98 mm</code></td>
+<td style="text-align:left">自动匹配滚轮半径，防止齿根啃切。</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
-<td style="text-align:left"><code>拟合圆弧</code> / <code>拟合误差</code></td>
-<td style="text-align:left"><code>是</code> / <code>1</code> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>)</td>
-<td style="text-align:left"><code>是</code> / <code>1</code> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>)</td>
-<td style="text-align:left"><code>是</code> / <code>1</code> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>)</td>
+<td style="text-align:left"><code>水平延长</code> / <code>砂轮宽度</code> / <code>延长线角度</code></td>
+<td style="text-align:left"><code>是</code> / <code>5.0 mm</code> / <code>10.0°</code></td>
+<td style="text-align:left">修整砂轮端面斜坡。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>拟合圆弧</code> / <code>G3 ⇆ G2</code> / <code>拟合误差</code></td>
+<td style="text-align:left"><code>是</code> / 勾选 / <code>1.0 μm</code></td>
+<td style="text-align:left">逆向圆弧插补极性补偿与高精度逼近。</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
 <td style="text-align:left"><code>程序模式</code> &amp; 修整轴</td>
-<td style="text-align:left"><strong><code>模式-0</code></strong> (<code>W</code> / <code>U</code>, <code>负向</code>)</td>
-<td style="text-align:left"><strong><code>模式-0</code></strong> (<code>W</code> / <code>U</code>, <code>负向</code>)</td>
-<td style="text-align:left"><strong><code>模式-5</code></strong> (Fanuc <code>Z</code> / <code>X</code>, <code>正向</code>)</td>
+<td style="text-align:left"><strong><code>模式-0</code></strong> (<code>DRESSER[24]</code>, <code>Z</code>/<code>X</code>)</td>
+<td style="text-align:left">西门子数控系统标准修整子程序。</td>
 </tr>
 </tbody>
 </table>
 <hr></hr>
-<h2 id="二、主算例-bns-5250-2s-端到端实操步骤">二、主算例 <code>BNS-5250-2S</code> 端到端实操步骤</h2>
-<h3 id="步骤-1：双头双圆弧齿形生成与垂直偏心微调">步骤 1：双头双圆弧齿形生成与垂直偏心微调</h3>
-<ol>
-<li>进入 <strong><code>绘图工具 -&gt; 螺纹 -&gt; 双圆弧</code></strong>，选择 <code>计算系数</code> = <code>1.08</code>，填入 <code>钢球直径</code> = <code>9.525</code>、<code>接触角</code> = <code>45</code>，点击 <strong><code>计算</code></strong>；</li>
-<li>蓝灰色框（<code>#78a6bc</code>）自动生成理论值：<code>右圆弧半径</code> = <code>5.1435</code>、<code>右水平偏心</code> = <code>-0.2694</code>、<code>右垂直偏心</code> = <code>-0.2694</code>；</li>
-<li>根据试磨工艺要求，将 <code>右垂直偏心</code> 与 <code>左垂直偏心</code> 右侧的 <strong><code>#6bb1aa</code> 青绿色微调框</strong> 各填入 <strong><code>-0.0082</code></strong>；</li>
-<li>填入 <code>工件中径</code> = <code>52</code>、<code>工件大径</code> = <code>60.38</code>、<code>工件螺距</code> = <code>25</code>、<code>工件头数</code> = <strong><code>2</code></strong>（注意：双头螺纹导程为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>25</mn><mo>×</mo><mn>2</mn><mo>=</mo><mn>50</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">25 \times 2 = 50\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">25</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">50</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）；</li>
-<li>保存路径设为 <code>D:/IGD_Workspace/BNS-5250-2S/BNS-5250-2S.dxf</code>，点击 <strong><code>生成齿形文件</code></strong>。</li>
-</ol>
-<h3 id="步骤-2：在-工具箱---最大偏移-中校核防撞安装角">步骤 2：在 <code>工具箱 -&gt; 最大偏移</code> 中校核防撞安装角</h3>
-<ol>
-<li>切换至 <strong><code>工具箱 -&gt; 最大偏移</code></strong>，输入螺母孔长 <code>工件加工长度</code> = <code>115</code>、螺母内孔 <code>工件小径</code> = <code>49.5</code>、<code>砂轮杆直径</code> = <code>30</code>；</li>
-<li>测试发现若按理论螺旋升角 <code>17.0°</code> 倾斜，砂轮杆最大偏移裕度不足；将 <code>砂轮杆安装角</code> 调至 <strong><code>13.5°</code></strong> 时，<code>理论最大偏移</code> 达 <code>5.82 mm</code>，满足 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>35</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 35\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">35</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 最小砂轮切入深度要求。</li>
-</ol>
-<h3 id="步骤-3：配置-基本参数-与-高级参数-并生成西门子宏程序">步骤 3：配置 <code>基本参数</code> 与 <code>高级参数</code> 并生成西门子宏程序</h3>
-<ol>
-<li>切换至 <strong><code>高级参数 -&gt; 初始化配置</code></strong>，将 <strong><code>输入方式</code></strong> 设为 <strong><code>砂轮直径</code></strong>，左右 <strong><code>滚轮圆弧半径</code></strong> 设为 <code>0.25</code>，左右 <strong><code>齿根倒圆半径</code></strong> 设为 <code>0.25</code>；</li>
-<li>切换至 <strong><code>基本参数</code></strong>，加载 <code>BNS-5250-2S.dxf</code>（系统自动回填 <code>工件中径</code> = <code>52</code>、<code>导程</code> = <code>50</code>）；</li>
-<li>填入 <strong><code>最大砂轮直径</code></strong> = <code>43</code>、<strong><code>最小砂轮直径</code></strong> = <code>35</code>、<strong><code>砂轮直径间隔</code></strong> = <code>0.1</code>；</li>
-<li><strong>关键一步</strong>：取消勾选 <code>砂轮安装角</code> 右侧同步复选框，手动填入步骤 2 校核确定的实际倾角 <strong><code>13.5</code></strong>；</li>
-<li>点击左下角 <strong><code>生成代码</code></strong>。在右下角 <strong><code>干涉齿形</code></strong> 与 <strong><code>圆弧拟合</code></strong> 视图中可见：软件已精准补偿了 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>17.005</mn><msup><mn>4</mn><mo>∘</mo></msup><mo>−</mo><mn>13.</mn><msup><mn>5</mn><mo>∘</mo></msup><mo>=</mo><mn>3.505</mn><msup><mn>4</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">17.0054^\circ - 13.5^\circ = 3.5054^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.757445em;vertical-align:-0.08333em;"></span><span class="mord">17.005</span><span class="mord"><span class="mord">4</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">13.</span><span class="mord"><span class="mord">5</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">3.505</span><span class="mord"><span class="mord">4</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span> 安装角差引起的空间曲率干涉，拟合残差严格小于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">1\ \mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>！</li>
-</ol>
+<h2 id="二、关键操作步骤">二、关键操作步骤</h2>
+<ul>
+<li><strong>第 1 步：双圆弧建模与非对称微调</strong>：<ul>
+<li>打开 <code>绘图工具 -&gt; 螺纹 -&gt; 双圆弧</code>，填入计算系数 <code>1.06</code>、钢球 <code>7.938</code>、接触角 <code>45</code>，点击 <code>计算</code>。</li>
+<li>在左圆弧半径青绿框填 <code>0.02</code>、左垂直偏心青绿框填 <code>0.02</code>。</li>
+<li>填入中径 <code>51.8</code>、大径 <code>54.0</code>、螺距 <code>25</code>、头数 <code>2</code>，点击 <code>生成齿形文件</code>。</li>
+</ul>
+</li>
+<li><strong>第 2 步：载入基本参数并生成宏程序</strong>：<ul>
+<li>切换至 <code>基本参数</code>，载入生成的 DXF 齿形（自动回填中径 <code>51.8</code> 与导程 <code>50.0</code>）。</li>
+<li>设置砂轮杆偏移 <code>13.2</code> ~ <code>16.0 mm</code>、安装角 <code>3.5°</code>、间隔 <code>0.1 mm</code>。</li>
+<li>在 <code>高级参数</code> 中核对滚轮半径 <code>0.98 mm</code> 与西门子 <code>模式-0</code>。</li>
+<li>点击 <code>生成代码</code>，耗时约 3~5 秒完成多直径空间啮合迭代计算。</li>
+</ul>
+</li>
+<li><strong>第 3 步：右侧 6 大结果视图逐项验收</strong>：<ul>
+<li>点击 <code>圆弧拟合</code> 确认拟合残差稳定控制在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>±</mo><mn>1</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\pm 1\ \mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">±</span><span class="mord">1</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span> 内。</li>
+<li>点击 <code>修形轮廓</code> 与 <code>模拟计算</code> 确认多档阶梯走刀路径平整无误。</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -907,7 +888,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.1 案例一：内螺纹双圆弧滚珠丝杠螺母磨削修整（BNS-5250-2S）","level":"1.10.1","depth":2,"next":{"title":"9.2 案例二：多头行星滚柱丝杠内螺纹磨削修整（PRS-2065-3S）","level":"1.10.2","depth":2,"path":"9_workflows_cases/case2_planetary_triangle.md","ref":"9_workflows_cases/case2_planetary_triangle.md","articles":[]},"previous":{"title":"第 9 章 典型工程实战案例集（5 大行业标准场景）","level":"1.10","depth":1,"path":"9_workflows_cases/README.md","ref":"9_workflows_cases/README.md","articles":[{"title":"9.1 案例一：内螺纹双圆弧滚珠丝杠螺母磨削修整（BNS-5250-2S）","level":"1.10.1","depth":2,"path":"9_workflows_cases/case1_double_arc_nut.md","ref":"9_workflows_cases/case1_double_arc_nut.md","articles":[]},{"title":"9.2 案例二：多头行星滚柱丝杠内螺纹磨削修整（PRS-2065-3S）","level":"1.10.2","depth":2,"path":"9_workflows_cases/case2_planetary_triangle.md","ref":"9_workflows_cases/case2_planetary_triangle.md","articles":[]},{"title":"9.3 案例三：螺杆压缩机阴阳转子外螺纹成形磨削（SRM-300F / 301M）","level":"1.10.3","depth":2,"path":"9_workflows_cases/case3_compressor_rotor.md","ref":"9_workflows_cases/case3_compressor_rotor.md","articles":[]},{"title":"9.4 案例四：ZC1 圆弧圆柱蜗杆精密磨削与粗车刀设计（ZC1-9808）","level":"1.10.4","depth":2,"path":"9_workflows_cases/case4_worm_and_lathe.md","ref":"9_workflows_cases/case4_worm_and_lathe.md","articles":[]},{"title":"9.5 案例五：渐开线花键/非标 DXF 齿形处理与圆弧拟合（SPL-60T）","level":"1.10.5","depth":2,"path":"9_workflows_cases/case5_spline_dxf_fitting.md","ref":"9_workflows_cases/case5_spline_dxf_fitting.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"9_workflows_cases/case1_double_arc_nut.md","mtime":"2026-11-06T02:06:07.491Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:06:15.064Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.1 案例一：内螺纹双圆弧滚珠丝杠螺母磨削修整（BNS-5250-2S）","level":"1.10.1","depth":2,"next":{"title":"9.2 案例二：多头行星滚柱丝杠内螺纹磨削修整（PRS-2065-3S）","level":"1.10.2","depth":2,"path":"9_workflows_cases/case2_planetary_triangle.md","ref":"9_workflows_cases/case2_planetary_triangle.md","articles":[]},"previous":{"title":"第 9 章 典型工程实战案例集（5 大行业标准场景）","level":"1.10","depth":1,"path":"9_workflows_cases/README.md","ref":"9_workflows_cases/README.md","articles":[{"title":"9.1 案例一：内螺纹双圆弧滚珠丝杠螺母磨削修整（BNS-5250-2S）","level":"1.10.1","depth":2,"path":"9_workflows_cases/case1_double_arc_nut.md","ref":"9_workflows_cases/case1_double_arc_nut.md","articles":[]},{"title":"9.2 案例二：多头行星滚柱丝杠内螺纹磨削修整（PRS-2065-3S）","level":"1.10.2","depth":2,"path":"9_workflows_cases/case2_planetary_triangle.md","ref":"9_workflows_cases/case2_planetary_triangle.md","articles":[]},{"title":"9.3 案例三：螺杆压缩机阴阳转子外螺纹成形磨削（SRM-300F / 301M）","level":"1.10.3","depth":2,"path":"9_workflows_cases/case3_compressor_rotor.md","ref":"9_workflows_cases/case3_compressor_rotor.md","articles":[]},{"title":"9.4 案例四：ZC1 圆弧圆柱蜗杆精密磨削与粗车刀设计（ZC1-9808）","level":"1.10.4","depth":2,"path":"9_workflows_cases/case4_worm_and_lathe.md","ref":"9_workflows_cases/case4_worm_and_lathe.md","articles":[]},{"title":"9.5 案例五：渐开线花键/非标 DXF 齿形处理与圆弧拟合（SPL-60T）","level":"1.10.5","depth":2,"path":"9_workflows_cases/case5_spline_dxf_fitting.md","ref":"9_workflows_cases/case5_spline_dxf_fitting.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"9_workflows_cases/case1_double_arc_nut.md","mtime":"2026-11-06T02:41:04.720Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:41:12.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
