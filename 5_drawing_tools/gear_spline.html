@@ -1,0 +1,915 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <title>5.4 齿轮：渐开线齿轮与花键齿形生成 · Interference Grinding Dressing User Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.1.7">
+        <meta name="author" content="Nie Kun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/honkit-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="worm_profiles.html" />
+    
+    
+    <link rel="prev" href="xy_points_file.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    软件简介与导读
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../1_getting_started/">
+            
+                <a href="../1_getting_started/">
+            
+                    
+                    第 1 章 快速入门与界面导览
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../1_getting_started/installation.html">
+            
+                <a href="../1_getting_started/installation.html">
+            
+                    
+                    1.1 系统要求、安装与授权激活
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../1_getting_started/ui_overview.html">
+            
+                <a href="../1_getting_started/ui_overview.html">
+            
+                    
+                    1.2 主界面布局、三色输入框与画布操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../1_getting_started/quickstart.html">
+            
+                <a href="../1_getting_started/quickstart.html">
+            
+                    
+                    1.3 3 分钟快速上手：从齿形生成到 G 代码输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../2_basic_params/">
+            
+                <a href="../2_basic_params/">
+            
+                    
+                    第 2 章 基本参数：工件、齿形与砂轮定义
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2_basic_params/workpiece_params.html">
+            
+                <a href="../2_basic_params/workpiece_params.html">
+            
+                    
+                    2.1 工件几何与螺旋方向
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../2_basic_params/dxf_import.html">
+            
+                <a href="../2_basic_params/dxf_import.html">
+            
+                    
+                    2.2 DXF 齿型文件导入、齿形类型与镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../2_basic_params/grinding_params.html">
+            
+                <a href="../2_basic_params/grinding_params.html">
+            
+                    
+                    2.3 砂轮直径/杆偏移范围、间隔与安装角
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../3_advanced_params/">
+            
+                <a href="../3_advanced_params/">
+            
+                    
+                    第 3 章 高级参数：初始化配置与数控程序信息
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../3_advanced_params/init_config.html">
+            
+                <a href="../3_advanced_params/init_config.html">
+            
+                    
+                    3.1 初始化配置：滚轮补偿、齿根延长与圆弧拟合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../3_advanced_params/special_modes.html">
+            
+                <a href="../3_advanced_params/special_modes.html">
+            
+                    
+                    3.2 特殊工艺开关：内旋风铣、转子匹配与程序加密
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../3_advanced_params/program_modes.html">
+            
+                <a href="../3_advanced_params/program_modes.html">
+            
+                    
+                    3.3 程序信息：程序模式（模式-0 ~ 模式-100）与修整轴配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../4_plots_and_outputs/">
+            
+                <a href="../4_plots_and_outputs/">
+            
+                    
+                    第 4 章 可视化交互画布与输出文件解析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../4_plots_and_outputs/canvas_views.html">
+            
+                <a href="../4_plots_and_outputs/canvas_views.html">
+            
+                    
+                    4.1 右侧交互画布与 6 大计算结果视图详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../4_plots_and_outputs/output_files.html">
+            
+                <a href="../4_plots_and_outputs/output_files.html">
+            
+                    
+                    4.2 输出文件体系详解（DXF、宏程序与 HTML 报表）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第 5 章 绘图工具：标准齿形与空间曲线建模
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="triangle_trapezoid.html">
+            
+                <a href="triangle_trapezoid.html">
+            
+                    
+                    5.1 螺纹：三角与梯形齿形生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="double_arc.html">
+            
+                <a href="double_arc.html">
+            
+                    
+                    5.2 螺纹：双圆弧（哥特式）齿形正向计算与反算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="xy_points_file.html">
+            
+                <a href="xy_points_file.html">
+            
+                    
+                    5.3 XY 点位文件导入与坐标缩放转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.4" data-path="gear_spline.html">
+            
+                <a href="gear_spline.html">
+            
+                    
+                    5.4 齿轮：渐开线齿轮与花键齿形生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="worm_profiles.html">
+            
+                <a href="worm_profiles.html">
+            
+                    
+                    5.5 蜗杆：7 种标准蜗杆（ZI/ZA/ZN1/ZC1/ZC2/ZC3/ZK1）建模
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../6_toolbox_analysis/">
+            
+                <a href="../6_toolbox_analysis/">
+            
+                    
+                    第 6 章 工具箱（一）：空间校验、滚道仿真与曲线分析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../6_toolbox_analysis/max_offset.html">
+            
+                <a href="../6_toolbox_analysis/max_offset.html">
+            
+                    
+                    6.1 最大偏移：内螺纹磨削砂轮杆防干涉计算与 3D 视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../6_toolbox_analysis/rollpath_calc.html">
+            
+                <a href="../6_toolbox_analysis/rollpath_calc.html">
+            
+                    
+                    6.2 滚道曲线计算：逆向包络仿真与公差敏感度验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../6_toolbox_analysis/curve_conversion.html">
+            
+                <a href="../6_toolbox_analysis/curve_conversion.html">
+            
+                    
+                    6.3 曲线转换：法向、轴向与端面(左)空间齿形互转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../6_toolbox_analysis/error_compare.html">
+            
+                <a href="../6_toolbox_analysis/error_compare.html">
+            
+                    
+                    6.4 曲线误差对比：理论齿形与实测/拟合曲线偏差分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../7_toolbox_dxf_lathe/">
+            
+                <a href="../7_toolbox_dxf_lathe/">
+            
+                    
+                    第 7 章 工具箱（二）：DXF 曲线工程处理与车刀设计
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../7_toolbox_dxf_lathe/dxf_process.html">
+            
+                <a href="../7_toolbox_dxf_lathe/dxf_process.html">
+            
+                    
+                    7.1 DXF 处理：文件对比、离散化、拟合圆弧、等距线与变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../7_toolbox_dxf_lathe/lathe_tool_calc.html">
+            
+                <a href="../7_toolbox_dxf_lathe/lathe_tool_calc.html">
+            
+                    
+                    7.2 车刀计算：大导程螺纹/蜗杆粗加工成形车刀刃口设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../8_menus_and_library/">
+            
+                <a href="../8_menus_and_library/">
+            
+                    
+                    第 8 章 零件库管理与系统设置
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../8_menus_and_library/parts_library.html">
+            
+                <a href="../8_menus_and_library/parts_library.html">
+            
+                    
+                    8.1 零件库：参数归档、排序检索与一键导入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../8_menus_and_library/menus_settings.html">
+            
+                <a href="../8_menus_and_library/menus_settings.html">
+            
+                    
+                    8.2 顶部菜单、多语言切换、在线更新与配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../9_workflows_cases/">
+            
+                <a href="../9_workflows_cases/">
+            
+                    
+                    第 9 章 典型工程实战案例集（5 大行业标准场景）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../9_workflows_cases/case1_double_arc_nut.html">
+            
+                <a href="../9_workflows_cases/case1_double_arc_nut.html">
+            
+                    
+                    9.1 案例一：内螺纹双圆弧滚珠丝杠螺母磨削修整（BNS-5250-2S）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../9_workflows_cases/case2_planetary_triangle.html">
+            
+                <a href="../9_workflows_cases/case2_planetary_triangle.html">
+            
+                    
+                    9.2 案例二：多头行星滚柱丝杠内螺纹磨削修整（PRS-2065-3S）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../9_workflows_cases/case3_compressor_rotor.html">
+            
+                <a href="../9_workflows_cases/case3_compressor_rotor.html">
+            
+                    
+                    9.3 案例三：螺杆压缩机阴阳转子外螺纹成形磨削（SRM-300F / 301M）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../9_workflows_cases/case4_worm_and_lathe.html">
+            
+                <a href="../9_workflows_cases/case4_worm_and_lathe.html">
+            
+                    
+                    9.4 案例四：ZC1 圆弧圆柱蜗杆精密磨削与粗车刀设计（ZC1-9808）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../9_workflows_cases/case5_spline_dxf_fitting.html">
+            
+                <a href="../9_workflows_cases/case5_spline_dxf_fitting.html">
+            
+                    
+                    9.5 案例五：渐开线花键/非标 DXF 齿形处理与圆弧拟合（SPL-60T）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../10_troubleshooting/">
+            
+                <a href="../10_troubleshooting/">
+            
+                    
+                    第 10 章 常见报警排查与工程 FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            本书使用 HonKit 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >5.4 齿轮：渐开线齿轮与花键齿形生成</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="54-齿轮：渐开线齿轮与花键齿形生成">5.4 齿轮：渐开线齿轮与花键齿形生成</h1>
+<p>切换至 <strong><code>绘图工具 -&gt; 齿轮 -&gt; 渐开线</code></strong>，该模块用于参数化生成标准或变位<strong>渐开线直齿/斜齿轮</strong>以及<strong>渐开线花键</strong>（如 <code>SPL-60T</code>）的精确端面齿槽曲线 DXF。</p>
+<hr></hr>
+<h2 id="一、渐开线类型（齿轮-vs-花键）与-齿高模式">一、<code>渐开线类型</code>（<code>齿轮</code> vs <code>花键</code>）与 <code>齿高模式</code></h2>
+<p><img src="../images/draw_gear_spline_involute.png" alt="渐开线齿轮与花键参数化建模及齿高模式对比"></img></p>
+<h3 id="1-渐开线类型-切换逻辑">1. <code>渐开线类型</code> 切换逻辑</h3>
+<ul>
+<li><strong><code>齿轮</code></strong>（默认）：
+面向圆柱直齿轮与斜齿轮成形磨削，开放 <strong><code>齿高模式</code></strong> 下拉框（支持按 <strong><code>设置直径</code></strong> 或 <strong><code>设置系数</code></strong> 两种方式定义齿顶与齿根高度）；</li>
+<li><strong><code>花键</code></strong>：
+面向 DIN 5480 / GB/T 3478 等渐开线花键轴成形磨削（如 60 齿花键 <code>SPL-60T</code>）。切换为 <strong><code>花键</code></strong> 时，系统自动隐藏 <code>齿高模式</code> 下拉框，固定采用工程图纸最直观的 <strong><code>齿顶圆直径</code></strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">d_a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>) 与 <strong><code>齿根圆直径</code></strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">d_f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>) 直接控制齿槽上下边界。</li>
+</ul>
+<h3 id="2-两种-齿高模式（当-渐开线类型--齿轮-时）">2. 两种 <code>齿高模式</code>（当 <code>渐开线类型</code> = <code>齿轮</code> 时）</h3>
+<ul>
+<li><strong><code>设置直径</code></strong>：在下方 <code>齿高调节</code> 区域直接输入 <strong><code>齿顶圆直径</code></strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">d_a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>) 与 <strong><code>齿根圆直径</code></strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">d_f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>)；</li>
+<li><strong><code>设置系数</code></strong>：在下方 <code>齿高调节</code> 区域输入标准无量纲系数——<strong><code>齿顶高系数</code></strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>h</mi><mi>a</mi><mo>∗</mo></msubsup></mrow><annotation encoding="application/x-tex">h_a^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9414399999999999em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span>，标准值 <code>1.0</code>) 与 <strong><code>顶隙系数</code></strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>c</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">c^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.688696em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>，标准值 <code>0.25</code>)，系统自动根据法向模数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">m_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>、齿数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span>、螺旋角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span> 与变位系数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">x_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 推算齿顶圆与齿根圆直径。</li>
+</ul>
+<hr></hr>
+<h2 id="二、全参数明细与青绿色微调框（6bb1aa）用法">二、全参数明细与青绿色微调框（<code>#6bb1aa</code>）用法</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数名称</th>
+<th style="text-align:left">单位</th>
+<th style="text-align:left">工程含义与配置说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>渐开线类型</code></strong></td>
+<td style="text-align:left">选项</td>
+<td style="text-align:left">下拉选择 <strong><code>齿轮</code></strong> 或 <strong><code>花键</code></strong>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>法向模数</code></strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">m_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>)</td>
+<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>mm</mtext></mrow><annotation encoding="application/x-tex">\text{mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord text"><span class="mord">mm</span></span></span></span></span></td>
+<td style="text-align:left">齿轮或花键的法向模数（必须 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">&gt; 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>齿数</code></strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span>)</td>
+<td style="text-align:left">正整数</td>
+<td style="text-align:left">工件总齿数（如 <code>SPL-60T</code> 填 <code>60</code>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>法向压力角</code></strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">\alpha_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>) + <code>右:</code>/<code>左:</code> <code>#6bb1aa</code></td>
+<td style="text-align:left"><code>∘^\circ∘</code></td>
+<td style="text-align:left">白底主框输入标准法向压力角（齿轮常取 <code>20</code>，花键常取 <code>30</code> 或 <code>37.5</code>）；右侧两个 <strong><code>#6bb1aa</code> 青绿色微调框</strong>分别用于对<strong>右齿面</strong>与<strong>左齿面</strong>压力角进行独立微调补偿（消除齿形角偏差）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>螺旋角</code></strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span>) + <strong><code>螺纹旋向</code></strong></td>
+<td style="text-align:left"><code>∘^\circ∘</code></td>
+<td style="text-align:left">分度圆螺旋角（直齿/直花键填 <strong><code>0</code></strong>；斜齿轮填入实际螺旋角并选择 <code>右旋</code> 或 <code>左旋</code>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>变位系数</code></strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">x_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>) + <code>#6bb1aa</code> 修正框</td>
+<td style="text-align:left">无量纲</td>
+<td style="text-align:left">白底主框填图纸设计法向变位系数（标准无变位填 <code>0</code>）；右侧 <code>#6bb1aa</code> 框用于现场磨削深度微调。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>齿厚系数</code></strong> + <code>#6bb1aa</code> 修正框</td>
+<td style="text-align:left">无量纲</td>
+<td style="text-align:left">定义分度圆处弧齿厚与齿距的比值（标准对分齿厚填 <strong><code>0.5</code></strong>）；当需要通过减薄/加厚砂轮来直接调整公法线长度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">W_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 或跨棒距 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span> 值时，直接在右侧 <strong><code>#6bb1aa</code> 青绿色框</strong>中输入微调量！</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>齿高调节</code></strong></td>
+<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>mm</mtext></mrow><annotation encoding="application/x-tex">\text{mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord text"><span class="mord">mm</span></span></span></span></span> 或系数</td>
+<td style="text-align:left">输入 <strong><code>齿顶圆直径</code></strong> / <strong><code>齿根圆直径</code></strong>（或 <strong><code>齿顶高系数</code></strong> / <strong><code>顶隙系数</code></strong>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>修整延长</code></strong></td>
+<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>mm</mtext></mrow><annotation encoding="application/x-tex">\text{mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord text"><span class="mord">mm</span></span></span></span></span></td>
+<td style="text-align:left">齿顶圆以外向上延伸的修整余量高度（默认 <code>0</code> ~ <code>0.5 mm</code>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>齿顶倒圆半径</code></strong> (<code>右:</code> / <code>左:</code>)</td>
+<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>mm</mtext></mrow><annotation encoding="application/x-tex">\text{mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord text"><span class="mord">mm</span></span></span></span></span></td>
+<td style="text-align:left">生成的砂轮齿顶（即对应工件齿槽根部）左右过渡圆角半径。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>保存文件</code></strong> + <strong><code>选择文件</code></strong></td>
+<td style="text-align:left">路径</td>
+<td style="text-align:left">指定输出的端面齿形 <code>.dxf</code> 保存路径。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>与 <code>基本参数</code> 的联动提示</strong>：由 <code>绘图工具 -&gt; 齿轮 -&gt; 渐开线</code> 生成的 <code>*-info.txt</code> 会自动将 <code>DXF 齿形类型</code> 标记为 <strong><code>端面(左)</code></strong>，并将分度圆直径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><msub><mi>m</mi><mi>n</mi></msub><mi>z</mi><mi mathvariant="normal">/</mi><mi>cos</mi><mo>⁡</mo><mi>β</mi></mrow><annotation encoding="application/x-tex">d = m_n z / \cos\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord">/</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">cos</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span> 与导程 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>h</mi></msub><mo>=</mo><mi>π</mi><mi>d</mi><mi mathvariant="normal">/</mi><mi>tan</mi><mo>⁡</mo><mi>β</mi></mrow><annotation encoding="application/x-tex">P_h = \pi d / \tan\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mord mathnormal">d</span><span class="mord">/</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">tan</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span>（直齿时导程定义为无穷大等效超大值）自动记录。</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="xy_points_file.html" class="navigation navigation-prev " aria-label="Previous page: 5.3 XY 点位文件导入与坐标缩放转换">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="worm_profiles.html" class="navigation navigation-next " aria-label="Next page: 5.5 蜗杆：7 种标准蜗杆（ZI/ZA/ZN1/ZC1/ZC2/ZC3/ZK1）建模">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5.4 齿轮：渐开线齿轮与花键齿形生成","level":"1.6.4","depth":2,"next":{"title":"5.5 蜗杆：7 种标准蜗杆（ZI/ZA/ZN1/ZC1/ZC2/ZC3/ZK1）建模","level":"1.6.5","depth":2,"path":"5_drawing_tools/worm_profiles.md","ref":"5_drawing_tools/worm_profiles.md","articles":[]},"previous":{"title":"5.3 XY 点位文件导入与坐标缩放转换","level":"1.6.3","depth":2,"path":"5_drawing_tools/xy_points_file.md","ref":"5_drawing_tools/xy_points_file.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"5_drawing_tools/gear_spline.md","mtime":"2026-11-06T02:05:37.376Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:05:43.660Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

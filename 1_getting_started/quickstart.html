@@ -1,0 +1,970 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <title>1.3 3 分钟快速上手：从齿形生成到 G 代码输出 · Interference Grinding Dressing User Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.1.7">
+        <meta name="author" content="Nie Kun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/honkit-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../2_basic_params/" />
+    
+    
+    <link rel="prev" href="ui_overview.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    软件简介与导读
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第 1 章 快速入门与界面导览
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="installation.html">
+            
+                <a href="installation.html">
+            
+                    
+                    1.1 系统要求、安装与授权激活
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="ui_overview.html">
+            
+                <a href="ui_overview.html">
+            
+                    
+                    1.2 主界面布局、三色输入框与画布操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="quickstart.html">
+            
+                <a href="quickstart.html">
+            
+                    
+                    1.3 3 分钟快速上手：从齿形生成到 G 代码输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../2_basic_params/">
+            
+                <a href="../2_basic_params/">
+            
+                    
+                    第 2 章 基本参数：工件、齿形与砂轮定义
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2_basic_params/workpiece_params.html">
+            
+                <a href="../2_basic_params/workpiece_params.html">
+            
+                    
+                    2.1 工件几何与螺旋方向
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../2_basic_params/dxf_import.html">
+            
+                <a href="../2_basic_params/dxf_import.html">
+            
+                    
+                    2.2 DXF 齿型文件导入、齿形类型与镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../2_basic_params/grinding_params.html">
+            
+                <a href="../2_basic_params/grinding_params.html">
+            
+                    
+                    2.3 砂轮直径/杆偏移范围、间隔与安装角
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../3_advanced_params/">
+            
+                <a href="../3_advanced_params/">
+            
+                    
+                    第 3 章 高级参数：初始化配置与数控程序信息
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../3_advanced_params/init_config.html">
+            
+                <a href="../3_advanced_params/init_config.html">
+            
+                    
+                    3.1 初始化配置：滚轮补偿、齿根延长与圆弧拟合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../3_advanced_params/special_modes.html">
+            
+                <a href="../3_advanced_params/special_modes.html">
+            
+                    
+                    3.2 特殊工艺开关：内旋风铣、转子匹配与程序加密
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../3_advanced_params/program_modes.html">
+            
+                <a href="../3_advanced_params/program_modes.html">
+            
+                    
+                    3.3 程序信息：程序模式（模式-0 ~ 模式-100）与修整轴配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../4_plots_and_outputs/">
+            
+                <a href="../4_plots_and_outputs/">
+            
+                    
+                    第 4 章 可视化交互画布与输出文件解析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../4_plots_and_outputs/canvas_views.html">
+            
+                <a href="../4_plots_and_outputs/canvas_views.html">
+            
+                    
+                    4.1 右侧交互画布与 6 大计算结果视图详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../4_plots_and_outputs/output_files.html">
+            
+                <a href="../4_plots_and_outputs/output_files.html">
+            
+                    
+                    4.2 输出文件体系详解（DXF、宏程序与 HTML 报表）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../5_drawing_tools/">
+            
+                <a href="../5_drawing_tools/">
+            
+                    
+                    第 5 章 绘图工具：标准齿形与空间曲线建模
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../5_drawing_tools/triangle_trapezoid.html">
+            
+                <a href="../5_drawing_tools/triangle_trapezoid.html">
+            
+                    
+                    5.1 螺纹：三角与梯形齿形生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../5_drawing_tools/double_arc.html">
+            
+                <a href="../5_drawing_tools/double_arc.html">
+            
+                    
+                    5.2 螺纹：双圆弧（哥特式）齿形正向计算与反算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../5_drawing_tools/xy_points_file.html">
+            
+                <a href="../5_drawing_tools/xy_points_file.html">
+            
+                    
+                    5.3 XY 点位文件导入与坐标缩放转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../5_drawing_tools/gear_spline.html">
+            
+                <a href="../5_drawing_tools/gear_spline.html">
+            
+                    
+                    5.4 齿轮：渐开线齿轮与花键齿形生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../5_drawing_tools/worm_profiles.html">
+            
+                <a href="../5_drawing_tools/worm_profiles.html">
+            
+                    
+                    5.5 蜗杆：7 种标准蜗杆（ZI/ZA/ZN1/ZC1/ZC2/ZC3/ZK1）建模
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../6_toolbox_analysis/">
+            
+                <a href="../6_toolbox_analysis/">
+            
+                    
+                    第 6 章 工具箱（一）：空间校验、滚道仿真与曲线分析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../6_toolbox_analysis/max_offset.html">
+            
+                <a href="../6_toolbox_analysis/max_offset.html">
+            
+                    
+                    6.1 最大偏移：内螺纹磨削砂轮杆防干涉计算与 3D 视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../6_toolbox_analysis/rollpath_calc.html">
+            
+                <a href="../6_toolbox_analysis/rollpath_calc.html">
+            
+                    
+                    6.2 滚道曲线计算：逆向包络仿真与公差敏感度验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../6_toolbox_analysis/curve_conversion.html">
+            
+                <a href="../6_toolbox_analysis/curve_conversion.html">
+            
+                    
+                    6.3 曲线转换：法向、轴向与端面(左)空间齿形互转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../6_toolbox_analysis/error_compare.html">
+            
+                <a href="../6_toolbox_analysis/error_compare.html">
+            
+                    
+                    6.4 曲线误差对比：理论齿形与实测/拟合曲线偏差分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../7_toolbox_dxf_lathe/">
+            
+                <a href="../7_toolbox_dxf_lathe/">
+            
+                    
+                    第 7 章 工具箱（二）：DXF 曲线工程处理与车刀设计
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../7_toolbox_dxf_lathe/dxf_process.html">
+            
+                <a href="../7_toolbox_dxf_lathe/dxf_process.html">
+            
+                    
+                    7.1 DXF 处理：文件对比、离散化、拟合圆弧、等距线与变换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../7_toolbox_dxf_lathe/lathe_tool_calc.html">
+            
+                <a href="../7_toolbox_dxf_lathe/lathe_tool_calc.html">
+            
+                    
+                    7.2 车刀计算：大导程螺纹/蜗杆粗加工成形车刀刃口设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../8_menus_and_library/">
+            
+                <a href="../8_menus_and_library/">
+            
+                    
+                    第 8 章 零件库管理与系统设置
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../8_menus_and_library/parts_library.html">
+            
+                <a href="../8_menus_and_library/parts_library.html">
+            
+                    
+                    8.1 零件库：参数归档、排序检索与一键导入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../8_menus_and_library/menus_settings.html">
+            
+                <a href="../8_menus_and_library/menus_settings.html">
+            
+                    
+                    8.2 顶部菜单、多语言切换、在线更新与配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../9_workflows_cases/">
+            
+                <a href="../9_workflows_cases/">
+            
+                    
+                    第 9 章 典型工程实战案例集（5 大行业标准场景）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../9_workflows_cases/case1_double_arc_nut.html">
+            
+                <a href="../9_workflows_cases/case1_double_arc_nut.html">
+            
+                    
+                    9.1 案例一：内螺纹双圆弧滚珠丝杠螺母磨削修整（BNS-5250-2S）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../9_workflows_cases/case2_planetary_triangle.html">
+            
+                <a href="../9_workflows_cases/case2_planetary_triangle.html">
+            
+                    
+                    9.2 案例二：多头行星滚柱丝杠内螺纹磨削修整（PRS-2065-3S）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../9_workflows_cases/case3_compressor_rotor.html">
+            
+                <a href="../9_workflows_cases/case3_compressor_rotor.html">
+            
+                    
+                    9.3 案例三：螺杆压缩机阴阳转子外螺纹成形磨削（SRM-300F / 301M）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../9_workflows_cases/case4_worm_and_lathe.html">
+            
+                <a href="../9_workflows_cases/case4_worm_and_lathe.html">
+            
+                    
+                    9.4 案例四：ZC1 圆弧圆柱蜗杆精密磨削与粗车刀设计（ZC1-9808）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../9_workflows_cases/case5_spline_dxf_fitting.html">
+            
+                <a href="../9_workflows_cases/case5_spline_dxf_fitting.html">
+            
+                    
+                    9.5 案例五：渐开线花键/非标 DXF 齿形处理与圆弧拟合（SPL-60T）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../10_troubleshooting/">
+            
+                <a href="../10_troubleshooting/">
+            
+                    
+                    第 10 章 常见报警排查与工程 FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            本书使用 HonKit 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.3 3 分钟快速上手：从齿形生成到 G 代码输出</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="13-3-分钟快速上手：从齿形生成到-g-代码输出">1.3 3 分钟快速上手：从齿形生成到 G 代码输出</h1>
+<p>本节通过一个工业级标准算例——<strong><code>BNS-2020-R</code> 内螺纹双圆弧滚珠丝杠螺母</strong>，带您在 3 分钟内完成从<strong>第 1 步建立标准双圆弧齿形 DXF</strong>、<strong>第 2 步配置基本与高级磨削参数</strong>，到<strong>第 3 步一键生成西门子数控修整宏程序（<code>.SPF</code>）并校验包络精度</strong>的完整闭环。</p>
+<hr></hr>
+<h2 id="算例工艺条件（型号：bns-2020-r）">算例工艺条件（型号：<code>BNS-2020-R</code>）</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类别</th>
+<th style="text-align:left">参数名称</th>
+<th style="text-align:left">设定值</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>工件与螺纹参数</strong></td>
+<td style="text-align:left"><code>工件类型</code> / <code>螺纹旋向</code></td>
+<td style="text-align:left"><code>内螺纹</code> / <code>右旋</code></td>
+<td style="text-align:left">高导程内螺纹滚珠丝杠螺母</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>工件中径</code> / <code>工件大径</code></td>
+<td style="text-align:left"><code>20 mm</code> / <code>20.9 mm</code></td>
+<td style="text-align:left">螺母内孔滚道</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>导程</code> (<code>工件螺距</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> <code>工件头数</code>)</td>
+<td style="text-align:left"><code>20 mm</code> (<code>20</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> <code>1</code>)</td>
+<td style="text-align:left">大导程（螺旋升角高达 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>17.656</mn><msup><mn>8</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">17.6568^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">17.656</span><span class="mord"><span class="mord">8</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>，空间干涉显著）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>双圆弧滚道参数</strong></td>
+<td style="text-align:left"><code>计算系数</code> / <code>钢球直径</code> / <code>接触角</code></td>
+<td style="text-align:left"><code>1.08</code> / <code>3.175 mm</code> / <code>45°</code></td>
+<td style="text-align:left">标准哥特式（Gothic）双圆弧滚道</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>砂轮与修整参数</strong></td>
+<td style="text-align:left"><code>输入方式</code></td>
+<td style="text-align:left"><code>砂轮杆偏移</code></td>
+<td style="text-align:left">最小偏移 <code>1.5 mm</code>，最大偏移 <code>3.0 mm</code></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>砂轮直径间隔</code> / <code>砂轮安装角</code></td>
+<td style="text-align:left"><code>0.1 mm</code> / <code>15°</code></td>
+<td style="text-align:left">每磨损 <code>0.1 mm</code> 切换一档修整参数</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>滚轮圆弧半径</code> (<code>右:</code> / <code>左:</code>)</td>
+<td style="text-align:left"><code>0.2 mm</code> / <code>0.2 mm</code></td>
+<td style="text-align:left">金刚石滚轮左右圆弧刀尖半径</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>拟合圆弧</code> / <code>拟合误差</code></td>
+<td style="text-align:left"><code>是</code> / <code>1</code> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>)</td>
+<td style="text-align:left">输出 G2/G3 圆弧插补代码，允差 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">1\ \mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><code>程序模式</code></td>
+<td style="text-align:left"><code>模式-0</code></td>
+<td style="text-align:left">西门子 <code>.SPF</code> 标准宏程序</td>
+</tr>
+</tbody>
+</table>
+<hr></hr>
+<h2 id="第一步：在-绘图工具-中生成标准双圆弧齿形-dxf">第一步：在 <code>绘图工具</code> 中生成标准双圆弧齿形 DXF</h2>
+<ol>
+<li>点击左侧顶部标签栏切换至 <strong><code>绘图工具</code></strong> ➔ <strong><code>螺纹</code></strong> ➔ <strong><code>双圆弧</code></strong>；</li>
+<li>依次填入双圆弧基础参数：<ul>
+<li><strong><code>计算系数</code></strong>：选择 <code>1.08</code></li>
+<li><strong><code>钢球直径</code></strong>：输入 <code>3.175</code></li>
+<li><strong><code>接触角</code></strong>：输入 <code>45</code></li>
+</ul>
+</li>
+<li>点击面板中部的 <strong><code>计算</code></strong> 按钮：<ul>
+<li>此时上方 6 个<strong>蓝灰色输入框（<code>#78a6bc</code>）</strong>会自动算出理论值：<code>右圆弧半径</code> = <code>1.7145</code>、<code>右水平偏心</code> = <code>-0.0898</code>、<code>右垂直偏心</code> = <code>-0.0898</code>（左圆弧对称）；</li>
+<li>若需消除大径处尖角并微调圆弧半径，可在 <code>右圆弧半径</code> 与 <code>左圆弧半径</code> 右侧的<strong>青绿色微调框（<code>#6bb1aa</code>）</strong>中输入 <code>-0.175</code>；</li>
+</ul>
+</li>
+<li>在下方 <strong><code>直径信息</code></strong> 与 <strong><code>螺距信息</code></strong> 区域填入：<ul>
+<li><strong><code>工件中径</code></strong>：<code>20</code></li>
+<li><strong><code>工件大径</code></strong>：<code>20.9</code>（当在 <code>基本参数</code> 中将 <code>工件类型</code> 设为 <code>内螺纹</code> 时，此处标签自动显示为 <code>工件大径</code>）</li>
+<li><strong><code>工件螺距</code></strong>：<code>20</code>，<strong><code>工件头数</code></strong>：<code>1</code></li>
+</ul>
+</li>
+<li>点击 <strong><code>保存文件</code></strong> 右侧的 <strong><code>选择文件</code></strong>，将路径设为 <code>D:/IGD_Workspace/BNS-2020-R/profile.dxf</code>；</li>
+<li>点击左下角主按钮 <strong><code>生成齿形文件</code></strong>：<ul>
+<li>右侧画布立即绘出绿色的双圆弧标准齿形曲线，底部提示 <code>左右圆弧X0处高度差: 0.0 mm</code>；</li>
+<li>系统同时在同目录下生成 <code>profile.dxf</code> 与记录了几何参数的伴随文本 <code>profile-info.txt</code>。</li>
+</ul>
+</li>
+</ol>
+<hr></hr>
+<h2 id="第二步：在-基本参数-与-高级参数-中配置磨削修整工况">第二步：在 <code>基本参数</code> 与 <code>高级参数</code> 中配置磨削修整工况</h2>
+<ol>
+<li>切换至左侧 <strong><code>基本参数</code></strong> 标签页：<ul>
+<li><strong><code>工件类型</code></strong>：选择 <code>内螺纹</code>；<strong><code>螺纹旋向</code></strong>：选择 <code>右旋</code>；</li>
+<li>点击 <strong><code>DXF 齿型文件</code></strong> 右侧的 <strong><code>选择文件</code></strong>，选中刚才生成的 <code>profile.dxf</code>；</li>
+<li><strong>自动回填机制触发</strong>：由于同目录存在 <code>profile-info.txt</code>，软件会自动读取其中的 <code>工件中径</code> (<code>20</code>) 与 <code>导程</code> (<code>20</code>) 填入对应输入框，并在 <code>砂轮安装角</code> 右侧自动算出理论螺旋升角 <strong><code>17.6568°</code></strong>！</li>
+<li><strong><code>DXF 齿形类型</code></strong>：保持默认 <code>法向</code>（由 <code>绘图工具 -&gt; 螺纹</code> 生成的齿形均为法向截面）；</li>
+<li><strong><code>砂轮杆偏移工件中心最小距离</code></strong>：输入 <code>1.5</code>；</li>
+<li><strong><code>砂轮杆偏移工件中心最大距离</code></strong>：输入 <code>3.0</code>；</li>
+<li><strong><code>砂轮直径间隔</code></strong>：输入 <code>0.1</code>；</li>
+<li><strong><code>砂轮安装角</code></strong>：由于内螺纹孔径限制，取消勾选右侧自动同步复选框，手动输入实际砂轮杆倾角 <code>15</code>。</li>
+</ul>
+</li>
+<li>切换至左侧 <strong><code>高级参数</code></strong> ➔ <strong><code>初始化配置</code></strong> 子标签页：<ul>
+<li><strong><code>滚轮圆弧半径</code></strong>：<code>右:</code> 输入 <code>0.2</code>，<code>左:</code> 输入 <code>0.2</code>；</li>
+<li><strong><code>最终曲线点密度</code></strong>：保持 <code>600</code>；<strong><code>螺旋面生成角度</code></strong>：保持 <code>90</code>；</li>
+<li><strong><code>齿高延长高度</code></strong>：输入 <code>0.1</code>，<strong><code>内收角度</code></strong>：输入 <code>5</code>；</li>
+<li><strong><code>齿根倒圆半径</code></strong>：<code>右:</code> 输入 <code>0.2</code>，<code>左:</code> 输入 <code>0.2</code>；</li>
+<li><strong><code>水平延长</code></strong>：选择 <code>否</code>；</li>
+<li><strong><code>拟合圆弧</code></strong>：选择 <code>是</code>（不勾选 <code>G3 ⇆ G2</code>），<strong><code>拟合误差</code></strong>：保持 <code>1</code>；</li>
+<li><strong><code>输出程序路径</code></strong>：点击 <strong><code>选择路径</code></strong>，指定输出文件夹 <code>D:/IGD_Workspace/BNS-2020-R/output</code>。</li>
+</ul>
+</li>
+<li>切换至 <strong><code>高级参数</code></strong> ➔ <strong><code>程序信息</code></strong> 子标签页：<ul>
+<li><strong><code>程序头加载齿形信息</code></strong>：选择 <code>是</code>（将参数写入 G 代码头部注释，便于现场核对）；</li>
+<li><strong><code>程序模式</code></strong>：选择 <code>模式-0</code>（西门子标准 <code>.SPF</code> 模板），<strong><code>修整轴名称</code></strong> 保持 <code>水平:</code> <code>W</code>、<code>进刀:</code> <code>U</code>，<strong><code>进刀方向</code></strong> 选择 <code>负向</code>。</li>
+</ul>
+</li>
+</ol>
+<hr></hr>
+<h2 id="第三步：点击-生成代码-并审阅-6-大计算结果视图">第三步：点击 <code>生成代码</code> 并审阅 6 大计算结果视图</h2>
+<ol>
+<li>点击左下角主按钮 <strong><code>生成代码</code></strong>；</li>
+<li>经过约 2~5 秒的空间螺旋面啮合包络求解与双圆弧拟合，弹出成功提示后，依次点击右下角 6 个视图按钮检查计算质量：<ul>
+<li><strong><code>加载图形</code></strong>：确认导入的 <code>profile.dxf</code> 原始双圆弧齿形无断点、方向朝向正确；</li>
+<li><strong><code>间隔变化</code></strong>：查看从最小砂轮直径到最大砂轮直径每隔 <code>0.1 mm</code> 变化的廓形族（内侧红线代表最大偏移/最小砂轮，外侧灰线代表最小偏移/最大砂轮）；</li>
+<li><strong><code>圆弧拟合</code></strong>：上方子图显示多段 G2/G3 圆弧切点分布，下方子图显示实际拟合残差——确认所有残差峰值均严格控制在 <code>±1 μm</code> 红虚线包络带内；</li>
+<li><strong><code>干涉齿形</code></strong>：检视去除干涉后的实际砂轮截形（蓝色实线）与理论目标齿形之间的空间包络修正量；</li>
+<li><strong><code>修形轮廓</code></strong>：查看叠加了左右 <code>0.2 mm</code> 金刚石滚轮半径偏置后的 CNC 修整刀位轨迹（左修整红线 + 右修整蓝线）；</li>
+<li><strong><code>模拟计算</code></strong>：检查最终生成的 G 代码段在每个直径阶梯下的左右修整走刀路径。</li>
+</ul>
+</li>
+<li>打开输出目录 <code>D:/IGD_Workspace/BNS-2020-R/output</code>，即可获取可直接拷入西门子 840D sl / ONE 系统的修整宏程序 <code>.SPF</code> 文件及配套 <code>.dxf</code> 廓形图。</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ui_overview.html" class="navigation navigation-prev " aria-label="Previous page: 1.2 主界面布局、三色输入框与画布操作">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../2_basic_params/" class="navigation navigation-next " aria-label="Next page: 第 2 章 基本参数：工件、齿形与砂轮定义">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.3 3 分钟快速上手：从齿形生成到 G 代码输出","level":"1.2.3","depth":2,"next":{"title":"第 2 章 基本参数：工件、齿形与砂轮定义","level":"1.3","depth":1,"path":"2_basic_params/README.md","ref":"2_basic_params/README.md","articles":[{"title":"2.1 工件几何与螺旋方向","level":"1.3.1","depth":2,"path":"2_basic_params/workpiece_params.md","ref":"2_basic_params/workpiece_params.md","articles":[]},{"title":"2.2 DXF 齿型文件导入、齿形类型与镜像","level":"1.3.2","depth":2,"path":"2_basic_params/dxf_import.md","ref":"2_basic_params/dxf_import.md","articles":[]},{"title":"2.3 砂轮直径/杆偏移范围、间隔与安装角","level":"1.3.3","depth":2,"path":"2_basic_params/grinding_params.md","ref":"2_basic_params/grinding_params.md","articles":[]}]},"previous":{"title":"1.2 主界面布局、三色输入框与画布操作","level":"1.2.2","depth":2,"path":"1_getting_started/ui_overview.md","ref":"1_getting_started/ui_overview.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"1_getting_started/quickstart.md","mtime":"2026-11-06T02:05:37.375Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T02:05:43.660Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
