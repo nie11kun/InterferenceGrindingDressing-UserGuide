@@ -820,7 +820,8 @@
 <li>切换至左侧 <strong><code>高级参数</code></strong> ➔ <strong><code>初始化配置</code></strong> 子标签页：<ul>
 <li><strong><code>滚轮圆弧半径</code></strong>：<code>右:</code> 输入 <code>0.2</code>，<code>左:</code> 输入 <code>0.2</code>；</li>
 <li><strong><code>最终曲线点密度</code></strong>：保持 <code>600</code>；<strong><code>螺旋面生成角度</code></strong>：保持 <code>90</code>；</li>
-<li><strong><code>齿高延长高度</code></strong>：输入 <code>0.1</code>，<strong><code>内收角度</code></strong>：输入 <code>5</code>；</li>
+<li><strong><code>齿高延长高度</code></strong>：输入 <code>0.1</code>；</li>
+<li><strong><code>侧边修正</code></strong>：选择 <code>保持现状</code>（若大导程工件滚道孔口存在过切，可切换为 <code>均衡过切和残留</code> 或 <code>绝对禁止过切</code>）；</li>
 <li><strong><code>齿根倒圆半径</code></strong>：<code>右:</code> 输入 <code>0.2</code>，<code>左:</code> 输入 <code>0.2</code>；</li>
 <li><strong><code>水平延长</code></strong>：选择 <code>否</code>；</li>
 <li><strong><code>拟合圆弧</code></strong>：选择 <code>是</code>（不勾选 <code>G3 ⇆ G2</code>），<strong><code>拟合误差</code></strong>：保持 <code>1</code>；</li>
@@ -838,9 +839,12 @@
 <ol>
 <li>点击左下角主按钮 <strong><code>生成代码</code></strong>；</li>
 <li>经过约 2~5 秒的空间螺旋面啮合包络求解与双圆弧拟合，弹出成功提示后，依次点击右下角 6 个视图按钮检查计算质量：<ul>
-<li><strong><code>加载图形</code></strong>：确认导入的 <code>profile.dxf</code> 原始双圆弧齿形无断点、方向朝向正确；</li>
-<li><strong><code>间隔变化</code></strong>：查看从最小砂轮直径到最大砂轮直径每隔 <code>0.1 mm</code> 变化的廓形族（内侧红线代表最大偏移/最小砂轮，外侧灰线代表最小偏移/最大砂轮）；</li>
-<li><strong><code>圆弧拟合</code></strong>：上方子图显示多段 G2/G3 圆弧切点分布，下方子图显示实际拟合残差——确认所有残差峰值均严格控制在 <code>±1 μm</code> 红虚线包络带内；</li>
+<li><strong><code>加载图形</code></strong>：确认导入的原始齿形连续平滑、左右对称；</li>
+<li><strong><code>间隔变化</code></strong>：查看相邻砂轮直径档位的修整曲线法向变化量，确认曲线平顺无奇异跳跃；</li>
+<li><strong><code>圆弧拟合</code></strong>：审验多色相切圆弧（G2/G3）与直线分段分布及图例中的各段精确拟合半径；</li>
+<li><strong><code>干涉齿形</code></strong>：查看包络干涉修正后的净砂轮截面与标准法向齿形包络相切状态；</li>
+<li><strong><code>修形轮廓</code></strong>：检视叠加滚轮半径后的金刚石修整滚轮刀心走刀轨迹，确保齿底交汇顺畅；</li>
+<li><strong><code>模拟计算</code></strong>：复核三线同屏叠加（标准法向、砂轮修整与模拟磨削），确认模拟法向曲线与标准理论曲线严丝合缝重叠，证明大导程空间螺旋干涉已被完全消除！</li>
 <li><strong><code>干涉齿形</code></strong>：检视去除干涉后的实际砂轮截形（蓝色实线）与理论目标齿形之间的空间包络修正量；</li>
 <li><strong><code>修形轮廓</code></strong>：查看叠加了左右 <code>0.2 mm</code> 金刚石滚轮半径偏置后的 CNC 修整刀位轨迹（左修整红线 + 右修整蓝线）；</li>
 <li><strong><code>模拟计算</code></strong>：检查最终生成的 G 代码段在每个直径阶梯下的左右修整走刀路径。</li>
@@ -891,7 +895,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.3 3 分钟快速上手：从齿形生成到 G 代码输出","level":"1.2.3","depth":2,"next":{"title":"第 2 章 基本参数：工件、齿形与砂轮定义","level":"1.3","depth":1,"path":"2_basic_params/README.md","ref":"2_basic_params/README.md","articles":[{"title":"2.1 工件几何与螺旋方向","level":"1.3.1","depth":2,"path":"2_basic_params/workpiece_params.md","ref":"2_basic_params/workpiece_params.md","articles":[]},{"title":"2.2 DXF 齿型文件导入、齿形类型与镜像","level":"1.3.2","depth":2,"path":"2_basic_params/dxf_import.md","ref":"2_basic_params/dxf_import.md","articles":[]},{"title":"2.3 砂轮直径/杆偏移范围、间隔与安装角","level":"1.3.3","depth":2,"path":"2_basic_params/grinding_params.md","ref":"2_basic_params/grinding_params.md","articles":[]}]},"previous":{"title":"1.2 主界面布局、三色输入框与画布操作","level":"1.2.2","depth":2,"path":"1_getting_started/ui_overview.md","ref":"1_getting_started/ui_overview.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"1_getting_started/quickstart.md","mtime":"2026-11-06T06:25:38.221Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T06:25:44.519Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.3 3 分钟快速上手：从齿形生成到 G 代码输出","level":"1.2.3","depth":2,"next":{"title":"第 2 章 基本参数：工件、齿形与砂轮定义","level":"1.3","depth":1,"path":"2_basic_params/README.md","ref":"2_basic_params/README.md","articles":[{"title":"2.1 工件几何与螺旋方向","level":"1.3.1","depth":2,"path":"2_basic_params/workpiece_params.md","ref":"2_basic_params/workpiece_params.md","articles":[]},{"title":"2.2 DXF 齿型文件导入、齿形类型与镜像","level":"1.3.2","depth":2,"path":"2_basic_params/dxf_import.md","ref":"2_basic_params/dxf_import.md","articles":[]},{"title":"2.3 砂轮直径/杆偏移范围、间隔与安装角","level":"1.3.3","depth":2,"path":"2_basic_params/grinding_params.md","ref":"2_basic_params/grinding_params.md","articles":[]}]},"previous":{"title":"1.2 主界面布局、三色输入框与画布操作","level":"1.2.2","depth":2,"path":"1_getting_started/ui_overview.md","ref":"1_getting_started/ui_overview.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"1_getting_started/quickstart.md","mtime":"2026-11-06T06:42:30.035Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T06:42:38.172Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

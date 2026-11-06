@@ -795,6 +795,13 @@
 </ol>
 </li>
 </ul>
+<h3 id="q5：内螺纹大导程工件（如双圆弧滚珠丝杠螺母）磨削后，为什么滚道孔口两侧会出现明显的过切或擦伤？如何彻底消除？">Q5：内螺纹大导程工件（如双圆弧滚珠丝杠螺母）磨削后，为什么滚道孔口两侧会出现明显的“过切”或擦伤？如何彻底消除？</h3>
+<ul>
+<li><strong>解答</strong>：这是大导程干涉磨削的固有运动学现象。因安装角与升角存在差异或砂轮直径相对较大，空间接触线通常仅覆盖砂轮齿顶附近，接触段两端的“肩部”在砂轮高速回转并沿工件螺旋线作相对运动时，会扫入滚道孔口两侧造成微量过切。<ul>
+<li><strong>消除对策</strong>：在最新版软件中，进入 <strong><code>高级参数 -&gt; 初始化配置</code></strong>，将 <strong><code>侧边修正</code></strong> 从默认的 <code>保持现状</code> 切换为 <strong><code>均衡过切和残留</code></strong>（推荐）或 <strong><code>绝对禁止过切</code></strong>。系统会自动启动内置的二分搜索内核（<code>calc_flank.py</code>），利用虚拟磨削反求算法智能截断砂轮肩部并自动选取最优侧边倾角，将滚道孔口过切严格消除至微米级容差范围内！</li>
+</ul>
+</li>
+</ul>
 <hr></hr>
 <h2 id="三、技术支持与服务渠道">三、技术支持与服务渠道</h2>
 <p>若在实际加工中遇到无法自行解决的特殊型线、非标机床宏程序后处理定制或授权问题，可通过以下途径获取官方支持：</p>
@@ -841,7 +848,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第 10 章 常见报警排查与工程 FAQ","level":"1.11","depth":1,"previous":{"title":"9.5 案例五：渐开线花键/非标 DXF 齿形处理与圆弧拟合（SPL-60T）","level":"1.10.5","depth":2,"path":"9_workflows_cases/case5_spline_dxf_fitting.md","ref":"9_workflows_cases/case5_spline_dxf_fitting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"10_troubleshooting/README.md","mtime":"2026-11-06T06:25:38.221Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T06:25:44.519Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第 10 章 常见报警排查与工程 FAQ","level":"1.11","depth":1,"previous":{"title":"9.5 案例五：渐开线花键/非标 DXF 齿形处理与圆弧拟合（SPL-60T）","level":"1.10.5","depth":2,"path":"9_workflows_cases/case5_spline_dxf_fitting.md","ref":"9_workflows_cases/case5_spline_dxf_fitting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"10_troubleshooting/README.md","mtime":"2026-11-06T06:42:30.035Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T06:42:38.172Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
