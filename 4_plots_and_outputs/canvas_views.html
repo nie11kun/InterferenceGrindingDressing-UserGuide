@@ -706,55 +706,70 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="41-右侧交互画布与-6-大计算结果视图详解">4.1 右侧交互画布与 6 大计算结果视图详解</h1>
-<p>每次在 <code>基本参数</code> 或 <code>高级参数</code> 中执行 <strong><code>生成代码</code></strong> 成功后，右下角的 6 个结果视图按钮将依次激活。强烈建议操作人员按顺序点击检视图形质量，作为上机前的数字化虚拟试磨审核。</p>
+<p>每次在 <code>基本参数</code> 或 <code>高级参数</code> 中执行 <strong><code>生成代码</code></strong> 成功后，右下角的 6 个结果视图按钮将依次激活。强烈建议工艺人员按顺序点击检视图形质量，作为上机前的数字化虚拟试磨审核。</p>
 <hr></hr>
 <h2 id="视图-1：加载图形（检查导入的目标齿形）">视图 1：<code>加载图形</code>（检查导入的目标齿形）</h2>
-<p>显示软件从 DXF 文件中解析出的目标截面曲线：</p>
+<p>直接解析 <code>基本参数</code> 中指定的 DXF 齿型文件（如 <code>arc.dxf</code>），在画布上绘制目标截面轮廓：</p>
 <p><img src="../images/view_1_load_plot.png" alt="视图 1：加载图形实机计算截图"></img></p>
 <ul>
+<li><strong>显示要素与图例</strong>：<ul>
+<li>图例标注为 DXF 文件名（如 <code>arc</code>）。</li>
+<li>横轴 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>（对称齿槽以 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">X=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 为中心），纵轴 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>（工件分度圆/中径基准线 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">Y=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>）。</li>
+</ul>
+</li>
 <li><strong>检查要点</strong>：<ul>
-<li>确认曲线光滑完整、无首尾悬空折返或多余图元。</li>
-<li>核验 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">Y=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 位于中径基准线，对称齿槽以 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">X=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 为中心。</li>
-<li>对于非对称型线，确认左右朝向符合机床装夹方向（必要时勾选 <code>镜像</code>）。</li>
+<li><strong>曲线连续性</strong>：确认齿形光滑完整，无自交、反折、多余碎线或悬空断裂。</li>
+<li><strong>基准对齐</strong>：核验 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">Y=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 处齿槽宽度与图纸中径公称尺寸一致。</li>
+<li><strong>装夹朝向</strong>：对于非对称齿槽，确认型线左右方向与机床实际装夹对齐（必要时在参数面板勾选 <code>镜像</code>）。</li>
+<li><strong>双圆弧角度标注</strong>：对于双圆弧齿型，系统支持在画布上叠加原点夹角标注，直观校验法向接触角与齿形对称性。</li>
 </ul>
 </li>
 </ul>
 <hr></hr>
 <h2 id="视图-2：间隔变化（砂轮全寿命周期修整廓形族）">视图 2：<code>间隔变化</code>（砂轮全寿命周期修整廓形族）</h2>
-<p>展示由最大工作砂轮直径至最小报废砂轮直径之间，每隔一个 <code>砂轮直径间隔</code> 计算出的全套砂轮修整截面曲线簇：</p>
+<p>载入多直径计算生成的误差变化量数据（<code>dxf_compare_two_dia_errors.dxf</code>），展示砂轮外径随磨损减小时修整截面法向变化规律：</p>
 <p><img src="../images/view_2_interval_change.png" alt="视图 2：间隔变化实机计算截图"></img></p>
 <ul>
+<li><strong>显示要素与图例</strong>：<ul>
+<li>图例标注为 <code>直径间隔 1.0 修整曲线变化量</code>（根据设定的 <code>砂轮直径间隔</code> 自动格式化）。</li>
+<li>纵轴反映相邻砂轮直径档位之间的法向形状修正增量。</li>
+</ul>
+</li>
 <li><strong>检查要点</strong>：<ul>
-<li>观察各阶梯曲线是否呈现平顺、均匀的曲率收敛。</li>
-<li>最外侧曲线对应新砂轮，最内侧红色实线对应最小砂轮极限。</li>
-<li>检查内侧红线是否存在尖锐奇异点（若有，说明最小砂轮直径超出了无干涉极限）。</li>
+<li><strong>平滑收敛性</strong>：变化量曲线全程平顺光滑，无突变奇异尖峰或剧烈震荡。</li>
+<li><strong>修正灵敏度</strong>：变化量数值直观反映了大导程螺旋空间包络在不同砂轮直径下的干涉敏感程度。</li>
 </ul>
 </li>
 </ul>
 <hr></hr>
-<h2 id="视图-3：圆弧拟合（g2g3-圆弧逼近与法向残差分布）">视图 3：<code>圆弧拟合</code>（G2/G3 圆弧逼近与法向残差分布）</h2>
-<p>采用上下双子图结构对自适应双切圆弧插补精度进行严密审核：</p>
+<h2 id="视图-3：圆弧拟合（g2g3-相切圆弧逼近与分段结构）">视图 3：<code>圆弧拟合</code>（G2/G3 相切圆弧逼近与分段结构）</h2>
+<p>载入数控插补拟合文件（<code>dxf_dress_contour_curve_fit_arcs_*.dxf</code>），将连续复杂的自由修整轮廓智能拆解为机床可直接执行的相切圆弧与直线段：</p>
 <p><img src="../images/view_3_fit_arcs.png" alt="视图 3：圆弧拟合实机计算截图"></img></p>
 <ul>
-<li><strong>上方子图（圆弧插补段分布）</strong>：<ul>
-<li>红色与蓝色交替标示各段 G2/G3 相切圆弧，蓝点表示圆弧之间的平滑切点（G 代码节点）。</li>
-<li>拐弯曲率剧烈处自动加密，平缓处自动稀疏。</li>
+<li><strong>显示要素与图例</strong>：<ul>
+<li>各圆弧段以鲜明多色独立着色呈现，并在图例中逐一列出各段的精确拟合半径（如 <code>R1 = 2.3796</code>、<code>R2 = 0.9864</code>、<code>R3 = 2.3799</code>、<code>R4 = 3.8054</code>、<code>R5 = 2.3058</code>、<code>R6 = 0.9889</code> 以及 <code>直线段 1</code>、<code>直线段 2</code>、<code>直线段 3</code>）。</li>
 </ul>
 </li>
-<li><strong>下方子图（法向拟合残差分布）</strong>：<ul>
-<li>纵轴单位为微米（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>），显示沿齿形横坐标的实际法向拟合误差。</li>
-<li>确认蓝色残差曲线全程落在上下两条红色虚线（设定的 <code>拟合误差</code> 公差带，如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>±</mo><mn>1</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\pm 1\ \mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">±</span><span class="mord">1</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>）内部。</li>
+<li><strong>检查要点</strong>：<ul>
+<li><strong>分段自适应性</strong>：曲率变化剧烈处（齿底过渡区）自动加密圆弧分段，平缓区自动合并为大半径圆弧或直线，兼顾加工精度与加工平顺度。</li>
+<li><strong>相切连续度</strong>：各圆弧段与直线段平滑相切，切点位置无台阶错位。</li>
+<li><strong>残差公差带深度查验</strong>：若需审核微米级法向逼近残差，可查阅计算输出目录中的交互式分析报告 <code>plot_dress_contour_curve_fit_arcs_*.html</code> 与参数清单 <code>info_*.txt</code>。</li>
 </ul>
 </li>
 </ul>
 <hr></hr>
 <h2 id="视图-4：干涉齿形（包络修正后的净砂轮成形截面）">视图 4：<code>干涉齿形</code>（包络修正后的净砂轮成形截面）</h2>
-<p>检视经过三维螺旋空间包络方程求解、消除了大导程空间干涉，并叠加了齿端延长与倒圆后的理论净砂轮廓形：</p>
+<p>叠加对比理论工件法向截面与三维螺旋包络计算求解出的净砂轮成形廓形：</p>
 <p><img src="../images/view_4_interference.png" alt="视图 4：干涉齿形实机计算截图"></img></p>
 <ul>
+<li><strong>显示要素与图例</strong>：<ul>
+<li><strong><code>标准法向曲线</code></strong>（工件理论截面轮廓）。</li>
+<li><strong><code>砂轮修整曲线 - 28.2000</code></strong>（消除大导程空间螺旋干涉后的成形砂轮截面廓形）。</li>
+</ul>
+</li>
 <li><strong>检查要点</strong>：<ul>
-<li>用顶部放大镜框选齿根过渡处，确认圆弧过渡光滑相切。</li>
-<li>检视齿高延长高度与内收斜坡平整度。</li>
+<li><strong>包络相切形态</strong>：砂轮截面在有效工作齿深范围内与工件法向齿形保持包络切触。</li>
+<li><strong>齿顶延长与齿根倒圆</strong>：确认齿顶切线延长高度合理，齿根过渡倒圆平滑，确保磨削时既切满全齿深，又不划伤非加工表面。</li>
 </ul>
 </li>
 </ul>
@@ -763,21 +778,31 @@
 <p>显示金刚石滚轮刀心在数控机床中实际走刀的左右修整轨迹：</p>
 <p><img src="../images/view_5_dress_plot.png" alt="视图 5：修形轮廓实机计算截图"></img></p>
 <ul>
+<li><strong>显示要素与图例</strong>：<ul>
+<li><strong><code>修整轮廓曲线 - 28.2000</code></strong>（叠加金刚石修整滚轮半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 后的机床数控走刀刀心轨迹）。</li>
+<li><strong><code>砂轮修整曲线 - 28.2000</code></strong>（带平移矢量的基准砂轮廓形）。</li>
+</ul>
+</li>
 <li><strong>检查要点</strong>：<ul>
-<li><strong>红色曲线</strong>：左侧修整轮走刀轨迹。</li>
-<li><strong>蓝色曲线</strong>：右侧修整轮走刀轨迹。</li>
-<li>检查左右两侧走刀在齿顶中心处的交汇过渡，确保无漏修台阶或齿根干涉。</li>
+<li><strong>等距偏移精度</strong>：修整刀心轨迹与砂轮截面全程严格保持滚轮半径（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mn>0.98</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">R = 0.98\ \text{mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0.98</span><span class="mspace">&nbsp;</span><span class="mord text"><span class="mord">mm</span></span></span></span></span>）的法向等距偏移。</li>
+<li><strong>齿槽交汇过渡</strong>：左右两侧走刀路径在齿底/齿顶处交汇顺畅，无逆向交叉或漏修台阶。</li>
 </ul>
 </li>
 </ul>
 <hr></hr>
-<h2 id="视图-6：模拟计算（机床实际-g-代码走刀轨迹还原）">视图 6：<code>模拟计算</code>（机床实际 G 代码走刀轨迹还原）</h2>
-<p>直接解析即将写入 <code>.SPF</code> 或 <code>O2010</code> 的多阶梯数控代码，还原机床坐标系下的真实走刀路径簇：</p>
+<h2 id="视图-6：模拟计算（数字化全真虚拟试磨复核）">视图 6：<code>模拟计算</code>（数字化全真虚拟试磨复核）</h2>
+<p>数字化虚拟试磨的核心审核依据，同屏叠加三组关键曲线：</p>
 <p><img src="../images/view_6_simulate_plot.png" alt="视图 6：模拟计算实机计算截图"></img></p>
 <ul>
+<li><strong>显示要素与图例</strong>：<ul>
+<li><strong><code>标准法向曲线</code></strong>：原始工件理论设计轮廓。</li>
+<li><strong><code>砂轮修整曲线 - 28.2000</code></strong>：计算出的成形砂轮实际修整轮廓。</li>
+<li><strong><code>模拟法向曲线 - 28.2000</code></strong>：由修整后砂轮反向虚拟磨削出的工件法向截面。</li>
+</ul>
+</li>
 <li><strong>检查要点</strong>：<ul>
-<li>核对图形开口朝向与机床 <code>进刀方向</code>（正向 / 负向）严格对齐。</li>
-<li>确认全部直径档位的修整走刀轨迹均匀有序，无跳跃、无飞圆。</li>
+<li><strong>曲线高度吻合</strong>：<code>模拟法向曲线</code> 必须与 <code>标准法向曲线</code> 完全重合，无目视可见分离。</li>
+<li><strong>干涉消除判据</strong>：两条曲线严丝合缝即证明大导程空间螺旋干涉已被完全消除，生成的 NC 代码可安全下发至机床加工。</li>
 </ul>
 </li>
 </ul>
@@ -824,7 +849,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.1 右侧交互画布与 6 大计算结果视图详解","level":"1.5.1","depth":2,"next":{"title":"4.2 输出文件体系详解（DXF、宏程序与 HTML 报表）","level":"1.5.2","depth":2,"path":"4_plots_and_outputs/output_files.md","ref":"4_plots_and_outputs/output_files.md","articles":[]},"previous":{"title":"第 4 章 可视化交互画布与输出文件解析","level":"1.5","depth":1,"path":"4_plots_and_outputs/README.md","ref":"4_plots_and_outputs/README.md","articles":[{"title":"4.1 右侧交互画布与 6 大计算结果视图详解","level":"1.5.1","depth":2,"path":"4_plots_and_outputs/canvas_views.md","ref":"4_plots_and_outputs/canvas_views.md","articles":[]},{"title":"4.2 输出文件体系详解（DXF、宏程序与 HTML 报表）","level":"1.5.2","depth":2,"path":"4_plots_and_outputs/output_files.md","ref":"4_plots_and_outputs/output_files.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"4_plots_and_outputs/canvas_views.md","mtime":"2026-11-06T03:55:23.164Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T03:55:31.435Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.1 右侧交互画布与 6 大计算结果视图详解","level":"1.5.1","depth":2,"next":{"title":"4.2 输出文件体系详解（DXF、宏程序与 HTML 报表）","level":"1.5.2","depth":2,"path":"4_plots_and_outputs/output_files.md","ref":"4_plots_and_outputs/output_files.md","articles":[]},"previous":{"title":"第 4 章 可视化交互画布与输出文件解析","level":"1.5","depth":1,"path":"4_plots_and_outputs/README.md","ref":"4_plots_and_outputs/README.md","articles":[{"title":"4.1 右侧交互画布与 6 大计算结果视图详解","level":"1.5.1","depth":2,"path":"4_plots_and_outputs/canvas_views.md","ref":"4_plots_and_outputs/canvas_views.md","articles":[]},{"title":"4.2 输出文件体系详解（DXF、宏程序与 HTML 报表）","level":"1.5.2","depth":2,"path":"4_plots_and_outputs/output_files.md","ref":"4_plots_and_outputs/output_files.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"4_plots_and_outputs/canvas_views.md","mtime":"2026-11-06T06:13:26.106Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-06T06:13:34.576Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
