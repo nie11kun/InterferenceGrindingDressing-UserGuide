@@ -249,37 +249,39 @@ def build_ui_diagrams():
         ax.text(bx, by, txt, color="white", fontsize=8.0, fontweight="bold", ha="center", va="center",
                 bbox=dict(boxstyle="round,pad=0.25", fc="#d62728", ec="white", lw=1.1))
 
-    save_fig(fig, "ui_overview_annotated.png")
+    # (ui_overview_annotated.png is now captured directly from the live IGD software with real double-arc simulation)
+    # plt.close(fig)
 
-    # 2.2 ui_color_coding_guide.png (输入框三大色彩编码规范)
-    fig, ax = plt.subplots(figsize=(9.2, 3.8), facecolor="white")
+    # 2.2 ui_color_coding_guide.png (输入框三大色彩编码规范 - 优化排版与防重叠)
+    fig, ax = plt.subplots(figsize=(11.0, 4.4), facecolor="white")
     ax.set_xlim(0, 100)
-    ax.set_ylim(0, 42)
+    ax.set_ylim(0, 44)
     ax.axis("off")
-    ax.set_title("IGD 界面输入框三色视觉编码规范（一眼识别参数性质）", fontsize=11.5, fontweight="bold", color=C_DARK, pad=8)
+    ax.set_title("IGD 界面输入框三色视觉编码规范（一眼识别参数性质）", fontsize=12.5, fontweight="bold", color=C_DARK, pad=10)
 
     cards = [
-        (3, "#f1f5f9", "#64748b", C_DARK, "① 标准浅灰/深色底输入框",
+        (2.5, "#f8fafc", "#94a3b8", C_DARK, "① 标准浅灰/深色底输入框",
          "常规几何与工艺名义值输入",
-         "示例：工件中径 51.8、导程 50.0、法向模数 8.5\n• 直接按产品图纸标称尺寸填写\n• 支持正实数/整数实时合法性校验"),
+         "• 示例：工件中径 51.8、导程 50.0\n• 直接按产品图纸标称尺寸填写\n• 支持正实数/整数实时合法性校验\n• 驱动核心修整几何模型计算"),
         (35.5, C_FIX_TEAL, "#0f766e", "white", "② 青绿色底输入框 (#6bb1aa)",
          "微调修正量 (Fix / Offset 补偿值)",
-         "示例：右半角修正 -0.38°、左圆弧半径修正 +0.02\n• 默认为 0，在标称值基础上叠加微米/角度修正\n• 支持正负实数，专用于试磨后消除齿形对称度误差"),
-        (68, C_ARC_BLUE, "#0369a1", "white", "③ 蓝灰色底输入框 (#78a6bc)",
+         "• 示例：右半角修正 -0.38°、左半径 +0.02\n• 默认为 0，在标称值上叠加微量修正\n• 支持正负实数输入\n• 专用于试磨后消除齿形不对称度误差"),
+        (68.5, C_ARC_BLUE, "#0369a1", "white", "③ 蓝灰色底输入框 (#78a6bc)",
          "双圆弧正/反算双向联动参数",
-         "示例：右/左圆弧半径、右/左水平偏心、右/左垂直偏心\n• 点击【计算】：由钢球直径+接触角+计算系数自动算出\n• 点击【反算】：填入图纸给定的偏心与半径逆推接触角"),
+         "• 示例：圆弧半径、水平/垂直偏心\n• 点击【计算】：由钢球直径+接触角算出\n• 点击【反算】：由图纸偏心逆推接触角\n• 双向智能换算，保障几何尺寸一致性"),
     ]
     for x0, box_bg, border_c, txt_c, title_s, sub_s, desc_s in cards:
-        ax.add_patch(FancyBboxPatch((x0, 2), 29, 36, boxstyle="round,pad=0.3,rounding_size=1.0",
+        card_w = 29.0
+        ax.add_patch(FancyBboxPatch((x0, 2), card_w, 38, boxstyle="round,pad=0.2,rounding_size=1.0",
                                     facecolor="#f8fafc", edgecolor=border_c, lw=1.5))
-        ax.text(x0 + 14.5, 34.5, title_s, color=C_DARK, fontsize=9.5, fontweight="bold", ha="center")
-        ax.text(x0 + 14.5, 30.8, sub_s, color=border_c, fontsize=8.3, fontweight="bold", ha="center")
+        ax.text(x0 + card_w / 2.0, 36.8, title_s, color=C_DARK, fontsize=10.0, fontweight="bold", ha="center")
+        ax.text(x0 + card_w / 2.0, 33.2, sub_s, color=border_c, fontsize=8.6, fontweight="bold", ha="center")
         # 绘制模拟输入框
-        ax.add_patch(FancyBboxPatch((x0 + 3.5, 22.5), 22, 5.2, boxstyle="round,pad=0.15,rounding_size=0.6",
+        ax.add_patch(FancyBboxPatch((x0 + 3.5, 23.8), card_w - 7.0, 6.2, boxstyle="round,pad=0.15,rounding_size=0.6",
                                     facecolor=box_bg, edgecolor=border_c, lw=1.2))
         sample_val = "51.8000" if x0 < 10 else ("-0.38" if x0 < 50 else "4.3659")
-        ax.text(x0 + 14.5, 25.1, sample_val, color=txt_c, fontsize=11, fontweight="bold", ha="center", va="center")
-        ax.text(x0 + 2.0, 18.5, desc_s, color=C_SLATE, fontsize=8.0, va="top", linespacing=1.45)
+        ax.text(x0 + card_w / 2.0, 26.9, sample_val, color=txt_c, fontsize=11.5, fontweight="bold", ha="center", va="center")
+        ax.text(x0 + 2.2, 19.5, desc_s, color=C_SLATE, fontsize=8.2, va="top", linespacing=1.6)
 
     save_fig(fig, "ui_color_coding_guide.png")
 
@@ -325,7 +327,8 @@ def build_ui_diagrams():
     for idx, it in enumerate(items):
         ax.text(74.8, 30 - idx * 6.8, it, color=C_DARK, fontsize=7.8, va="top", linespacing=1.3)
 
-    save_fig(fig, "ui_login_activation.png")
+    # (ui_login_activation.png is captured from live software)
+    plt.close(fig)
 
     # 2.4 ui_parts_library.png (零件库弹窗管理与三文件结构脱敏示意)
     fig, ax = plt.subplots(figsize=(10.2, 4.8), facecolor="white")
@@ -388,7 +391,8 @@ def build_ui_diagrams():
         ax.text(91.25, jy + 6.8, jf, color=C_RED, fontsize=8.2, fontweight="bold", ha="center")
         ax.text(91.25, jy + 2.8, jd, color=C_SLATE, fontsize=7.4, ha="center", va="center", linespacing=1.3)
 
-    save_fig(fig, "ui_parts_library.png")
+    # (ui_parts_library.png is captured from live software)
+    plt.close(fig)
 
 
 # ==============================================================================

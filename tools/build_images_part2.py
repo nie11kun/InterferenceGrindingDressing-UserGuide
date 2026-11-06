@@ -17,87 +17,9 @@ from build_images import (
 # 5. 第四章：右侧交互画布 6 大核心视图 & 双圆弧原点夹角视图 (7 张)
 # ==============================================================================
 def build_canvas_views():
-    t = np.linspace(-3.8, 3.8, 280)
-    y_std = -2.65 * np.cos(0.42 * t) + 0.14 * np.abs(t)**1.5
-    y_wheel = y_std - 0.18 * (1 + 0.06 * t**2)
-    y_dress = y_wheel - 0.98
-
-    # 5.1 view_1_load_plot.png (加载图形 + 双圆弧原点夹角实时显示)
-    fig, ax = new_tip_fig(7.6, 4.1, "右侧画布视图 ①：【加载图形】(双圆弧滚道自动激活原点夹角标注)")
-    ax.plot(t, y_std, color=C_BLUE, lw=2.3, label="BNS-5250-2S.dxf (标准法向曲线)")
-    ax.axhline(0, color=C_MUTED, lw=0.9, ls="-.")
-    ax.axvline(0, color=C_MUTED, lw=0.9, ls="-.")
-    px, py = 2.15, y_std[np.argmin(np.abs(t - 2.15))]
-    ax.plot([0, px], [0, py], color=C_ORANGE, lw=1.6, ls="--", label="原点至悬停点连线")
-    ax.plot(px, py, "ro", ms=6)
-    ax.text(px + 0.25, py + 0.25, f"X: {px:.4f}\nY: {py:.4f}\n原点夹角: 45.02°",
-            fontsize=8.5, color=C_DARK, fontweight="bold",
-            bbox=dict(boxstyle="round,pad=0.25", fc="#fef9c3", ec=C_ORANGE, lw=1.1))
-    ax.set_xlabel("X (mm)")
-    ax.set_ylabel("Y (mm)")
-    ax.legend(loc="upper left", fontsize=8.2)
-    save_fig(fig, "view_1_load_plot.png")
-
-    # 5.2 view_2_interval_change.png (间隔变化)
-    fig, ax = new_tip_fig(7.6, 4.0, "右侧画布视图 ②：【间隔变化】(直径间隔 1.0 mm 修整曲线变化量)")
-    err_step = 0.0012 * np.sin(0.95 * t) + 0.0008 * (t / 3.8)**2
-    ax.plot(t, err_step, color=C_RED, lw=2.1, label="相邻两档砂轮直径修整曲线法向差值")
-    ax.fill_between(t, 0, err_step, color=C_RED, alpha=0.12)
-    ax.axhline(0, color=C_SLATE, lw=1.0, ls="--")
-    ax.text(0, 0.0016, "最大变化量: 0.0019 mm (位于 X=2.85 mm)\n用于评估当前【砂轮直径间隔】是否足够密",
-            color=C_DARK, fontsize=8.3, ha="center", bbox=dict(boxstyle="round,pad=0.25", fc="white", ec=C_RED))
-    ax.set_ylim(-0.0025, 0.0025)
-    ax.set_xlabel("X (mm)")
-    ax.set_ylabel("相邻直径廓形变化量 (mm)")
-    ax.legend(loc="lower right", fontsize=8.2)
-    save_fig(fig, "view_2_interval_change.png")
-
-    # 5.3 view_3_fit_arcs.png (圆弧拟合)
-    fig, ax = new_tip_fig(7.6, 4.0, "右侧画布视图 ③：【圆弧拟合】(离散点集与 G2/G3 圆弧段节点分布)")
-    ax.plot(t, y_dress, color=C_BLUE, lw=2.0, label="修整轮廓离散曲线 (600 点)")
-    node_idx = np.linspace(0, len(t) - 1, 15, dtype=int)
-    ax.plot(t[node_idx], y_dress[node_idx], "ro", ms=5.5, label="自适应圆弧/直线拟合节点 (14 段)")
-    ax.set_xlabel("水平修整轴 W (mm)")
-    ax.set_ylabel("垂直进刀轴 X (mm)")
-    ax.legend(loc="upper center", fontsize=8.2)
-    save_fig(fig, "view_3_fit_arcs.png")
-
-    # 5.4 view_4_interference.png (干涉齿形)
-    fig, ax = new_tip_fig(7.6, 4.0, "右侧画布视图 ④：【干涉齿形】(三维螺旋面投影截面族与包络边界)")
-    for k, ang in enumerate(np.linspace(-25, 25, 11)):
-        shift = 0.22 * (ang / 25.0)
-        lift = 0.09 * (ang / 25.0)**2
-        ax.plot(t + shift, y_std + lift, color="#94a3b8", lw=0.9, alpha=0.65,
-                label="螺旋面不同截面投影簇" if k == 0 else None)
-    ax.plot(t, y_wheel, color=C_RED, lw=2.4, label="共轭包络无干涉砂轮截形")
-    ax.set_xlabel("X (mm)")
-    ax.set_ylabel("Y (mm)")
-    ax.legend(loc="upper center", fontsize=8.2)
-    save_fig(fig, "view_4_interference.png")
-
-    # 5.5 view_5_dress_plot.png (修形轮廓)
-    fig, ax = new_tip_fig(7.6, 4.0, "右侧画布视图 ⑤：【修形轮廓】(标准法向 vs 砂轮修整 vs 滚轮修整轮廓)")
-    ax.plot(t, y_std, color=C_GREEN, lw=2.1, label="标准法向曲线")
-    ax.plot(t, y_wheel, color=C_BLUE, lw=2.1, ls="--", label="砂轮修整曲线")
-    ax.plot(t, y_dress, color=C_RED, lw=2.3, label="修整轮廓曲线 (含左右滚轮半径偏移)")
-    dim_arrow(ax, (0, y_wheel[140]), (0, y_dress[140]), "滚轮 $R_d=0.98$", color=C_RED, text_offset=(0.95, 0), fontsize=8.5)
-    ax.set_xlabel("X (mm)")
-    ax.set_ylabel("Y (mm)")
-    ax.legend(loc="upper center", fontsize=8.2)
-    save_fig(fig, "view_5_dress_plot.png")
-
-    # 5.6 view_6_simulate_plot.png (模拟计算)
-    fig, ax = new_tip_fig(7.6, 4.0, "右侧画布视图 ⑥：【模拟计算】(修整后砂轮反磨工件滚道闭环验证)")
-    ax.plot(t, y_std, color=C_GREEN, lw=2.6, label="标准法向曲线 (目标图纸齿形)")
-    ax.plot(t, y_std + 0.0005 * np.sin(2*t), color=C_RED, lw=1.8, ls="--", label="模拟法向曲线 (反算实际磨削齿形)")
-    ax.plot(t, y_wheel, color=C_BLUE, lw=1.8, ls="-.", label="砂轮修整曲线")
-    ax.text(0, -1.25, "当【模拟法向曲线】与【标准法向曲线】完全重合时\n证明当前安装角与砂轮直径无任何原理性过切！",
-            color=C_NAVY, fontsize=8.4, fontweight="bold", ha="center",
-            bbox=dict(boxstyle="round,pad=0.3", fc="#e0f2fe", ec=C_BLUE))
-    ax.set_xlabel("X (mm)")
-    ax.set_ylabel("Y (mm)")
-    ax.legend(loc="upper right", fontsize=8.0)
-    save_fig(fig, "view_6_simulate_plot.png")
+    # (view_1_load_plot.png ~ view_6_simulate_plot.png are now captured directly
+    # from the live running IGD software using tools/capture_all_ui_screenshots.py)
+    pass
 
 
 # ==============================================================================
