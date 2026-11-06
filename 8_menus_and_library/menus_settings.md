@@ -12,9 +12,9 @@
 | | **`检查更新` (`Check For Updates`)** | 联网检查官方发布服务器是否存在比当前版本（如 `v3.22.1`）更新的正式版。若有新版本，将提示更新内容并引导下载升级。 |
 | | **`更新日志` (`Changelog`)** | 打开内置的各历史版本迭代记录窗口，方便工艺员查阅新版本新增的 `程序模式`、蜗杆类型或算法改进细节。 |
 | **`工具` (`Tools`)** | **`零件库` (`Parts Library`)** | 打开企业级零件配置归档管理窗口（详见 [8.1 零件库](./parts_library.md)）。 |
-| **`关于` (`About`)** | **`官方网站` (`Official Website`)** | 调用系统默认浏览器访问软件官方技术支持门户。 |
-| | **`用户手册` (`User Guide`)** | 打开在线/本地最新版《IGD 磨削修整计算软件 用户操作手册》。 |
-| | **`关于我们` (`About Us`)** | 查看当前软件精确版本号（`v3.22.1`）、版权信息及技术支持联系方式。 |
+| **`关于` (`About`)** | **`官方网站` (`Official Website`)** | 调用系统默认浏览器访问软件官方技术支持门户（[https://xincore.niekun.net/](https://xincore.niekun.net/)）。 |
+| | **`用户手册` (`User Guide`)** | 打开在线最新版《IGD 磨削修整计算软件 用户操作手册》（[https://igd-manual.niekun.net/](https://igd-manual.niekun.net/)）。 |
+| | **`关于我们` (`About Us`)** | 查看当前软件精确版本号（`v3.22.1`）、版权信息及官方支持邮箱（[xincore@niekun.net](mailto:xincore@niekun.net)）。 |
 
 ---
 

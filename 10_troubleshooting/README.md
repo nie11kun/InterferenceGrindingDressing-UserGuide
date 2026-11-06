@@ -41,3 +41,12 @@
   1. 先用 **`工具箱 -> DXF 处理 -> DXF 变换`**，将分度圆/中径平移至 $Y = 0$，齿槽中心平移至 $X = 0$；
   2. 再用 **`工具箱 -> DXF 处理 -> DXF 离散化`**（或 **`DXF 拟合圆弧`**），将 `曲线方向` 设为 `自动识别`（或 `升序 - X轴`），一键将其重构为干净、有序、连续的标准 DXF 曲线。
 
+---
+
+## 三、技术支持与服务渠道
+
+若在实际加工中遇到无法自行解决的特殊型线、非标机床宏程序后处理定制或授权问题，可通过以下途径获取官方支持：
+
+- **在线用户手册**：[https://igd-manual.niekun.net/](https://igd-manual.niekun.net/)
+- **官方网站与邮箱**：[https://xincore.niekun.net/](https://xincore.niekun.net/) ｜ [xincore@niekun.net](mailto:xincore@niekun.net)
+

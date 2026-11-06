@@ -63,6 +63,6 @@
 - **操作系统支持**：
   - Windows 10 (64-bit) / Windows 11 (64-bit)。
   - macOS 12+（说明：`Siemens程序加密` 模块为 Windows 专用，其余核心计算模块全平台支持）。
-- **在线技术支持**：
-  - **常见问题排查**：[第 10 章 常见报警排查与工程 FAQ](10_troubleshooting/README.md)
-  - **官方网站与咨询**：请联系对应技术支持工程师获取最新版本授权许可或机床专用定制宏程序后处理模板。
+- **在线用户手册**：[https://igd-manual.niekun.net/](https://igd-manual.niekun.net/)
+- **常见问题速查**：[第 10 章 常见报警排查与工程 FAQ](10_troubleshooting/README.md)
+- **官方网站与邮箱**：[https://xincore.niekun.net/](https://xincore.niekun.net/) ｜ [xincore@niekun.net](mailto:xincore@niekun.net)
