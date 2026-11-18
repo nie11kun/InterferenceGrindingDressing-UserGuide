@@ -717,54 +717,54 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong><code>存在未填或格式错误的参数！</code></strong></td>
-<td style="text-align:left">存在空白输入框、非半角数字字符或未指定必选文件/路径</td>
-<td style="text-align:left">检查当前面板数值与路径，改用半角浮点数并完成文件选择</td>
+<td style="text-align:left"><strong><code>请输入有效的数字</code></strong> / <strong><code>某个选项卡上的数据无效，请检查。</code></strong></td>
+<td style="text-align:left">存在空白输入框、非半角数字字符或格式不合法的输入项</td>
+<td style="text-align:left">检查当前及关联选项卡参数，改用半角有效数值并补全路径</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><code>砂轮安装角过小，齿面存在过度过切风险，请重新设置参数！</code></strong></td>
-<td style="text-align:left"><code>砂轮安装角</code> 与理论升角差值过大且砂轮直径较大，接触线发生二次自交</td>
-<td style="text-align:left">先用 <code>工具箱 -&gt; 最大偏移</code> 校核后尽量增大 <code>砂轮安装角</code>，或减小 <code>最大砂轮直径</code></td>
+<td style="text-align:left"><strong><code>内螺纹情况下，最大和最小距离不能大于中径一半</code></strong> / <strong><code>外螺纹情况下，最大和最小距离不能小于中径一半</code></strong></td>
+<td style="text-align:left"><code>砂轮杆偏移</code> 距离超出了工件中径半径的物理包络边界</td>
+<td style="text-align:left">核对 <code>工件中径</code> 与 <code>工件类型</code>，将偏移距离调整至合理侧</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><code>最大砂轮直径必须大于最小砂轮直径！</code></strong> / <strong><code>最大距离必须大于最小距离！</code></strong></td>
-<td style="text-align:left">上下限填反（偏移越大对应砂轮直径越小）</td>
-<td style="text-align:left"><code>砂轮直径</code> 模式满足 <code>最大 &gt; 最小</code>；<code>砂轮杆偏移</code> 模式满足 <code>最大距离 &gt; 最小距离</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong><code>砂轮宽度过小，无法进行水平延长！</code></strong></td>
-<td style="text-align:left"><code>水平延长 = 是</code> 时输入的 <code>砂轮宽度</code> 小于齿槽宽加两侧倒圆总跨度</td>
-<td style="text-align:left">增大 <code>砂轮宽度</code>（至少高于 <code>开口宽 + 2×倒圆半径 + 1 mm</code>），或关闭 <code>水平延长</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong><code>直径信息错误，工件大径需大于工件中径，工件小径需小于工件中径！</code></strong></td>
-<td style="text-align:left">大径、中径、小径大小顺序颠倒</td>
-<td style="text-align:left">严格保持 <code>工件小径 &lt; 工件中径 &lt; 工件大径</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong><code>齿根圆弧半径过大，无法生成齿形！</code></strong> / <strong><code>倒圆半径过大，无法完成倒圆！</code></strong></td>
-<td style="text-align:left">倒圆半径大于齿顶/齿底剩余可用几何空间</td>
-<td style="text-align:left">适当减小 <code>齿顶倒圆半径</code> 或 <code>齿根倒圆半径</code></td>
+<td style="text-align:left"><strong><code>砂轮杆偏移工件中心最大距离不能小于最小距离</code></strong></td>
+<td style="text-align:left">砂轮上下限填反（偏移越大对应砂轮直径越小）</td>
+<td style="text-align:left">确保 <code>砂轮杆偏移</code> 满足 <code>最大距离 ≥ 最小距离</code>（<code>砂轮直径</code> 满足 <code>最大 ≥ 最小</code>）</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>安装角设置过大</code></strong></td>
-<td style="text-align:left"><code>最大偏移</code> 计算中，零偏移下砂轮杆已与内孔两端发生碰撞</td>
-<td style="text-align:left">减小 <code>砂轮杆安装角</code> 或改用更小 <code>砂轮杆直径</code></td>
+<td style="text-align:left"><code>工具箱 -&gt; 最大偏移</code> 计算中，零偏移下砂轮杆已与内孔两端碰撞</td>
+<td style="text-align:left">减小 <code>砂轮杆安装角</code>，或改用更小 <code>砂轮杆直径</code> 的接长杆</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><code>原始曲线类型与目标曲线类型不能相同！</code></strong></td>
-<td style="text-align:left"><code>曲线转换</code> 的输入与输出截面选成同一类型</td>
-<td style="text-align:left">修改 <code>目标曲线类型</code> 为不同截面（如 <code>端面(左)</code> ➔ <code>法向</code>）</td>
+<td style="text-align:left"><strong><code>延长线角度必须在 [0, 90) 范围内</code></strong> / <strong><code>截断量过大，剩余轮廓点不足</code></strong></td>
+<td style="text-align:left"><code>延长线角度</code> 超出 <code>[0°, 90°)</code>，或极端干涉下侧边截断超出齿形跨度</td>
+<td style="text-align:left">将 <code>延长线角度</code> 设为 <code>0 ~ 89°</code>，或检查 <code>砂轮安装角</code> 与齿形深度是否合理</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><code>检测到未安装加密狗或加密狗无效！</code></strong> / <strong><code>加密狗连接断开，程序即将关闭！</code></strong></td>
-<td style="text-align:left">硬件加密狗松动、未插稳或经过供电不足的前置扩展坞</td>
-<td style="text-align:left">插入主机主板原生 USB 口后点击 <code>验证加密狗</code> 或重启软件</td>
+<td style="text-align:left"><strong><code>右侧齿根圆角 ... 过大。</code></strong> / <strong><code>左侧齿根圆角 ... 过大。</code></strong> / <strong><code>半径 ... 太大 ... 超出了线段</code></strong></td>
+<td style="text-align:left">绘图工具或 DXF 倒圆中设定的圆角半径超出了相邻线段可用长度</td>
+<td style="text-align:left">适当减小 <code>齿顶倒圆半径</code>、<code>齿根倒圆半径</code> 或分段倒圆半径</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><code>授权已过期，请联系管理员更新授权！</code></strong></td>
-<td style="text-align:left">加密狗或 <code>.lic</code> 文件超出授权截止日期</td>
-<td style="text-align:left">获取最新 <code>.lic</code> 文件，在登录窗口点击 <strong><code>导入授权文件</code></strong> 续期</td>
+<td style="text-align:left"><strong><code>找不到文件: ... 请先导入齿形 DXF 文件。</code></strong> / <strong><code>请先执行'生成代码'或打开圆弧拟合功能</code></strong></td>
+<td style="text-align:left">源 DXF 路径失效/移动，或未开启 <code>拟合圆弧</code> 即点击 <code>圆弧拟合</code> 视图</td>
+<td style="text-align:left">重新点击 <code>选择文件</code> 指定存在的 DXF，或开启 <code>拟合圆弧 = 是</code> 后重新生成代码</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>未找到加密狗硬件（请确认加密狗已正确插入 USB 接口）</code></strong> / <strong><code>加密狗已断开或会话已失效，无法执行核心计算！</code></strong></td>
+<td style="text-align:left">USB 加密狗未插稳、运行途中松动或经过供电不足的扩展坞</td>
+<td style="text-align:left">插入工控机主板原生 USB 口，在登录页点击 <code>验证加密狗</code> 或重启软件</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>授权许可已过期</code></strong> / <strong><code>授权设备不匹配</code></strong> / <strong><code>数字签名校验失败 (授权已被非法篡改)</code></strong></td>
+<td style="text-align:left"><code>.lic</code> 许可超出有效期、拷贝自其他电脑硬件 ID 或文件损坏</td>
+<td style="text-align:left">联系官方获取匹配本机硬件 ID 的最新 <code>.lic</code> 文件，点击 <strong><code>导入授权文件</code></strong> 激活</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>当前授权配置未开放该项功能，无法执行计算！请升级授权或插入对应加密狗。</code></strong></td>
+<td style="text-align:left">当前专机定制版授权未包含所选模块或程序模式</td>
+<td style="text-align:left">切回当前机床已授权的 <code>程序模式</code>，或联系技术支持升级全功能授权</td>
 </tr>
 </tbody>
 </table>
@@ -849,7 +849,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"10. 报警排查与 FAQ","level":"1.11","depth":1,"previous":{"title":"9.5 渐开线花键与 DXF","level":"1.10.5","depth":2,"path":"9_workflows_cases/case5_spline_dxf_fitting.md","ref":"9_workflows_cases/case5_spline_dxf_fitting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"10_troubleshooting/README.md","mtime":"2026-11-18T03:04:38.613Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-18T03:04:46.746Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"10. 报警排查与 FAQ","level":"1.11","depth":1,"previous":{"title":"9.5 渐开线花键与 DXF","level":"1.10.5","depth":2,"path":"9_workflows_cases/case5_spline_dxf_fitting.md","ref":"9_workflows_cases/case5_spline_dxf_fitting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Interference Grinding Dressing User Guide","language":"zh-hans","gitbook":"*","description":"Interference Grinding Dressing 软件完整用户指南"},"file":{"path":"10_troubleshooting/README.md","mtime":"2026-11-18T05:27:31.020Z","type":"markdown"},"gitbook":{"version":"6.1.7","time":"2026-11-18T05:27:38.191Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
