@@ -18,7 +18,7 @@ from build_images import (
 # ==============================================================================
 def build_canvas_views():
     # (view_1_load_plot.png ~ view_6_simulate_plot.png are now captured directly
-    # from the live running IGD software using tools/capture_all_ui_screenshots.py)
+    # from the live running IGD software using tools/capture_v323_screenshots.py)
     pass
 
 
@@ -27,21 +27,28 @@ def build_canvas_views():
 # ==============================================================================
 def build_tab3_diagrams():
     # 6.1 draw_triangle_trapezoid.png (三角与梯形螺纹参数 + 青绿修正框 PRS-2065-3S 实例)
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9.8, 4.1), facecolor="white")
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9.8, 4.2), facecolor="white")
     for ax in (ax1, ax2):
         ax.set_facecolor("#fbfcfe")
         ax.grid(True, ls="--", alpha=0.35)
 
     # 左：三角螺纹 (PRS-2065-3S)
     ax1.set_title("【螺纹 > 三角】参数定义 (PRS-2065-3S 内齿圈)", fontsize=9.6, fontweight="bold", color=C_DARK)
-    tx = np.array([-1.08, -0.25, 0.0, 0.25, 1.08])
-    ty = np.array([0.45, -0.38, -0.49, -0.38, 0.45])
+    arc_x = np.linspace(-0.22, 0.22, 25)
+    arc_y = -0.49 + 0.14 * (arc_x / 0.22) ** 2
+    tx = np.concatenate(([-1.08], arc_x, [1.08]))
+    ty = np.concatenate(([0.45], arc_y, [0.45]))
     ax1.plot(tx, ty, color=C_BLUE, lw=2.4, label="标称半角 45° / 45°")
-    tx_fix = np.array([-1.08, -0.24, 0.0, 0.27, 1.12])
+    tx_fix = np.concatenate(([-1.08], arc_x, [1.14]))
     ax1.plot(tx_fix, ty, color=C_RED, lw=2.0, ls="--", label="微调修正后 (右 -0.38° / 左 +0.09°)")
-    ax1.axhline(0, color=C_GREEN, lw=1.2, ls="-.", label="工件中径线 $d_2=20.099$")
-    ax1.text(0, -0.32, "齿顶倒圆半径 $R=0.42$", color=C_RED, fontsize=8.2, ha="center", fontweight="bold")
-    ax1.set_xlabel("轴向坐标 X (mm)")
+    ax1.axhline(0, color=C_GREEN, lw=1.2, ls="-.", label="工件中径线 $d_2=20.0$")
+    ax1.annotate("齿顶倒圆半径 $R_c$", xy=(0.0, -0.49), xytext=(0.0, -0.71),
+                 ha="center", va="center", fontsize=8.0, fontweight="bold", color=C_RED,
+                 bbox=dict(boxstyle="round,pad=0.22", fc="#fff1f2", ec=C_RED, lw=0.8),
+                 arrowprops=dict(arrowstyle="->", color=C_RED, lw=1.2))
+    ax1.set_xlim(-1.32, 1.32)
+    ax1.set_ylim(-0.84, 0.72)
+    ax1.set_xlabel("法向齿宽坐标 X (mm)")
     ax1.set_ylabel("径向高度 Y (mm)")
     ax1.legend(loc="upper center", fontsize=7.6)
 
@@ -52,9 +59,18 @@ def build_tab3_diagrams():
     ax2.plot(qx, qy, color=C_BLUE, lw=2.4, label="梯形截面 (右半角 / 左半角)")
     ax2.axhline(0, color=C_GREEN, lw=1.2, ls="-.", label="工件中径 $d_2$")
     dim_arrow(ax2, (-2.0, -1.2), (-2.0, 1.2), "大径-小径齿高", color=C_NAVY, text_offset=(0.75, 0), fontsize=8.0)
-    ax2.text(-0.65, -0.9, "左倒圆 $R_L$", color=C_RED, fontsize=8.2, fontweight="bold", ha="center")
-    ax2.text(0.65, -0.9, "右倒圆 $R_R$", color=C_RED, fontsize=8.2, fontweight="bold", ha="center")
+    ax2.annotate("左倒圆 $R_L$", xy=(-0.65, -1.2), xytext=(-0.82, -1.52),
+                 ha="center", va="center", fontsize=8.0, fontweight="bold", color=C_RED,
+                 bbox=dict(boxstyle="round,pad=0.18", fc="#fff1f2", ec=C_RED, lw=0.8),
+                 arrowprops=dict(arrowstyle="->", color=C_RED, lw=1.1))
+    ax2.annotate("右倒圆 $R_R$", xy=(0.65, -1.2), xytext=(0.82, -1.52),
+                 ha="center", va="center", fontsize=8.0, fontweight="bold", color=C_RED,
+                 bbox=dict(boxstyle="round,pad=0.18", fc="#fff1f2", ec=C_RED, lw=0.8),
+                 arrowprops=dict(arrowstyle="->", color=C_RED, lw=1.1))
+    ax2.set_ylim(-1.75, 1.75)
+    ax2.set_xlabel("法向齿宽坐标 X (mm)")
     ax2.legend(loc="upper center", fontsize=7.8)
+    plt.tight_layout(w_pad=2.2)
     save_fig(fig, "draw_triangle_trapezoid.png")
 
     # 6.2 draw_double_arc_geometry.png (双圆弧哥特式滚道正反算原理图 - BNS-5250-2S)

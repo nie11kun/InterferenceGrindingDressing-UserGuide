@@ -73,8 +73,8 @@ def dim_arrow(ax, p1, p2, text="", color=C_RED, text_offset=(0, 0), fontsize=9.5
 # 1. 封面图 cover.jpg & cover_small.jpg
 # ==============================================================================
 def build_covers():
-    for fname, figsize, dpi in [("cover.jpg", (8.0, 11.3), 200), ("cover_small.jpg", (4.0, 5.65), 100)]:
-        fig = plt.figure(figsize=figsize, facecolor="#0b192c")
+    for fname, dpi in [("cover.jpg", 200), ("cover_small.jpg", 50)]:
+        fig = plt.figure(figsize=(8.0, 11.3), facecolor="#0b192c")
         ax = fig.add_axes([0, 0, 1, 1], facecolor="#0b192c")
         ax.set_xlim(0, 100)
         ax.set_ylim(0, 140)
@@ -88,7 +88,7 @@ def build_covers():
 
         ax.add_patch(Rectangle((0, 136), 100, 4, facecolor="#38bdf8", edgecolor="none"))
         ax.add_patch(Rectangle((6, 118), 32, 4.2, facecolor="#0284c7", edgecolor="none", alpha=0.9))
-        ax.text(22, 120.1, "XINCORE STUDIO · V3.22.1", color="white", fontsize=8.5, fontweight="bold", ha="center", va="center")
+        ax.text(22, 120.1, "XINCORE STUDIO · V3.23.0", color="white", fontsize=8.5, fontweight="bold", ha="center", va="center")
 
         ax.text(6, 108, "Interference Grinding\n& Dressing", color="white", fontsize=23, fontweight="bold", va="top", linespacing=1.2)
         ax.text(6, 89, "数控精密砂轮修整计算套件 · 官方用户手册", color="#7dd3fc", fontsize=12.5, fontweight="bold")
@@ -105,25 +105,26 @@ def build_covers():
         y_wheel = y_std - 0.35 * (1 + 0.08 * t**2)
         y_dress = y_wheel - 0.55
 
-        cx, cy, scale_x, scale_y = 50, 56, 9.5, 6.2
+        cx, cy, scale_x, scale_y = 50, 58.5, 9.5, 5.5
         ax.plot(cx + t * scale_x, cy + y_std * scale_y, color="#4ade80", lw=2.2, label="标准法向曲线")
         ax.plot(cx + t * scale_x, cy + y_wheel * scale_y, color="#38bdf8", lw=2.2, ls="--", label="砂轮修整曲线")
         ax.plot(cx + t * scale_x, cy + y_dress * scale_y, color="#f43f5e", lw=2.4, label="修整轮廓曲线 (右/左滚轮补偿)")
 
-        # 繪製左右滾輪圓
+        # 绘制左右滚轮圆
         for tx, col, tag in [(-1.6, "#fbbf24", "左滚轮 $R_L$"), (1.6, "#fbbf24", "右滚轮 $R_R$")]:
              idx = np.argmin(np.abs(t - tx))
              px, py = cx + t[idx] * scale_x, cy + y_dress[idx] * scale_y
              c = Circle((px, py - 3.2), 3.2, facecolor="none", edgecolor=col, lw=1.5, ls="-.")
              ax.add_patch(c)
              ax.plot(px, py - 3.2, "o", color=col, ms=4)
-             ax.text(px, py - 8.2, tag, color=col, fontsize=8, ha="center", fontweight="bold")
+             ax.text(px, py - 7.8, tag, color=col, fontsize=8, ha="center", fontweight="bold")
 
         ax.text(10, 71, "3D 共轭接触线解析逆解 + 金刚石滚轮非对称半径包络补偿", color="#e2e8f0", fontsize=8.8, fontweight="bold")
-        ax.legend(loc="lower right", bbox_to_anchor=(0.92, 0.20), frameon=True, facecolor="#0b192c", edgecolor="#334155", labelcolor="white", fontsize=8)
+        ax.legend(loc="lower center", bbox_to_anchor=(0.50, 0.185), ncol=3, frameon=True,
+                  facecolor="#0b192c", edgecolor="#334155", labelcolor="white", fontsize=7.6)
 
         # 底部四大模块徽章
-        badges = ["基本参数 & 高级参数", "绘图工具 (螺纹/点位/齿轮/蜗杆)", "工具箱 (防撞/反算/DXF/车刀)", "零件库 & 13种CNC程序模式"]
+        badges = ["基本参数 & 高级参数", "绘图工具 (螺纹/点位/齿轮/蜗杆)", "工具箱 (防撞/反算/DXF/车刀)", "零件库 & 14种CNC程序模式"]
         for i, b in enumerate(badges):
             bx = 6 + (i % 2) * 45
             by = 14 - (i // 2) * 5.8
@@ -151,7 +152,7 @@ def build_ui_diagrams():
                                 facecolor="#f8fafc", edgecolor="#64748b", lw=1.6))
     # 顶部标题栏 + 菜单栏
     ax.add_patch(Rectangle((1, 66.5), 118, 4.5, facecolor="#1e293b", edgecolor="none"))
-    ax.text(4, 68.7, "InterferenceGrindingDressing v3.22.1", color="white", fontsize=10, fontweight="bold", va="center")
+    ax.text(4, 68.7, "InterferenceGrindingDressing v3.23.0", color="white", fontsize=10, fontweight="bold", va="center")
     ax.add_patch(Rectangle((1, 63.0), 118, 3.5, facecolor="#e2e8f0", edgecolor="#cbd5e1", lw=0.8))
     ax.text(4, 64.7, "设置(Settings)    工具(Tools) > 零件库(Parts Library)    关于(About)", color=C_DARK, fontsize=9, fontweight="bold", va="center")
 
@@ -353,7 +354,7 @@ def build_ui_diagrams():
     part_rows = [
         ("BNS-5250-2S", "51.8 × 50 - 3.5° | BNS-5250-2S.dxf", "内螺纹", "模式-0", "2026-03-15 14:20", True),
         ("BNS-0802-M",  "8.9 × 2 - 4.0° | BNS-0802-M.dxf",   "内螺纹", "模式-2", "2026-03-18 09:12", False),
-        ("PRS-2065-3S", "20.099 × 6.501 - 2.14° | PRS-2065.dxf", "内螺纹", "模式-0", "2026-03-22 16:05", False),
+        ("PRS-2065-3S", "20.0 × 6.501 - 2.14° | PRS-2065.dxf", "内螺纹", "模式-0", "2026-03-22 16:05", False),
         ("SRM-300F",    "89.455 × 312 - 47.9893° | SRM-300F.dxf", "外螺纹", "模式-1", "2026-04-02 11:30", False),
         ("ZC1-9808",    "98.1 × 213.6283 - 34.7285° | ZC1-9808.dxf", "外螺纹", "模式-4", "2026-04-06 15:48", False),
     ]
@@ -437,9 +438,9 @@ def build_tab1_diagrams():
     fig, axes = plt.subplots(1, 3, figsize=(10.5, 3.6), facecolor="white")
     titles = ["① 【法向】(Normal) 截面", "② 【轴向】(Axial) 截面", "③ 【端面(左)】(EndFace) 截面"]
     descs = [
-        "垂直于螺旋线的法截面齿形\n• 双圆弧/齿轮/ZI/ZN1/ZC1/ZK1 默认输出\n• 勾选【镜像】：沿 Y 轴左右翻转",
-        "通过工件轴线的轴向剖面齿形\n• 三角/梯形/ZA/ZC3 常用检验截面\n• 勾选【镜像】：沿 Y 轴左右翻转",
-        "垂直于工件轴线的端面极坐标截面\n• 螺杆转子 SRM-160E 端面齿形常用\n• 勾选【镜像】：沿 X 轴上下翻转",
+        "垂直于螺旋线的法截面齿形\n• 三角/梯形/双圆弧螺纹 默认输出\n• 勾选【镜像】：沿 Y 轴左右翻转",
+        "通过工件轴线的轴向剖面齿形\n• ZA/ZC3 蜗杆及轴向剖面检验常用\n• 勾选【镜像】：沿 Y 轴左右翻转",
+        "垂直于工件轴线的端面截面齿形\n• 螺杆转子 SRM-300F 及齿轮/蜗杆默认输出\n• 勾选【镜像】：沿 X 轴上下翻转",
     ]
     for i, ax in enumerate(axes):
         ax.set_facecolor("#fbfcfe")
